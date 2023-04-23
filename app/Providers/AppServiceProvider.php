@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(
+            \App\Repositories\Customer\CustomerRepositoryInterface::class,
+            \App\Repositories\Customer\CustomerRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Account\AccountRepositoryInterface::class,
+            \App\Repositories\Account\AccountRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Report\ReportRepositoryInterface::class,
+            \App\Repositories\Report\ReportRepository::class
+        );
     }
 
     /**
@@ -20,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Paginator::useBootstrap();
     }
 }
