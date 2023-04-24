@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Customer\EditRequest;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\Customer\CreateRequest;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Mockery\Exception;
 
 class CustomerController extends Controller
 {
@@ -22,6 +25,10 @@ class CustomerController extends Controller
     {
         $customers = $this->customerRepo->search();
         return view('management.customer.index', ['customers' => $customers]);
+    }
+
+    public function create() {
+        return view('management.customer.create');
     }
 
     public function store(CreateRequest $createRequest) {
@@ -40,10 +47,6 @@ class CustomerController extends Controller
         return redirect()->route('management.customer');
     }
 
-    public function create() {
-        return view('management.customer.create');
-    }
-
     public function edit($id) {
         try {
             $customer = $this->customerRepo->find($id);
@@ -56,36 +59,36 @@ class CustomerController extends Controller
         return view('management.customer.edit', ['customer' => $customer]);
     }
 
-    public function update(Request $request, $id)
+    public function update(EditRequest $editRequest, $id)
     {
         try {
             DB::beginTransaction();
             $data = request()->all();
-            if ($request->get('password') == null) {
+            if (request()->get('password') == null) {
                 $data = Arr::except($data, 'password');
             }
-            $result = $this->employeeRepo->update($id, $data);
+            $result = $this->customerRepo->update($id, $data);
             if (!empty($result)) {
-                $this->welcomeMailService->sendMail($result);
-                if (session()->has('tmp_url')) {
-                    $id = $result->id;
-                    $img_name = data_get(session('img_avatar'), 'avatar');
-                    Storage::deleteDirectory(config('const.PATH_UPLOAD') . $id);
-                    Storage::move(config('const.TEMP_DIR') . $img_name, config('const.PATH_UPLOAD') . $id . '/' . $img_name);
-                    Storage::delete(session('tmp_src_avatar'));
-                }
-                session()->flash('success', __('messages.employeeUpdated'));
+                session()->flash('success', __('messages.customerUpdated'));
             }
             DB::commit();
         } catch (Exception $e) {
-            Log::error('Update employee Error ', ['employee_id' => Auth::guard('employee')->id(), 'error' => $e->getMessage()]);
+            Log::error('Update customer Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
             DB::rollBack();
             session()->flash('error', __('messages.updateFail'));
         }
+        return redirect()->route('management.customer');
+    }
 
-        session()->forget('tmp_src_avatar');
-        session()->forget('tmp_url');
+    public function delete($id) {
+        try {
+            $this->customerRepo->delete($id);
+            session()->flash('success', __('messages.customerDeleted'));
+        } catch (Exception $e) {
+            Log::error('Admin Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            session()->flash('error', __('messages.deleteFail'));
+        }
 
-        return redirect()->route('employee.search');
+        return redirect()->route('management.customer');
     }
 }

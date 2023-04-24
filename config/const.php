@@ -3,27 +3,26 @@ return [
     'deleted' => 1,
     'active' => 0,
     'numPerPage' => 5,
-    'typeOfWork' => [
-        '1' => 'Fulltime',
-        '2' => 'Partime',
-        '3' => 'Probationary Staff',
-        '4' => 'Intern'
-    ],
-    'position' => [
-        '1' => 'Manager',
-        '2' => 'Team leader',
-        '3' => 'BSE',
-        '4' => 'Dev',
-        '5' => 'Tester',
-    ],
-    'gender' => [
-        '1' => 'Male',
-        '2' => 'Female',
+    'currency' => [
+        '1' => 'USD',
+        '2' => 'GBP',
+        '3' => 'PLN',
+        '4' => 'BAHT',
+        '5' => 'EURO',
+        '6' => 'IDR',
+        '7' => 'AUD',
+        '8' => 'MXN',
+        '9' => 'COP',
+        '10' => 'RON',
+        '11' => 'PHP',
+        '12' => 'BRL',
+        '13' => 'PEN',
+        '14' => 'MYR',
     ],
     'status' => [
         '0' => 'Live',
         '1' => 'Die',
-        '2' => 'Comback'
+        '2' => 'Comeback'
     ],
     'TEMP_DIR' => 'public/tmp/',
     'PATH_UPLOAD' => 'public/uploads/',

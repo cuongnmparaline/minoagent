@@ -8,11 +8,12 @@
                     <h6 class="mb-4">Edit Customer</h6>
                     <form action="{{route('management.customer.update', ['id' => $customer->id])}}" method="post">
                         @csrf
+                        <input type="hidden" name="id" value="{{ $customer->id }}">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control"
                                    placeholder="Name" name="name" value="{{ $customer->name }}">
                             <label for="floatingInput">Name</label>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('name'))
                                 <p style="color: #ff0000">{{ $errors->first('name') }}</p>
                             @endif
                         </div>
@@ -28,7 +29,7 @@
                             <input type="password" class="form-control" id="floatingPassword"
                                    placeholder="Password" name="password">
                             <label for="floatingPassword">Password</label>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('password'))
                                 <p style="color: #ff0000">{{ $errors->first('password') }}</p>
                             @endif
                         </div>
@@ -36,7 +37,7 @@
                             <input type="password" class="form-control"
                                    placeholder="Password" name="passwordVerify">
                             <label for="floatingPassword">Password Confirm</label>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('passwordVerify'))
                                 <p style="color: #ff0000">{{ $errors->first('passwordVerify') }}</p>
                             @endif
                         </div>

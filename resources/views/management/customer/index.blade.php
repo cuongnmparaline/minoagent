@@ -3,6 +3,11 @@
 @section('content')
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
+            @if (Session::has('success'))
+                <div class="alert alert-success" style="text-align: center;">
+                    <strong>{{ session()->get('success') }}</strong>
+                </div>
+            @endif
             <div class="col-sm-6 col-xl-3">
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
@@ -68,9 +73,35 @@
                         <td>{{ $customer['email'] }}</td>
                         <td>{{ $customer->accounts->count() }}</td>
                         <td>
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Confirm</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-left">Are you sure?</p>
+                                        </div>
+                                        <div class="modal-footer justify-between">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Cancel
+                                            </button>
+                                            <a href="" class="btn btn-danger btn-agree">OK</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="justify-content-around">
                                 <a class="btn btn-sm btn-primary" href="{{ route('management.customer.edit', ['id' => $customer->id]) }}">Edit</a>
-                                <a class="btn btn-sm btn-danger" href="">Delete</a>
+                                <button data-url="{{route('management.customer.delete', ['id'=>$customer->id])}}"
+                                        onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
+                                </button>
+                                <script>
+                                    function showDeleteModal(e){
+                                        let url = $(e).data('url');
+                                        $('#myModal').find('.btn-agree').attr('href', url);
+                                    }
+                                </script>
                             </div>
                         </td>
                     </tr>

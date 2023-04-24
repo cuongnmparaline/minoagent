@@ -24,6 +24,8 @@ class Account extends Model
         'del_flag'
     ];
 
+    public $timestamps = false;
+
     public function getStatusAttribute()
     {
         return config('const.status.'.$this->attributes['status']);

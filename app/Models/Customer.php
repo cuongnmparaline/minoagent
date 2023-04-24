@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,11 @@ class Customer extends Model
     ];
 
     public $timestamps = false;
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new DelFlagScope());
+    }
 
     public function setPasswordAttribute($password)
     {

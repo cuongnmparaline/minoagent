@@ -3,6 +3,11 @@
 @section('content')
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
+            @if (Session::has('success'))
+                <div class="alert alert-success" style="text-align: center;">
+                    <strong>{{ session()->get('success') }}</strong>
+                </div>
+            @endif
             <div class="col-sm-6 col-xl-3">
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
@@ -44,7 +49,9 @@
     <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Recent Salse</h6>
+                <h6 class="mb-0">
+                    <a href="{{ route('management.account.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
+                </h6>
                 <a href="">Export Excel</a>
             </div>
             <div class="table-responsive">
@@ -69,9 +76,39 @@
                         <td>{{ $account['code'] }}</td>
                         <td>{{ $account->customer->email }}</td>
                         <td>{{ $account['status'] }}</td>
-                        <td>{{ $account->reports->last()->date }}</td>
-                        <td>{{ $account->reports->last()->amount . ' ' . $account->reports->last()->currency }} </td>
-                        <td><a class="btn btn-sm btn-primary" href="">Edit</a></td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
+                        <td>
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Confirm</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-left">Are you sure?</p>
+                                        </div>
+                                        <div class="modal-footer justify-between">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Cancel
+                                            </button>
+                                            <a href="" class="btn btn-danger btn-agree">OK</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-sm btn-primary" href="{{ route('management.account.edit', ['id' => $account->id]) }}">Edit</a>
+                            <button data-url="{{route('management.customer.delete', ['id'=>$account->id])}}"
+                                    onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
+                            </button>
+                            <script>
+                                function showDeleteModal(e){
+                                    let url = $(e).data('url');
+                                    $('#myModal').find('.btn-agree').attr('href', url);
+                                }
+                            </script>
+                        </td>
+
                     </tr>
                     @endforeach
                     </tbody>

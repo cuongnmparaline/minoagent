@@ -12,7 +12,7 @@
                             <input type="text" class="form-control"
                                    placeholder="Name" name="name">
                             <label for="floatingInput">Name</label>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('name'))
                                 <p style="color: #ff0000">{{ $errors->first('name') }}</p>
                             @endif
                         </div>
@@ -28,7 +28,7 @@
                             <input type="password" class="form-control" id="floatingPassword"
                                    placeholder="Password" name="password">
                             <label for="floatingPassword">Password</label>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('password'))
                                 <p style="color: #ff0000">{{ $errors->first('password') }}</p>
                             @endif
                         </div>
@@ -36,7 +36,7 @@
                             <input type="password" class="form-control"
                                    placeholder="Password" name="passwordVerify">
                             <label for="floatingPassword">Password Confirm</label>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('passwordVerify'))
                                 <p style="color: #ff0000">{{ $errors->first('passwordVerify') }}</p>
                             @endif
                         </div>

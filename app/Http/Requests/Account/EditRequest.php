@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Customer;
+namespace App\Http\Requests\Account;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,10 +22,17 @@ class EditRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'code' => 'bail|required|max:15|unique:accounts,code,'.request()->get('id'),
             'name' => 'bail|required|max:128',
-            'email' => 'bail|required|email|max:128|unique:customers,email,'.request()->get('id'),
-            'password' => 'nullable|max:64',
-            'passwordVerify' => 'nullable|same:password',
+            'customer_id' => 'required',
+            'status' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'customer_id.required' => 'Please choose customer!'
         ];
     }
 }

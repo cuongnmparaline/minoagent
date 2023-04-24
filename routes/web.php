@@ -36,8 +36,16 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::post('/customer/store', [CustomerController::class, 'store'])->name('management.customer.store');
     Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('management.customer.edit');
     Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('management.customer.update');
+    Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('management.customer.delete');
 
-
+    // Account
     Route::get('/account', [AccountController::class, 'index'])->name('management.account');
+    Route::get('/account/create', [AccountController::class, 'create'])->name('management.account.create');
+    Route::post('/account/store', [AccountController::class, 'store'])->name('management.account.store');
+    Route::get('/account/edit/{id}', [AccountController::class, 'edit'])->name('management.account.edit');
+    Route::post('/account/update/{id}', [AccountController::class, 'update'])->name('management.account.update');
+
+    // Report
     Route::get('/report', [ReportController::class, 'index'])->name('management.report');
+    Route::get('/report/create', [ReportController::class, 'create'])->name('management.report.create');
 });

@@ -1,8 +1,8 @@
 <?php
 return [
-    'teamCreated' => 'A new team was created!',
-    'teamUpdated' => 'Team was updated!',
-    'teamDeleted' => 'Team was deleted!',
+    'accountCreated' => 'A new account was created!',
+    'accountUpdated' => 'Account was updated!',
+    'accountDeleted' => 'Account was deleted!',
     'customerCreated' => 'A new customer was created!',
     'customerUpdated' => 'Customer was updated!',
     'customerDeleted' => 'Customer was deleted!',

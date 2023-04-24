@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id', 11);
-            $table->char('code', 20);
             $table->string('name', 128);
             $table->string('email', 128);
             $table->string('password', 64)->nullable();
-            $table->char('status', 1)->default(0);
             $table->integer('ins_id');
             $table->integer('upd_id')->nullable();
             $table->dateTime('ins_datetime');
