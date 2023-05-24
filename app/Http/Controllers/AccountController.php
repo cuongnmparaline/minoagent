@@ -31,7 +31,7 @@ class AccountController extends Controller
     }
 
     public function create() {
-        $customers = $this->customerRepo->getAll();
+        $customers = $this->accountRepo->getAll();
         return view('management.account.create', ['customers' => $customers]);
     }
 
@@ -79,6 +79,18 @@ class AccountController extends Controller
             DB::rollBack();
             session()->flash('error', __('messages.updateFail'));
         }
+        return redirect()->route('management.account');
+    }
+
+    public function delete($id) {
+        try {
+            $this->accountRepo->delete($id);
+            session()->flash('success', __('messages.accountDeleted'));
+        } catch (Exception $e) {
+            Log::error('Account Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            session()->flash('error', __('messages.deleteFail'));
+        }
+
         return redirect()->route('management.account');
     }
 }

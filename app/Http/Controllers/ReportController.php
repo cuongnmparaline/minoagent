@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Report\CreateRequest;
 use App\Repositories\Account\AccountRepository;
 use App\Repositories\Report\ReportRepositoryInterface;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ReportController extends Controller
 {
@@ -26,5 +29,33 @@ class ReportController extends Controller
     public function create() {
         $accounts = $this->accountRepo->getAll();
         return view('management.report.create', ['accounts' => $accounts]);
+    }
+
+    public function store(CreateRequest $createRequest) {
+        try {
+            DB::beginTransaction();
+            $data = request()->all();
+            $this->reportRepo->create($data);
+            DB::commit();
+            session()->flash('success', __('messages.reportCreated'));
+        } catch (\Exception $e) {
+            Log::error('Report Create Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            DB::rollBack();
+            session()->flash('error', __('messages.createFail'));
+        }
+
+        return redirect()->route('management.report');
+    }
+
+    public function edit($id) {
+        try {
+            $accounts = $this->accountRepo->getAll();
+            $report = $this->reportRepo->find($id);
+            session()->put('customer_data', $report);
+        } catch (\Exception $e) {
+            session()->flash('error', __('messages.customerNotFound'));
+            return redirect()->route('management.customer');
+        }
+        return view('management.report.edit', ['report' => $report, 'accounts' => $accounts]);
     }
 }

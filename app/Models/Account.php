@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,6 +30,11 @@ class Account extends Model
     public function getStatusAttribute()
     {
         return config('const.status.'.$this->attributes['status']);
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new DelFlagScope());
     }
 
     public function customer()

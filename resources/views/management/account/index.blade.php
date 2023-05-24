@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <a class="btn btn-sm btn-primary" href="{{ route('management.account.edit', ['id' => $account->id]) }}">Edit</a>
-                            <button data-url="{{route('management.customer.delete', ['id'=>$account->id])}}"
+                            <button data-url="{{route('management.account.delete', ['id'=>$account->id])}}"
                                     onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
                             </button>
                             <script>

@@ -85,7 +85,7 @@ class CustomerController extends Controller
             $this->customerRepo->delete($id);
             session()->flash('success', __('messages.customerDeleted'));
         } catch (Exception $e) {
-            Log::error('Admin Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            Log::error('Account Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
             session()->flash('error', __('messages.deleteFail'));
         }
 

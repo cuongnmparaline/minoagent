@@ -44,8 +44,11 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::post('/account/store', [AccountController::class, 'store'])->name('management.account.store');
     Route::get('/account/edit/{id}', [AccountController::class, 'edit'])->name('management.account.edit');
     Route::post('/account/update/{id}', [AccountController::class, 'update'])->name('management.account.update');
+    Route::get('/account/delete/{id}', [AccountController::class, 'delete'])->name('management.account.delete');
 
     // Report
     Route::get('/report', [ReportController::class, 'index'])->name('management.report');
     Route::get('/report/create', [ReportController::class, 'create'])->name('management.report.create');
+    Route::post('/report/store', [ReportController::class, 'store'])->name('management.report.store');
+    Route::get('/report/edit/{id}', [ReportController::class, 'edit'])->name('management.report.edit');
 });

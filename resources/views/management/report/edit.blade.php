@@ -11,7 +11,7 @@
                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="account_id">
                             <option value="">Choose account</option>
                             @foreach($accounts as $account)
-                                <option {{getDataCreateForm('account_data', 'account_id') == $account->name ? "selected" : ""}} value="{{$account->id}}">{{$account->name}}</option>
+                                <option {{ $report->account_id == $account->id ? "selected" : ""}} value="{{$account->id}}">{{$account->name}}</option>
                             @endforeach
                         </select>
                         @if ($errors->has('account_id'))
@@ -19,7 +19,7 @@
                         @endif
                         <div class="form-floating mb-3">
                             <input type="date" class="form-control"
-                                   placeholder="date" name="date">
+                                   placeholder="date" name="date" value="{{ $report->date }}">
                             <label for="floatingInput">Date</label>
                             @if ($errors->has('date'))
                                 <p style="color: #ff0000">{{ $errors->first('date') }}</p>
@@ -36,12 +36,12 @@
                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="currency" id="from">
                             <option value="">Choose currency</option>
                             @foreach(config('const.currency') as $value => $currency)
-                                <option {{getDataCreateForm('account_data', 'currency') == $account->name ? "selected" : ""}} value="{{ $currency }}">{{ $currency }}</option>
+                                <option {{ $report->currency == $currency ? "selected" : ""}} value="{{ $currency }}">{{ $currency }}</option>
                             @endforeach
                         </select>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control"
-                                   placeholder="Amount converted" name="amount" id="result">
+                                   placeholder="Amount converted" name="amount" id="result" value="{{ $report->amount }}">
                             <label for="floatingInput">Amount converted to USD</label>
                             @if ($errors->has('amount'))
                                 <p style="color: #ff0000">{{ $errors->first('amount') }}</p>
