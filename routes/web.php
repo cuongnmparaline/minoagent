@@ -51,4 +51,6 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/report/create', [ReportController::class, 'create'])->name('management.report.create');
     Route::post('/report/store', [ReportController::class, 'store'])->name('management.report.store');
     Route::get('/report/edit/{id}', [ReportController::class, 'edit'])->name('management.report.edit');
+    Route::get('/report/import', [ReportController::class, 'import'])->name('management.report.import');
+    Route::post('/report/saveImport', [ReportController::class, 'saveImport'])->name('management.report.saveImport');
 });

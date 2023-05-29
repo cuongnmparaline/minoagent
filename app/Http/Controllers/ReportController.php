@@ -8,6 +8,8 @@ use App\Repositories\Report\ReportRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ReportsImport;
 
 class ReportController extends Controller
 {
@@ -57,5 +59,13 @@ class ReportController extends Controller
             return redirect()->route('management.customer');
         }
         return view('management.report.edit', ['report' => $report, 'accounts' => $accounts]);
+    }
+
+    public function import(){
+        return view('management.report.import');
+    }
+
+    public function saveImport(){
+        Excel::import(new ReportsImport, request()->file('import'));
     }
 }
