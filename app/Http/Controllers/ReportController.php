@@ -68,9 +68,14 @@ class ReportController extends Controller
     }
 
     public function saveImport(){
-        Report::where('date', Carbon::now()->format('Y-m-d'))->delete();
-        Excel::import(new ReportsImport, request()->file('reportImport'));
-        session()->flash('success', __('Import thành công'));
-        return redirect()->route('management.report');
+        try {
+            Report::where('date', Carbon::now()->format('Y-m-d'))->delete();
+            Excel::import(new ReportsImport, request()->file('reportImport'));
+            session()->flash('success', __('Imported'));
+
+            return redirect()->route('management.report');
+        } catch (\Exception $e) {
+            dd($e);
+        }
     }
 }

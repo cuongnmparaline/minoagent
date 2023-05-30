@@ -16,6 +16,7 @@ return new class extends Migration
             $table->char('code', 20);
             $table->string('name', 128);
             $table->string('customer_id', 128);
+            $table->double('limit');
             $table->char('status', 1)->default(0);
             $table->integer('ins_id');
             $table->integer('upd_id')->nullable();

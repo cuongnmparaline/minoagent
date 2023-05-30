@@ -23,15 +23,16 @@ class ReportsImport implements ToModel, WithHeadingRow
     {
         $accountRepo = app((AccountRepository::class));
         $account = Account::where('code', substr($row['account_code'], strpos($row['account_code'], "_") + 1))->get()->first();
+        if($row['limit'] == 'No limit') {
+            $row['limit'] = 0;
+        }
         if (!empty($account)) {
-
-            ;
-
             $report = app(ReportRepository::class)->create([
                 'account_id' => $account->id,
                 'date' => Carbon::now(),
                 'amount' => $row['spend'],
                 'currency' => substr($row['currency'], 0, strpos($row['currency'], "_")),
+                'limit' => $row['limit']
             ]);
         } else {
             $account = $accountRepo->create([
@@ -39,17 +40,20 @@ class ReportsImport implements ToModel, WithHeadingRow
                 'name' => $row['account_code'],
                 'customer_id' => 1,
                 'status' => $this->getStatus($row['status']),
+                'limit' => $row['limit']
             ]);
 
-            $report = app(ReportRepository::class)->create([
-                'account_id' => $account->id,
-                'date' => Carbon::now(),
-                'amount' => $row['spend'],
-                'currency' => substr($row['currency'], 0, strpos($row['currency'], "_")),
-            ]);
+            if($account->id) {
+                $report = app(ReportRepository::class)->create([
+                    'account_id' => $account->id,
+                    'date' => Carbon::now(),
+                    'amount' => $row['spend'],
+                    'currency' => substr($row['currency'], 0, strpos($row['currency'], "_")),
+                ]);
+            }
         }
 
-        return $report;
+        return $account;
     }
 
     function getStatus($status)

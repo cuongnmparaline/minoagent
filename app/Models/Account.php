@@ -17,6 +17,7 @@ class Account extends Model
         'code',
         'name',
         'customer_id',
+        'limit',
         'status',
         'ins_id',
         'upd_id',

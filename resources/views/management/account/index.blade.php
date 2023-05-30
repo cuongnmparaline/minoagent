@@ -74,10 +74,10 @@
                         <td>{{ ++$loop->index }}</td>
                         <td>{{ $account['name'] }}</td>
                         <td>{{ $account['code'] }}</td>
-                        <td>{{ $account->customer->email }}</td>
+                        <td>{{ $account->customer->name }}</td>
                         <td>{{ $account['status'] }}</td>
                         <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
-                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount }} @endif</td>
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">
