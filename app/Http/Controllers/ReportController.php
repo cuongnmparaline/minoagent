@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Report\CreateRequest;
+use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
 use App\Repositories\Report\ReportRepositoryInterface;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -66,6 +68,9 @@ class ReportController extends Controller
     }
 
     public function saveImport(){
-        Excel::import(new ReportsImport, request()->file('import'));
+        Report::where('date', Carbon::now()->format('Y-m-d'))->delete();
+        Excel::import(new ReportsImport, request()->file('reportImport'));
+        session()->flash('success', __('Import thành công'));
+        return redirect()->route('management.report');
     }
 }

@@ -2,7 +2,7 @@
 return [
     'deleted' => 1,
     'active' => 0,
-    'numPerPage' => 5,
+    'numPerPage' => 10,
     'currency' => [
         '1' => 'USD',
         '2' => 'GBP',
@@ -20,9 +20,9 @@ return [
         '14' => 'MYR',
     ],
     'status' => [
-        '0' => 'Live',
-        '1' => 'Die',
-        '2' => 'Comeback'
+        '0' => 'Active',
+        '1' => 'Disabled',
+        '2' => 'Past due',
     ],
     'TEMP_DIR' => 'public/tmp/',
     'PATH_UPLOAD' => 'public/uploads/',

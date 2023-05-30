@@ -6,7 +6,7 @@
             <div class="col-sm-12 col-xl-12">
                 <div class="bg-light rounded h-100 p-4">
                     <h6 class="mb-4">Import Excel</h6>
-                    <form action="{{route('management.report.saveImport')}}" method="post">
+                    <form action="{{route('management.report.saveImport')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="input-group mb-3">
                             <input type="file" class="form-control" id="inputGroupFile02" name="reportImport">
