@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Customer\AuthController as CustomerAuth;
+use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,13 @@ Route::get('/', function () {
 Route::get('management/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('management/login', [AuthController::class, 'postLogin'])->name('checkLogin');
 Route::get('management/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('customer/login', [CustomerAuth::class, 'getLogin'])->name('customer.login');
+Route::post('customer/login', [CustomerAuth::class, 'postLogin'])->name('customer.checkLogin');
+
+Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], function(){
+    Route::get('/', [HomeCustomer::class, 'dashboard'])->name('customer.home');
+});
+
 
 Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(){
 
