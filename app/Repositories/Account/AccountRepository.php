@@ -2,6 +2,7 @@
 namespace App\Repositories\Account;
 
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\Auth;
 
 class AccountRepository extends BaseRepository implements AccountRepositoryInterface
 {
@@ -13,6 +14,10 @@ class AccountRepository extends BaseRepository implements AccountRepositoryInter
     public function search($paginate = true)
     {
         $result = $this->model->select('id', 'name', 'code', 'customer_id', 'status');
+        if (Auth::guard('customer')->check()) {
+            $result->where('customer_id', Auth::guard('customer')->id());
+        }
+        
         if (request()->get('name')) {
             $result->where('first_name', 'like', '%' . request()->get('name') . '%');
         }
