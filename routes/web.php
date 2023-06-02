@@ -8,7 +8,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
-use App\Http\Controllers\Customer\Accou as CustomerAccount;
+use App\Http\Controllers\Customer\AccountController as CustomerAccount;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,8 @@ Route::post('customer/logout', [CustomerAuth::class, 'logout'])->name('customer.
 
 Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], function(){
     Route::get('/', [HomeCustomer::class, 'dashboard'])->name('customer.home');
-    Route::get('/customer/account', [CustomerAccount::class, 'index'])->name('customer.account');
+    Route::get('/account', [CustomerAccount::class, 'index'])->name('customer.account');
+    Route::get('/account/show/{id}', [CustomerAccount::class, 'show'])->name('customer.account.show');
 });
 
 

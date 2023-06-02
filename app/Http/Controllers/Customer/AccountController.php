@@ -23,4 +23,8 @@ class AccountController extends Controller
         return view('customer.account.index', ['accounts' => $accounts]);
     }
 
+    public function show($id) {
+        $account = $this->accountRepo->find($id);
+        return view('customer.account.show', ['account' => $account]);
+    }
 }
