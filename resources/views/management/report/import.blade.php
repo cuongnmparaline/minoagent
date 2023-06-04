@@ -12,6 +12,12 @@
                             <input type="file" class="form-control" id="inputGroupFile02" name="reportImport">
                             <label class="input-group-text" for="inputGroupFile02">Upload</label>
                         </div>
+                        <div class="input-group date" id="datepicker">
+                            <input type="date" class="form-control" id="date" name="date"/>
+                        </div>
+                        @if ($errors->has('date'))
+                            <p style="color: #ff0000">{{ $errors->first('date') }}</p>
+                        @endif
                         <button class="btn btn-primary w-100 m-2" type="submit">Save</button>
                         <button class="btn btn-secondary w-100 m-2" type="button">Cancel</button>
                     </form>

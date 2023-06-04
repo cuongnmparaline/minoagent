@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id', 11);
             $table->char('account_id', 20);
             $table->date('date');
+            $table->double('unpaid');
             $table->double('amount');
             $table->char('currency', 5);
             $table->integer('ins_id');

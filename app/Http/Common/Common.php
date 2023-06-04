@@ -1,5 +1,5 @@
 <?php
-use App\Models\Employee;
+use App\Models\Customer;
 use App\Models\Admin;
 
 if (!function_exists('oldData')) {
@@ -34,12 +34,12 @@ if (!function_exists('validateImg')) {
     }
 }
 
-if (!function_exists('getEmployeeName')) {
+if (!function_exists('getCustomerName')) {
     function getEmployeeName($leader_id)
     {
-        $leader = Employee::find($leader_id);
-        if(!empty($leader)){
-            return $leader->fullName;
+        $customer = Customer::find($leader_id);
+        if(!empty($customer)){
+            return $customer->name;
         }
         return "";
     }

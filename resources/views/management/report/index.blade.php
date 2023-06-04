@@ -71,6 +71,7 @@
                         <th scope="col">Account Name</th>
                         <th scope="col">Account Code</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Unpaid</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Currency</th>
                         <th scope="col">Action</th>
@@ -83,6 +84,7 @@
                         <td>{{ $report->account->name }}</td>
                         <td>{{ $report->account->code }}</td>
                         <td>{{ $report['date'] }}</td>
+                        <td>{{ $report['unpaid'] }}</td>
                         <td>{{ $report['amount'] }}</td>
                         <td>{{ $report['currency'] }}</td>
                         <td><a class="btn btn-sm btn-primary" href="{{ route('management.report.edit', ['id' => $report['id'] ]) }}">Edit</a></td>

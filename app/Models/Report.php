@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use AmrShawky\LaravelCurrency\Facade\Currency;
 use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,7 @@ class Report extends Model
         'id',
         'account_id',
         'date',
+        'unpaid',
         'amount',
         'currency',
         'ins_id',
@@ -29,6 +31,15 @@ class Report extends Model
     {
         static::addGlobalScope(new DelFlagScope());
     }
+
+//    public function getAmountAttribute()
+//    {
+//        return Currency::convert()
+//            ->from($this->attributes['currency'])
+//            ->to('USD')
+//            ->amount($this->attributes['amount'])
+//            ->get();
+//    }
 
     public $timestamps = false;
 

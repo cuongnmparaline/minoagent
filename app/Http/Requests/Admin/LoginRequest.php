@@ -32,7 +32,9 @@ class LoginRequest extends FormRequest
     {
         if(!empty(request()->get('email')) && !empty(request()->get('password'))){
             $validator->after(function ($validator) {
-                if(!Auth::guard('admin')->attempt(request()->only(['email', 'password']))){
+                if(Auth::guard('admin')->attempt(request()->only(['email', 'password']))){
+                    Auth::guard('customer')->logout();
+                } else {
                     $validator->errors()->add('incorrectAccount', 'Email or password are incorrect!');
                 }
             });

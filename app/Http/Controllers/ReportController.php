@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use AmrShawky\LaravelCurrency\Facade\Currency;
 use App\Http\Requests\Report\CreateRequest;
+use App\Http\Requests\Report\ExportRequest;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
 use App\Repositories\Report\ReportRepositoryInterface;
@@ -67,10 +69,9 @@ class ReportController extends Controller
         return view('management.report.import');
     }
 
-    public function saveImport(){
+    public function saveImport(ExportRequest $request){
         try {
-            Report::where('date', Carbon::now()->format('Y-m-d'))->delete();
-            Excel::import(new ReportsImport, request()->file('reportImport'));
+            Excel::import(new ReportsImport(request('date')), request()->file('reportImport'));
             session()->flash('success', __('Imported'));
 
             return redirect()->route('management.report');

@@ -24,18 +24,18 @@ use App\Http\Controllers\Customer\AccountController as CustomerAccount;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('management/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('management/login', [AuthController::class, 'postLogin'])->name('checkLogin');
 Route::get('management/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('customer/login', [CustomerAuth::class, 'getLogin'])->name('customer.login');
 Route::post('customer/login', [CustomerAuth::class, 'postLogin'])->name('customer.checkLogin');
-Route::post('customer/logout', [CustomerAuth::class, 'logout'])->name('customer.logout');
+Route::get('customer/logout', [CustomerAuth::class, 'logout'])->name('customer.logout');
 
 Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], function(){
     Route::get('/', [HomeCustomer::class, 'dashboard'])->name('customer.home');
     Route::get('/account', [CustomerAccount::class, 'index'])->name('customer.account');
     Route::get('/account/show/{id}', [CustomerAccount::class, 'show'])->name('customer.account.show');
+    Route::get('/account/export', [CustomerAccount::class, 'export'])->name('customer.account.export');
 });
 
 

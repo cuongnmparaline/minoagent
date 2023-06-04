@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Exports\AccountsExport;
 use App\Repositories\Account\AccountRepositoryInterface;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AccountController extends Controller
 {
@@ -26,5 +30,10 @@ class AccountController extends Controller
     public function show($id) {
         $account = $this->accountRepo->find($id);
         return view('customer.account.show', ['account' => $account]);
+    }
+
+    public function export(){
+        $accounts = $this->accountRepo->getAll();
+        return Excel::download(new AccountsExport, getCustomerName(Auth::guard('customer')->id()).' report.xlsx');
     }
 }
