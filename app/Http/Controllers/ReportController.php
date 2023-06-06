@@ -71,7 +71,11 @@ class ReportController extends Controller
 
     public function saveImport(ExportRequest $request){
         try {
-            Excel::import(new ReportsImport(request('date')), request()->file('reportImport'));
+            $currencies = Currency::rates()
+                ->latest()
+                ->base('USD')
+                ->get();
+            Excel::import(new ReportsImport(request('date'), $currencies), request()->file('reportImport'));
             session()->flash('success', __('Imported'));
 
             return redirect()->route('management.report');

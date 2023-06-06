@@ -24,9 +24,10 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
     * @return \Illuminate\Database\Eloquent\Model|null
     */
 
-    public function __construct($date)
+    public function __construct($date, $currencies)
     {
         $this->date = $date;
+        $this->currencies = $currencies;
     }
 
     public function model(array $row)
@@ -38,19 +39,10 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
         }
         try {
             $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
-            $amount = Currency::convert()
-                ->from($currency)
-                ->to('USD')
-                ->amount($row['spend'])
-                ->get();
-            $unpaid = Currency::convert()
-                ->from($currency)
-                ->to('USD')
-                ->amount($row['unpaid'])
-                ->get();
+            $unpaid = number_format($row['unpaid'] / $this->currencies[$currency], 2);
+            $amount = number_format($row['spend'] / $this->currencies[$currency], 2);
             if (!empty($account)) {
                 if (empty(Report::where(['account_id' => $account->id, 'date' => Carbon::now()->format('Y-m-d')])->get()->first())) {
-
                     $report = app(ReportRepository::class)->create([
                         'account_id' => $account->id,
                         'unpaid' => $unpaid,
