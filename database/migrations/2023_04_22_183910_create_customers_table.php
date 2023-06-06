@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name', 128);
             $table->string('email', 128);
             $table->string('password', 64)->nullable();
+            $table->float('fee');
+            $table->double('balance');
             $table->integer('ins_id');
             $table->integer('upd_id')->nullable();
             $table->dateTime('ins_datetime');

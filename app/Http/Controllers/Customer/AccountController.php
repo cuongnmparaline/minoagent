@@ -23,8 +23,9 @@ class AccountController extends Controller
 
     public function index()
     {
+        $customer = $this->customerRepo->find(Auth::guard('customer')->id());
         $accounts = $this->accountRepo->search();
-        return view('customer.account.index', ['accounts' => $accounts]);
+        return view('customer.account.index', ['accounts' => $accounts, 'customer' => $customer]);
     }
 
     public function show($id) {

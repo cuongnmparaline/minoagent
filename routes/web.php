@@ -48,6 +48,8 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/customer/create', [CustomerController::class, 'create'])->name('management.customer.create');
     Route::post('/customer/store', [CustomerController::class, 'store'])->name('management.customer.store');
     Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('management.customer.edit');
+    Route::get('/customer/show/{id}', [CustomerController::class, 'show'])->name('management.customer.show');
+    Route::get('/customer/cal-balance/{id}', [CustomerController::class, 'calBalance'])->name('management.customer.cal-balance');
     Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('management.customer.update');
     Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('management.customer.delete');
 

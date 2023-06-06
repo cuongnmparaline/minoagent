@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use AmrShawky\LaravelCurrency\Facade\Currency;
+use App\Models\Customer;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
 use App\Repositories\Report\ReportRepository;
@@ -51,6 +52,7 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                         'currency' => $currency,
                         'limit' => $row['limit']
                     ]);
+                    app(ReportRepository::class)->update(1, ['balance' => $report->account->customer->balance - $row['spend'] * $report->account->customer->fee]);
                 }
             } else {
                 $account = $accountRepo->create([
@@ -70,9 +72,9 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                             'amount' => $amount,
                             'currency' => $currency,
                         ]);
+                        app(ReportRepository::class)->update(1, ['balance' => $report->account->customer->balance - $row['spend'] * $report->account->customer->fee]);
                     }
                 }
-
             }
             return $account;
         } catch (\Exception $exception){

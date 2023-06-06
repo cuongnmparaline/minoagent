@@ -7,6 +7,7 @@ use App\Http\Requests\Report\CreateRequest;
 use App\Http\Requests\Report\ExportRequest;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
+use App\Repositories\Customer\CustomerRepository;
 use App\Repositories\Report\ReportRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class ReportController extends Controller
     protected $reportRepo;
     protected $accountRepo;
 
-    public function __construct(ReportRepositoryInterface $reportRepo, AccountRepository $accountRepo)
+    public function __construct(ReportRepositoryInterface $reportRepo, AccountRepository $accountRepo, CustomerRepository $customerRepo)
     {
         $this->reportRepo = $reportRepo;
         $this->accountRepo = $accountRepo;

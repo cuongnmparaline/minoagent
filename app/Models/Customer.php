@@ -16,6 +16,8 @@ class Customer extends Authenticatable
         'id',
         'email',
         'name',
+        'balance',
+        'fee',
         'password',
         'ins_id',
         'upd_id',

@@ -12,7 +12,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
 
     public function search($paginate = true)
     {
-        $result = $this->model->select('id', 'name', 'email');
+        $result = $this->model->select('id', 'name', 'email', 'balance', 'fee');
         if (request()->get('searchName')) {
             $result->where('first_name', 'like', '%' . request()->get('name') . '%');
         }

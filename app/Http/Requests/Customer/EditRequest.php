@@ -24,6 +24,8 @@ class EditRequest extends FormRequest
         return [
             'name' => 'bail|required|max:128',
             'email' => 'bail|required|email|max:128|unique:customers,email,'.request()->get('id'),
+            'balance' => 'required|numeric',
+            'fee' => 'required|numeric|digits:2',
             'password' => 'nullable|max:64',
             'passwordVerify' => 'nullable|same:password',
         ];

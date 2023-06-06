@@ -60,6 +60,8 @@
                     <tr class="text-dark">
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Balance</th>
+                        <th scope="col">Fee</th>
                         <th scope="col">Email</th>
                         <th scope="col">Total Account</th>
                         <th scope="col">Action</th>
@@ -70,6 +72,8 @@
                     <tr>
                         <td>{{ $customer['id'] }}</td>
                         <td>{{ $customer['name'] }}</td>
+                        <td>{{ $customer['balance'] }}</td>
+                        <td>{{ $customer['fee'] }}</td>
                         <td>{{ $customer['email'] }}</td>
                         <td>{{ $customer->accounts->count() }}</td>
                         <td>
@@ -92,6 +96,7 @@
                                 </div>
                             </div>
                             <div class="justify-content-around">
+                                <a class="btn btn-sm btn-warning" href="{{ route('management.customer.show', ['id' => $customer->id]) }}">Show</a>
                                 <a class="btn btn-sm btn-primary" href="{{ route('management.customer.edit', ['id' => $customer->id]) }}">Edit</a>
                                 <button data-url="{{route('management.customer.delete', ['id'=>$customer->id])}}"
                                         onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete

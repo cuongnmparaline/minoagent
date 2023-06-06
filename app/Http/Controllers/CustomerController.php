@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Customer\EditRequest;
 use App\Repositories\Customer\CustomerRepositoryInterface;
+use App\Repositories\Report\ReportRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\Customer\CreateRequest;
 use Illuminate\Support\Arr;
@@ -16,9 +17,10 @@ class CustomerController extends Controller
 {
     protected $customerRepo;
 
-    public function __construct(CustomerRepositoryInterface $customerRepo)
+    public function __construct(CustomerRepositoryInterface $customerRepo, ReportRepository $reportRepo)
     {
         $this->customerRepo = $customerRepo;
+        $this->reportRepo = $reportRepo;
     }
 
     public function index()
@@ -45,6 +47,11 @@ class CustomerController extends Controller
         }
 
         return redirect()->route('management.customer');
+    }
+
+    public function show($id) {
+        $customer = $this->customerRepo->find($id);
+        return view('management.customer.show', ['customer' => $customer]);
     }
 
     public function edit($id) {
@@ -90,5 +97,9 @@ class CustomerController extends Controller
         }
 
         return redirect()->route('management.customer');
+    }
+
+    public function calBalance($id) {
+        $accounts = $this->customerRepo->accounts;
     }
 }
