@@ -49,10 +49,11 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
 
                 if ($report !== null) {
                     $oldAmount = $report->getOriginal('amount');
+                    dd($report);
                     $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                         'upd_id' => Auth::guard('admin')->id()]);
-                    $balance = $report->account->customer->balance;
-                    $report->account->customer->update(['balance' => $balance - ($amount - $oldAmount)]);
+                    $customer = $report->account->customer;
+                    $customer->update(['balance' => $customer->balance - ($amount - $oldAmount)]);
                 } else {
                     $report = Report::create([
                         'account_id' => $account->id,
@@ -82,8 +83,8 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                     $oldAmount = $report->getOriginal('amount');
                     $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                         'upd_id' => Auth::guard('admin')->id()]);
-                    $balance = $report->account->customer->balance;
-                    $report->account->customer->update(['balance' => $balance - ($amount - $oldAmount)]);
+                    $customer = $report->account->customer;
+                    $report->account->customer->update(['balance' => $customer->balance - ($amount - $oldAmount) - (($amount - $oldAmount)*$customer->fee)]);
                 } else {
                     $report = Report::create([
                         'account_id' => $account->id,
