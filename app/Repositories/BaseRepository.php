@@ -59,8 +59,8 @@ abstract class BaseRepository implements RepositoryInterface
         $result = $this->find($id);
         if ($result) {
             try {
-                $attributes['ins_datetime'] = date('Y-m-d H:i:s');
-                $attributes['ins_id'] = !empty($attributes['ins_id']) ? $attributes['ins_id'] : Auth::guard('admin')->id();
+                $attributes['upd_datetime'] = date('Y-m-d H:i:s');
+                $attributes['upd_id'] = !empty($attributes['ins_id']) ? $attributes['ins_id'] : Auth::guard('admin')->id();
                 foreach ($attributes as $key => $value) {
                     if ($key != 'id' && in_array($key, $this->getFillable(), true)) {
                         $result->$key = $value;

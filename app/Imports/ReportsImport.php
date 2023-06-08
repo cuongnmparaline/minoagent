@@ -3,7 +3,6 @@
 namespace App\Imports;
 
 use AmrShawky\LaravelCurrency\Facade\Currency;
-use App\Models\Customer;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
 use App\Repositories\Report\ReportRepository;
@@ -43,16 +42,28 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
             $unpaid = number_format($row['unpaid'] / $this->currencies[$currency], 2);
             $amount = number_format($row['spend'] / $this->currencies[$currency], 2);
             if (!empty($account)) {
-                if (empty(Report::where(['account_id' => $account->id, 'date' => Carbon::now()->format('Y-m-d')])->get()->first())) {
-                    $report = app(ReportRepository::class)->create([
+                $report = Report::where([
+                    'account_id' => $account->id,
+                    'date' => Carbon::now()->format('Y-m-d')
+                ])->first();
+
+                if ($report !== null) {
+                    $oldAmount = $report->getOriginal('amount');
+                    $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
+                        'upd_id' => Auth::guard('admin')->id()]);
+                    $balance = $report->account->customer->balance;
+                    $report->account->customer->update(['balance' => $balance - ($amount - $oldAmount)]);
+                } else {
+                    $report = Report::create([
                         'account_id' => $account->id,
-                        'unpaid' => $unpaid,
                         'date' => $this->date,
+                        'unpaid' => $unpaid,
                         'amount' => $amount,
                         'currency' => $currency,
-                        'limit' => $row['limit']
+                        'limit' => $row['limit'],
+                        'ins_datetime' => date('Y-m-d H:i:s'),
+                        'ins_id' => Auth::guard('admin')->id()
                     ]);
-                    app(ReportRepository::class)->update(1, ['balance' => $report->account->customer->balance - $row['spend'] * $report->account->customer->fee]);
                 }
             } else {
                 $account = $accountRepo->create([
@@ -62,18 +73,28 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                     'status' => $this->getStatus($row['status']),
                     'limit' => $row['limit']
                 ]);
-                if (empty(Report::where(['account_id' => $account->id, 'date' => Carbon::now()->format('Y-m-d')])->get()->first())) {
-                    if($account->id) {
-                        $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
-                        $report = app(ReportRepository::class)->create([
-                            'account_id' => $account->id,
-                            'unpaid' => $unpaid,
-                            'date' => $this->date,
-                            'amount' => $amount,
-                            'currency' => $currency,
-                        ]);
-                        app(ReportRepository::class)->update(1, ['balance' => $report->account->customer->balance - $row['spend'] * $report->account->customer->fee]);
-                    }
+                $report = Report::where([
+                    'account_id' => $account->id,
+                    'date' => Carbon::now()->format('Y-m-d')
+                ])->first();
+
+                if ($report !== null) {
+                    $oldAmount = $report->getOriginal('amount');
+                    $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
+                        'upd_id' => Auth::guard('admin')->id()]);
+                    $balance = $report->account->customer->balance;
+                    $report->account->customer->update(['balance' => $balance - ($amount - $oldAmount)]);
+                } else {
+                    $report = Report::create([
+                        'account_id' => $account->id,
+                        'date' => $this->date,
+                        'unpaid' => $unpaid,
+                        'amount' => $amount,
+                        'currency' => $currency,
+                        'limit' => $row['limit'],
+                        'ins_datetime' => date('Y-m-d H:i:s'),
+                        'ins_id' => Auth::guard('admin')->id()
+                    ]);
                 }
             }
             return $account;
