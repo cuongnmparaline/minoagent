@@ -44,27 +44,29 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
             if (!empty($account)) {
                 $report = Report::where([
                     'account_id' => $account->id,
-                    'date' => Carbon::now()->format('Y-m-d')
+                    'date' => $this->date,
                 ])->first();
 
                 if ($report !== null) {
                     $oldAmount = $report->getOriginal('amount');
-                    dd($report);
                     $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                         'upd_id' => Auth::guard('admin')->id()]);
                     $customer = $report->account->customer;
-                    $customer->update(['balance' => $customer->balance - ($amount - $oldAmount)]);
+                    $newAmount = $amount - $oldAmount;
+                    $customer->update(['balance' => $customer->balance - $newAmount - ($newAmount * ($customer->fee/100))]);
                 } else {
                     $report = Report::create([
                         'account_id' => $account->id,
                         'date' => $this->date,
-                        'unpaid' => $unpaid,
-                        'amount' => $amount,
+                        'unpaid' => (double)$unpaid,
+                        'amount' => (double)$amount,
                         'currency' => $currency,
                         'limit' => $row['limit'],
                         'ins_datetime' => date('Y-m-d H:i:s'),
                         'ins_id' => Auth::guard('admin')->id()
                     ]);
+                    $customer = $report->account->customer;
+                    $customer->update(['balance' => $customer->balance - $amount]);
                 }
             } else {
                 $account = $accountRepo->create([
@@ -76,7 +78,7 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                 ]);
                 $report = Report::where([
                     'account_id' => $account->id,
-                    'date' => Carbon::now()->format('Y-m-d')
+                    'date' => $this->date,
                 ])->first();
 
                 if ($report !== null) {
@@ -84,18 +86,21 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                     $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                         'upd_id' => Auth::guard('admin')->id()]);
                     $customer = $report->account->customer;
-                    $report->account->customer->update(['balance' => $customer->balance - ($amount - $oldAmount) - (($amount - $oldAmount)*$customer->fee)]);
+                    $newAmount = $amount - $oldAmount;
+                    $customer->update(['balance' => $customer->balance - $newAmount - ($newAmount * ($customer->fee/100))]);
                 } else {
                     $report = Report::create([
                         'account_id' => $account->id,
                         'date' => $this->date,
-                        'unpaid' => $unpaid,
-                        'amount' => $amount,
+                        'unpaid' => (double)$unpaid,
+                        'amount' => (double)$amount,
                         'currency' => $currency,
                         'limit' => $row['limit'],
                         'ins_datetime' => date('Y-m-d H:i:s'),
                         'ins_id' => Auth::guard('admin')->id()
                     ]);
+                    $customer = $report->account->customer;
+                    $customer->update(['balance' => $customer->balance - $amount - ($amount * ($customer->fee/100))]);
                 }
             }
             return $account;
