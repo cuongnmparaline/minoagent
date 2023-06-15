@@ -39,8 +39,8 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
         }
         try {
             $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
-            $unpaid = number_format($row['unpaid'] / $this->currencies[$currency], 2);
-            $amount = number_format($row['spend'] / $this->currencies[$currency], 2);
+            (double)$unpaid = $row['unpaid'] / $this->currencies[$currency];
+            (double)$amount = $row['spend'] / $this->currencies[$currency];
             if (!empty($account)) {
                 $report = Report::where([
                     'account_id' => $account->id,
@@ -53,20 +53,20 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                         'upd_id' => Auth::guard('admin')->id()]);
                     $customer = $report->account->customer;
                     $newAmount = $amount - $oldAmount;
-                    $customer->update(['balance' => $customer->balance - $newAmount - ($newAmount * ($customer->fee/100))]);
+                    $customer->update(['balance' => $customer->balance - ($newAmount + ($newAmount * ($customer->fee / 100)))]);
                 } else {
                     $report = Report::create([
                         'account_id' => $account->id,
                         'date' => $this->date,
-                        'unpaid' => (double)$unpaid,
-                        'amount' => (double)$amount,
+                        'unpaid' => $unpaid,
+                        'amount' => $amount,
                         'currency' => $currency,
                         'limit' => $row['limit'],
                         'ins_datetime' => date('Y-m-d H:i:s'),
                         'ins_id' => Auth::guard('admin')->id()
                     ]);
                     $customer = $report->account->customer;
-                    $customer->update(['balance' => $customer->balance - $amount]);
+                    $customer->update(['balance' => $customer->balance - ($amount + $amount * ($customer->fee / 100))]);
                 }
             } else {
                 $account = $accountRepo->create([
@@ -87,20 +87,20 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                         'upd_id' => Auth::guard('admin')->id()]);
                     $customer = $report->account->customer;
                     $newAmount = $amount - $oldAmount;
-                    $customer->update(['balance' => $customer->balance - $newAmount - ($newAmount * ($customer->fee/100))]);
+                    $customer->update(['balance' => $customer->balance - ($newAmount + ($newAmount * ($customer->fee / 100)))]);
                 } else {
                     $report = Report::create([
                         'account_id' => $account->id,
                         'date' => $this->date,
-                        'unpaid' => (double)$unpaid,
-                        'amount' => (double)$amount,
+                        'unpaid' => $unpaid,
+                        'amount' => $amount,
                         'currency' => $currency,
                         'limit' => $row['limit'],
                         'ins_datetime' => date('Y-m-d H:i:s'),
                         'ins_id' => Auth::guard('admin')->id()
                     ]);
                     $customer = $report->account->customer;
-                    $customer->update(['balance' => $customer->balance - $amount - ($amount * ($customer->fee/100))]);
+                    $customer->update(['balance' => $customer->balance - ($amount + $amount * ($customer->fee / 100))]);
                 }
             }
             return $account;
