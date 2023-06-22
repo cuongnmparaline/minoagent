@@ -76,7 +76,8 @@ class ReportController extends Controller
                 ->latest()
                 ->base('USD')
                 ->get();
-            Excel::import(new ReportsImport(request('date'), $currencies), request()->file('reportImport'));
+            $date = request('date') ? request('date') : Carbon::now();
+            Excel::import(new ReportsImport($date, $currencies), request()->file('reportImport'));
             session()->flash('success', __('Imported'));
 
             return redirect()->route('management.report');

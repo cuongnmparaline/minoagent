@@ -22,7 +22,6 @@ class ExportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'required',
             'reportImport' => 'required'
         ];
     }
