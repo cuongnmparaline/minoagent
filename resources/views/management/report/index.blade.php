@@ -93,6 +93,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="d-flex align-items-center justify-content-center mt-4">
+                {{ $reports->links() }}
+            </div>
         </div>
     </div>
 @endsection

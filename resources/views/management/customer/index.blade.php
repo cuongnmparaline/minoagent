@@ -113,6 +113,9 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex align-items-center justify-content-center mt-4">
+                    {{ $customers->links() }}
+                </div>
             </div>
         </div>
     </div>
