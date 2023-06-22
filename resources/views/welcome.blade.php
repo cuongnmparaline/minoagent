@@ -58,7 +58,7 @@
                         </ul>
                     </div>
                     <div class="navbar-btn d-none d-lg-inline-block">
-                        <a class="menu-bar" href="#side-menu-left">Login</a>
+                        <a class="menu-bar" href="{{ route('customer.login') }}">Login</a>
                     </div>
                 </nav>
 
