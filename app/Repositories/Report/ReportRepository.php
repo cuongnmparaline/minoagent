@@ -12,7 +12,7 @@ class ReportRepository extends BaseRepository implements ReportRepositoryInterfa
 
     public function search($paginate = true)
     {
-        $result = $this->model->select('id', 'account_id', 'date', 'currency', 'unpaid', 'amount');
+        $result = $this->model->select('id', 'account_id', 'date', 'currency', 'unpaid', 'amount')->sortable(['id' => 'desc']);
         if ($paginate == false){
             return $result->get();
         }

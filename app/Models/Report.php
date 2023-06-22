@@ -6,10 +6,11 @@ use AmrShawky\LaravelCurrency\Facade\Currency;
 use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Report extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     protected $table = 'reports';
 
@@ -26,6 +27,8 @@ class Report extends Model
         'upd_datetime',
         'del_flag'
     ];
+
+    public $sortable = ['id', 'amount', 'date', 'unpaid'];
 
     protected static function booted()
     {

@@ -70,9 +70,10 @@
                         <th scope="col">STT</th>
                         <th scope="col">Account Name</th>
                         <th scope="col">Account Code</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Unpaid</th>
-                        <th scope="col">Amount</th>
+                        <th scope="col">@sortablelink('date', 'Date')</th>
+                        <th scope="col">@sortablelink('unpad', 'Unpaid')</th>
+                        <th scope="col">@sortablelink('amount', 'Amount')</th>
+                        <th scope="col">Amount Fee</th>
                         <th scope="col">Currency</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -86,6 +87,7 @@
                         <td>{{ $report['date'] }}</td>
                         <td>{{ $report['unpaid'] }}</td>
                         <td>{{ $report['amount'] }}</td>
+                        <td>{{ $report['amount']*$report->account->customer->fee/100 }}</td>
                         <td>{{ $report['currency'] }}</td>
                         <td><a class="btn btn-sm btn-primary" href="{{ route('management.report.edit', ['id' => $report['id'] ]) }}">Edit</a></td>
                     </tr>
