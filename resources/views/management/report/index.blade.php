@@ -71,7 +71,7 @@
                         <th scope="col">Account Name</th>
                         <th scope="col">Account Code</th>
                         <th scope="col">@sortablelink('date', 'Date')</th>
-                        <th scope="col">@sortablelink('unpad', 'Unpaid')</th>
+                        <th scope="col">@sortablelink('unpaid', 'Unpaid')</th>
                         <th scope="col">@sortablelink('amount', 'Amount')</th>
                         <th scope="col">Amount Fee</th>
                         <th scope="col">Currency</th>
