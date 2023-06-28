@@ -52,6 +52,7 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/customer/cal-balance/{id}', [CustomerController::class, 'calBalance'])->name('management.customer.cal-balance');
     Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('management.customer.update');
     Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('management.customer.delete');
+    Route::get('/customer/exportAccount/{customer}', [CustomerController::class, 'exportAccount'])->name('management.customer.exportAccount');
 
     // Account
     Route::get('/account', [AccountController::class, 'index'])->name('management.account');

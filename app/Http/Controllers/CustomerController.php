@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AccountsExport;
 use App\Http\Requests\Customer\EditRequest;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Repositories\Report\ReportRepository;
@@ -11,6 +12,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
 use Mockery\Exception;
 
 class CustomerController extends Controller
@@ -101,5 +103,10 @@ class CustomerController extends Controller
 
     public function calBalance($id) {
         $accounts = $this->customerRepo->accounts;
+    }
+
+    public function exportAccount($id){
+        $customer = $this->customerRepo->find($id);
+        return Excel::download(new AccountsExport($id), $customer->name.' report.xlsx');
     }
 }

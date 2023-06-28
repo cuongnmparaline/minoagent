@@ -22,7 +22,7 @@
             <a href="{{ route('management.report.import') }}" class="nav-item nav-link {{ request()->is('management/report/import') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Import Excel</a>
             @endif
             @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
-                <a href="{{ route('customer.account') }}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Customer</a>
+                <a href="{{ route('customer.account') }}" class="nav-item nav-link {{ request()->is('customer/account*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Account</a>
             @endif
         </div>
     </nav>

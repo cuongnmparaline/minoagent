@@ -35,7 +35,7 @@ if (!function_exists('validateImg')) {
 }
 
 if (!function_exists('getCustomerName')) {
-    function getEmployeeName($leader_id)
+    function getCustomerName($leader_id)
     {
         $customer = Customer::find($leader_id);
         if(!empty($customer)){

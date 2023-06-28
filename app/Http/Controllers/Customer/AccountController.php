@@ -34,7 +34,7 @@ class AccountController extends Controller
     }
 
     public function export(){
-        $accounts = $this->accountRepo->getAll();
-        return Excel::download(new AccountsExport, getCustomerName(Auth::guard('customer')->id()).' report.xlsx');
+        $id = Auth::guard('customer')->id();
+        return Excel::download(new AccountsExport($id), getCustomerName($id).' report.xlsx');
     }
 }

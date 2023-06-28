@@ -9,10 +9,15 @@ use Maatwebsite\Excel\Concerns\FromView;
 
 class AccountsExport implements FromView
 {
+    public function __construct($id)
+    {
+        $this->id = $id;
+    }
+
     public function view(): View
     {
         return view('customer.export.accounts', [
-            'accounts' => Account::all()
+            'accounts' => Account::where(['customer_id' => $this->id])->get()
         ]);
     }
 }
