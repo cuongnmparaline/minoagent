@@ -42,11 +42,11 @@
         <div class="get-started1">Get Started</div>
     </div>
     <div class="navbar"></div>
-    <div class="services">Services</div>
-    <div class="fees">Fees</div>
-    <div class="faq">FAQ</div>
-    <div class="rating">Rating</div>
-    <div class="our-service">
+    <a href="#services" class="services" style="color: #fd8126">Services</a>
+    <a href="#fees" class="fees" style="color: #fd8126">Fees</a>
+    <a href="#faq"  class="faq" style="color: #fd8126">FAQ</a>
+    <a href="#rating"  class="rating" style="color: #fd8126">Rating</a>
+    <div class="our-service" id="fees">
         <div class="fee-of-services-parent">
             <img
                 class="fee-of-services"
@@ -148,7 +148,7 @@
         </div>
         <img class="frame-icon" alt="" src="./img/welcome/frame.svg" />
     </div>
-    <div class="testimonial">
+    <div class="testimonial" id="rating">
         <img
             class="clients-experience-during-our"
             alt=""
@@ -234,7 +234,7 @@
             <img class="group-icon" alt="" src="./img/welcome/group-2191.svg" />
         </div>
     </div>
-    <div class="our-advantages">
+    <div class="our-advantages" id="services">
         <div class="frame-group">
             <div class="consultation-services-parent">
                 <img
