@@ -44,7 +44,7 @@
     <div class="navbar"></div>
     <a href="#services" class="services" style="color: #fd8126">Services</a>
     <a href="#fees" class="fees" style="color: #fd8126">Fees</a>
-    <a href="#faq"  class="faq" style="color: #fd8126">FAQ</a>
+    <a target="_blank" href="https://photos.google.com/share/AF1QipONwFo9NIHHzROKTf1KUhz_R1Bms6Ob1ZtqqbVdKxdXW-1JWNqXC54ROgBcsQTQBQ?key=aS10MkMzQ0x0eERyUXdtWGFad3NQdVhQY1J5NWJ3"  class="faq" style="color: #fd8126">FAQ</a>
     <a href="#rating"  class="rating" style="color: #fd8126">Rating</a>
     <div class="our-service" id="fees">
         <div class="fee-of-services-parent">
@@ -313,13 +313,12 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
     </div>
-
+    <div class="digital-marketing-landing-page-child6"></div>
+    <a target="_blank" href="https://photos.google.com/share/AF1QipONwFo9NIHHzROKTf1KUhz_R1Bms6Ob1ZtqqbVdKxdXW-1JWNqXC54ROgBcsQTQBQ?key=aS10MkMzQ0x0eERyUXdtWGFad3NQdVhQY1J5NWJ3"><div class="read-faq">READ FAQ</div></a>
 </div>
 </body>
 </html>
-
 <script>
     $('.carousel').carousel({
         interval: 2000
