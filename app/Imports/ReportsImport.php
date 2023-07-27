@@ -2,21 +2,20 @@
 
 namespace App\Imports;
 
-use AmrShawky\LaravelCurrency\Facade\Currency;
+use App\Models\Account;
+use App\Models\Customer;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
-use App\Repositories\Report\ReportRepository;
-use Carbon\Carbon;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use App\Models\Account;
-use function Ramsey\Collection\Map\get;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
+class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, WithValidation
 {
     /**
     * @param array $row
@@ -30,84 +29,107 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
         $this->currencies = $currencies;
     }
 
-    public function model(array $row)
+    public function collection(\Illuminate\Support\Collection $rows)
     {
-        $accountRepo = app((AccountRepository::class));
-        $account = Account::where('code', substr($row['account_code'], strpos($row['account_code'], "_") + 1))->get()->first();
-        if($row['limit'] == 'No limit') {
-            $row['limit'] = 0;
-        }
-        try {
-            $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
-            (double)$unpaid = $row['unpaid'] / $this->currencies[$currency];
-            (double)$amount = $row['spend'] / $this->currencies[$currency];
-            if (!empty($account)) {
-                $report = Report::where([
-                    'account_id' => $account->id,
-                    'date' => $this->date,
-                ])->first();
+        foreach ($rows as $row)
+        {
+            $accountRepo = app((AccountRepository::class));
+            $account = Account::where('code', substr($row['account_code'], strpos($row['account_code'], "_") + 1))->get()->first();
+            if($row['limit'] == 'No limit') {
+                $row['limit'] = 0;
+            }
+            $customerName = substr($row['account_name'], 0, strpos($row['account_name'], "_"));
+            $haveCustomer = Customer::where('name', $customerName)->get()->first();
+            if($haveCustomer){
+                try {
+                    $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
+                    (double)$unpaid = $row['unpaid'] / $this->currencies[$currency];
+                    (double)$amount = $row['spend'] / $this->currencies[$currency];
+                    if (!empty($account)) {
+                        $report = Report::where([
+                            'account_id' => $account->id,
+                            'date' => $this->date,
+                        ])->first();
 
-                if ($report !== null) {
-                    $oldAmount = $report->getOriginal('amount');
-                    $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
-                        'upd_id' => Auth::guard('admin')->id()]);
-                    $customer = $report->account->customer;
-                    $newAmount = $amount - $oldAmount;
-                    $customer->update(['balance' => $customer->balance - ($newAmount + ($newAmount * ($customer->fee / 100)))]);
-                } else {
-                    $report = Report::create([
-                        'account_id' => $account->id,
-                        'date' => $this->date,
-                        'unpaid' => $unpaid,
-                        'amount' => $amount,
-                        'currency' => $currency,
-                        'limit' => $row['limit'],
-                        'ins_datetime' => date('Y-m-d H:i:s'),
-                        'ins_id' => Auth::guard('admin')->id()
-                    ]);
-                    $customer = $report->account->customer;
-                    $customer->update(['balance' => $customer->balance - ($amount + $amount * ($customer->fee / 100))]);
-                }
-            } else {
-                $account = $accountRepo->create([
-                    'code' => substr($row['account_code'], strpos($row['account_code'], "_") + 1),
-                    'name' => $row['account_name'],
-                    'customer_id' => 1,
-                    'status' => $this->getStatus($row['status']),
-                    'limit' => $row['limit']
-                ]);
-                $report = Report::where([
-                    'account_id' => $account->id,
-                    'date' => $this->date,
-                ])->first();
+                        if ($report !== null) {
+                            $oldAmount = $report->getOriginal('amount');
+                            $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
+                                'upd_id' => Auth::guard('admin')->id()]);
+                            $newAmount = $amount - $oldAmount;
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
+                        } else {
+                            $report = Report::create([
+                                'account_id' => $account->id,
+                                'date' => $this->date,
+                                'unpaid' => $unpaid,
+                                'amount' => $amount,
+                                'currency' => $currency,
+                                'limit' => $row['limit'],
+                                'ins_datetime' => date('Y-m-d H:i:s'),
+                                'ins_id' => Auth::guard('admin')->id()
+                            ]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amount * ($haveCustomer->fee / 100))]);
+                        }
+                    } else {
+                        $account = $accountRepo->create([
+                            'code' => substr($row['account_code'], strpos($row['account_code'], "_") + 1),
+                            'name' => $row['account_name'],
+                            'customer_id' => $haveCustomer->id,
+                            'status' => $this->getStatus($row['status']),
+                            'limit' => $row['limit']
+                        ]);
+                        $report = Report::where([
+                            'account_id' => $account->id,
+                            'date' => $this->date,
+                        ])->first();
 
-                if ($report !== null) {
-                    $oldAmount = $report->getOriginal('amount');
-                    $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
-                        'upd_id' => Auth::guard('admin')->id()]);
-                    $customer = $report->account->customer;
-                    $newAmount = $amount - $oldAmount;
-                    $customer->update(['balance' => $customer->balance - ($newAmount + ($newAmount * ($customer->fee / 100)))]);
-                } else {
-                    $report = Report::create([
-                        'account_id' => $account->id,
-                        'date' => $this->date,
-                        'unpaid' => $unpaid,
-                        'amount' => $amount,
-                        'currency' => $currency,
-                        'limit' => $row['limit'],
-                        'ins_datetime' => date('Y-m-d H:i:s'),
-                        'ins_id' => Auth::guard('admin')->id()
-                    ]);
-                    $customer = $report->account->customer;
-                    $customer->update(['balance' => $customer->balance - ($amount + $amount * ($customer->fee / 100))]);
+                        if ($report !== null) {
+                            $oldAmount = $report->getOriginal('amount');
+                            $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
+                                'upd_id' => Auth::guard('admin')->id()]);
+                            $newAmount = $amount - $oldAmount;
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
+                        } else {
+                            $report = Report::create([
+                                'account_id' => $account->id,
+                                'date' => $this->date,
+                                'unpaid' => $unpaid,
+                                'amount' => $amount,
+                                'currency' => $currency,
+                                'limit' => $row['limit'],
+                                'ins_datetime' => date('Y-m-d H:i:s'),
+                                'ins_id' => Auth::guard('admin')->id()
+                            ]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amount * ($haveCustomer->fee / 100))]);
+                        }
+                    }
+                    return $account;
+                } catch (\Exception $exception){
+                    Log::error('Report Create Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $exception->getMessage()]);
                 }
             }
-            return $account;
-        } catch (\Exception $exception){
-            Log::error('Report Create Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $exception->getMessage()]);
-            return $account;
         }
+    }
+
+    public function prepareForValidation($data, $index)
+    {
+        $data['customer_name'] = substr($data['account_name'], 0, strpos($data['account_name'], "_"));
+
+        return $data;
+    }
+
+    public function customValidationMessages()
+    {
+        return [
+            'customer_name.exists' => 'Chưa có customer ở hàng số :attribute',
+        ];
+    }
+
+    public function rules(): array
+    {
+        return [
+            'customer_name' => 'exists:customers,name',
+        ];
     }
 
     public function chunkSize(): int
@@ -124,6 +146,8 @@ class ReportsImport implements ToModel, WithHeadingRow, WithChunkReading
                 return 1;
             case config('const.status.2'):
                 return 2;
+            default:
+                return 0;
         }
     }
 }

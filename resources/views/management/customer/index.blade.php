@@ -52,7 +52,7 @@
                 <h6 class="mb-0">
                     <a href="{{ route('management.customer.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </h6>
-                <a href="">Export Excel</a>
+                <a href="{{ route('management.customer.export') }}">Export Excel</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">

@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-be-vietnam-pro: "Be Vietnam Pro";
+  --font-be-vietnam: "Be Vietnam";
+  --font-code-next-trial: "Code Next-Trial";
+
+  /* font sizes */
+  --font-size-lg: 18px;
+  --font-size-5xl: 24px;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-xl: 20px;
+  --font-size-17xl: 36px;
+  --font-size-7xl: 26px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gainsboro-100: #d6dce4;
+  --color-gainsboro-200: #d9d9d9;
+  --color-dimgray: #616771;
+  --color-gray-100: #282a2d;
+  --color-gray-200: rgba(0, 0, 0, 0.2);
+  --color-whitesmoke: #eaeaea;
+  --color-darkorange: #fd8126;
+
+  /* Gaps */
+  --gap-5xl: 24px;
+
+  /* border radiuses */
+  --br-37xl: 56px;
+}

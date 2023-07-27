@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\AccountsExport;
+use App\Exports\CustomerExport;
 use App\Http\Requests\Customer\EditRequest;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Repositories\Report\ReportRepository;
@@ -108,5 +109,9 @@ class CustomerController extends Controller
     public function exportAccount($id){
         $customer = $this->customerRepo->find($id);
         return Excel::download(new AccountsExport($id), $customer->name.' report.xlsx');
+    }
+
+    public function export(){
+        return Excel::download(new CustomerExport(), 'Customer Export.xlsx');
     }
 }

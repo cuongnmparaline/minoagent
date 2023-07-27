@@ -47,6 +47,38 @@
         </div>
     </div>
     <div class="container-fluid pt-4 px-4">
+        <form action="" method="get">
+            <div class="row">
+                    <div class="col-3 col-xl-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control"
+                                   placeholder="Name" name="name" value="{{ request('name') }}">
+                            <label for="floatingInput">Name</label>
+                        </div>
+                    </div>
+                    <div class="col-3 col-xl-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control"
+                                   placeholder="Name" name="code" value="{{ request('code') }}" >
+                            <label for="floatingInput">Code</label>
+                        </div>
+                    </div>
+                    <div class="col-3 col-xl-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control"
+                                   placeholder="Name" name="customer" value="{{ request()->get('customer') }}" >
+                            <label for="floatingInput">Customer</label>
+                        </div>
+                    </div>
+                    <div class="col-3 col-xl-3">
+                        <div class="form-floating mb-3">
+                            <input type="submit" class="btn btn-sm btn-primary" value="Search">
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+    <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">
