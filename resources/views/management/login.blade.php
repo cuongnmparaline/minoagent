@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Mino Agent - Trang đăng nhập</title>
+    <title>Calin Agent - Trang đăng nhập</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" type="image/png" href="{{ asset('img/welcome/group-2188.svg') }}"/>
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -49,7 +50,7 @@
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <a class="">
-                            <h3 class="text-primary"></i>MINO AGENT</h3>
+                            <h3 class="text-primary"></i>Calin Agent</h3>
                         </a>
                     </div>
                     <form method="post" action="{{ route('checkLogin') }}">

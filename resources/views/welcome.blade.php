@@ -36,12 +36,12 @@
     <div class="digital-marketing-landing-page-inner"></div>
     <img class="calin-agency-icon" alt="" src="./img/welcome/calin-agency.svg" />
 
-    <div class="cta">
-        <div class="get-started">Get Started</div>
-    </div>
-    <div class="cta1">
+    <a href="{{ route('customer.login') }}" class="cta">
+        <div style="color: #fd8126;"  class="get-started">Get Started</div>
+    </a>
+    <a href="{{ route('customer.login') }}" class="cta1">
         <div class="get-started1">Get Started</div>
-    </div>
+    </a>
     <div class="navbar"></div>
     <a href="#services" class="services" style="color: #fd8126">Services</a>
     <a href="#fees" class="fees" style="color: #fd8126">Fees</a>
@@ -271,11 +271,11 @@
     </div>
     <div class="line-div"></div>
     <div class="parent">
-        <div class="div">+503 - 12334-1900</div>
+        <a target="_blank" style="color: #616771" href="https://t.me/catherine1677" class="div">Contact us <img style="position: absolute;
+    width: 25px;
+    left: 52px;
+    top: -2px;" src="./img/welcome/telegram.svg" alt=""></a>
         <div class="group-child"></div>
-        <img class="frame-icon1" alt="" src="./img/welcome/frame1.svg" />
-
-        <img class="chevron-down-icon" alt="" src="./img/welcome/chevrondown.svg" />
     </div>
     <img
         class="digital-marketing-landing-page-child1"
