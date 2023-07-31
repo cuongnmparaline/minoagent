@@ -903,7 +903,7 @@
 <!--/ End Footer Area -->
 
 <div class="made-in-ayroui mt-4">
-    <a href="https://ayroui.com" target="_blank" rel="nofollow">
+    <a href="https://t.me/catherine1677" target="_blank" rel="nofollow">
        <span style="background: #fd8126; padding: 12px 15px 16px 15px;; border-radius: 45px; color: white">Telegram <img style="" src="./images/telegram.svg"></span>
     </a>
 </div>
