@@ -1,327 +1,957 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <!--====== Required meta tags ======-->
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link rel="icon" type="image/png" href="./img/welcome/group-2188.svg"/>
-    <link rel="stylesheet" href="{{ asset('css/global.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Be Vietnam Pro:wght@400;600&display=swap"
-    />
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Code Next-Trial:wght@600;800&display=swap"
-    />
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Be Vietnam:wght@400&display=swap"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!--====== Title ======-->
+    <title>Business | Bootstrap 5 Business Template</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg" />
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="./css/lineicons.css" />
+
+    <!--====== Tiny Slider css ======-->
+    <link rel="stylesheet" href="./css/tiny-slider.css" />
+
+    <!--====== gLightBox css ======-->
+    <link rel="stylesheet" href="./css/glightbox.min.css" />
+
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-<div class="digital-marketing-landing-page">
-    <div class="digital-marketing-landing-page-child"></div>
-    <div class="digital-marketing-landing-page-item"></div>
-    <img
-        class="happy-young-asian-businessmen-icon"
-        alt=""
-        src="./img/welcome/happyyoungasianbusinessmenbusinesswomenmeetingbrainstormingideasaboutnewpaperworkproject--1@2x.png"
-    />
 
-    <div class="digital-marketing-landing-page-inner"></div>
-    <img class="calin-agency-icon" alt="" src="./img/welcome/calin-agency.svg" />
+<!--====== NAVBAR NINE PART START ======-->
 
-    <a href="{{ route('customer.login') }}" class="cta">
-        <div style="color: #fd8126;"  class="get-started">Get Started</div>
-    </a>
-    <a href="{{ route('customer.login') }}" class="cta1">
-        <div class="get-started1">Get Started</div>
-    </a>
-    <div class="navbar"></div>
-    <a href="#services" class="services" style="color: #fd8126">Services</a>
-    <a href="#fees" class="fees" style="color: #fd8126">Fees</a>
-    <a target="_blank" href="https://photos.google.com/share/AF1QipONwFo9NIHHzROKTf1KUhz_R1Bms6Ob1ZtqqbVdKxdXW-1JWNqXC54ROgBcsQTQBQ?key=aS10MkMzQ0x0eERyUXdtWGFad3NQdVhQY1J5NWJ3"  class="faq" style="color: #fd8126">FAQ</a>
-    <a href="#rating"  class="rating" style="color: #fd8126">Rating</a>
-    <div class="our-service" id="fees">
-        <div class="fee-of-services-parent">
-            <img
-                class="fee-of-services"
-                alt=""
-                src="./img/welcome/fee-of-services.svg"
-            />
+<section class="navbar-area navbar-nine">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./images/white-logo.svg" alt="Logo" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
+                            aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
 
-            <img
-                class="we-take-fee-base-total-spent-o"
-                alt=""
-                src="./img/welcome/we-take-fee-base-total-spent-of-accs-depend-on-the-niches-and-scale-we-hasnt-any-other-fee-just-free-for-account.svg"
-            />
-        </div>
-        <div class="frame-parent">
-            <div class="rectangle-parent">
-                <div class="frame-child"></div>
-                <div class="frame-item"></div>
-                <div class="cta2">
-                    <div class="learn-more">Learn More</div>
-                </div>
-                <div class="white-hat-parent">
-                    <div class="white-hat">WHITE HAT</div>
-                    <div class="depend-on-your">Depend on your volume</div>
-                </div>
-                <img
-                    class="hackmu-04-2-icon"
-                    alt=""
-                    src="./img/welcome/hackmu04-2.svg"
-                />
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="page-scroll active" href="#hero-area">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="page-scroll" href="#services">Services</a>
+                            </li>
 
-                <div class="frame-inner"></div>
-            </div>
-            <div class="rectangle-parent">
-                <div class="frame-child"></div>
-                <div class="frame-item"></div>
-                <div class="cta2">
-                    <div class="learn-more">Learn More</div>
-                </div>
-                <div class="gray-hat-parent">
-                    <div class="white-hat">GRAY HAT</div>
-                    <div class="depend-on-your">Depend on your volume</div>
-                </div>
-                <img
-                    class="hackmu-04-3-icon"
-                    alt=""
-                    src="./img/welcome/hackmu04-3.svg"
-                />
-            </div>
-            <div class="rectangle-parent">
-                <div class="frame-child"></div>
-                <div class="frame-item"></div>
-                <div class="cta2">
-                    <div class="learn-more">Learn More</div>
-                </div>
-                <div class="gray-hat-parent">
-                    <div class="white-hat">BLACK HAT</div>
-                    <div class="depend-on-your">Depend on your volume</div>
-                </div>
-                <img
-                    class="hackmu-04-2-icon"
-                    alt=""
-                    src="./img/welcome/hackmu04-1.svg"
-                />
+                            <li class="nav-item">
+                                <a class="page-scroll" href="#pricing">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="page-scroll" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="navbar-btn d-none d-lg-inline-block">
+                        <a class="menu-bar" href="#side-menu-left"><i class="lni lni-menu"></i></a>
+                    </div>
+                </nav>
+                <!-- navbar -->
             </div>
         </div>
+        <!-- row -->
     </div>
-    <div class="footer">
-        <div class="footer1">
-            <div class="footer-child"></div>
-            <img class="footer-item" alt="" src="./img/welcome/vector-84.svg" />
+    <!-- container -->
+</section>
 
-            <img class="footer-inner" alt="" src="./img/welcome/vector-85.svg" />
+<!--====== NAVBAR NINE PART ENDS ======-->
 
-            <div class="make-your-business">Make Your Business Grow With Us.</div>
-            <div class="terms-and-conditions-parent">
-                <div class="terms-and-conditions">Terms and Conditions</div>
-                <div class="privacy-policy">Privacy Policy</div>
-            </div>
-            <div class="careers-parent">
-                <div class="careers">Careers</div>
-                <div class="support">Support</div>
-                <div class="affiliate">Affiliate</div>
-            </div>
-            <div class="about-parent">
-                <div class="about">About</div>
-                <div class="partners-relations">Partners Relations</div>
-                <div class="press">Press</div>
-                <div class="blog">Blog</div>
-            </div>
-            <div class="company-parent">
-                <div class="company">Company</div>
-                <div class="teams">Teams</div>
-                <div class="contact-us">Contact Us</div>
-                <div class="helps">Helps</div>
-            </div>
-            <div class="copyright-calin-agency">
-                Copyright Calin Agency. All rights reserved
-            </div>
-        </div>
-        <img class="frame-icon" alt="" src="./img/welcome/frame.svg" />
+<!--====== SIDEBAR PART START ======-->
+
+<div class="sidebar-left">
+    <div class="sidebar-close">
+        <a class="close" href="#close"><i class="lni lni-close"></i></a>
     </div>
-    <div class="testimonial" id="rating">
-        <img
-            class="clients-experience-during-our"
-            alt=""
-            src="./img/welcome/clients-experience-during-our-place-and-we-share-it-with-you-as-a-reference-to-believe-in-us.svg"
-        />
-
-        <img
-            class="what-our-clients-say"
-            alt=""
-            src="./img/welcome/what-our-clients-say.svg"
-        />
-
-        <div class="testimonials">
-            <div class="testimonials-child"></div>
-            <div class="faiza-mubarak">Faiza Mubarak</div>
-            <div class="businessman">Businessman</div>
-            <div class="i-am-the">
-                I am the owner of an online clothing store. Previously, I used to
-                run Facebook ads myself, but the effect was not high. Then I went to
-                a company that specializes in running Facebook ads. They helped me
-                design and optimize my advertising campaign, helping me increase
-                sales significantly. I am very satisfied with the service of this
-                company.
-            </div>
-            <div class="unsplashfg-ud73u-zm"></div>
-            <img class="testimonials-item" alt="" src="./img/welcome/group-2189.svg" />
-
-            <img class="star-icon" alt="" src="./img/welcome/star.svg" />
-
-            <img class="star-icon1" alt="" src="./img/welcome/star1.svg" />
-
-            <img class="star-icon2" alt="" src="./img/welcome/star2.svg" />
-
-            <img class="star-icon3" alt="" src="./img/welcome/star3.svg" />
-
-            <img class="star-icon4" alt="" src="./img/welcome/star4.svg" />
+    <div class="sidebar-content">
+        <div class="sidebar-logo">
+            <a href="index.html"><img src="./images/logo.svg" alt="Logo" /></a>
         </div>
-        <div class="testimonials1">
-            <div class="testimonials-child"></div>
-            <div class="adif-prasetya">Adif Prasetya</div>
-            <div class="user">User</div>
-            <div class="i-am-very">
-                I am very satisfied with the company's Facebook advertising service.
-                The consulting staff is very professional and enthusiastic, helping
-                me design and optimize effective advertising campaigns, helping me
-                increase sales significantly.
-            </div>
-            <div class="unsplashfg-ud73u-zm"></div>
-            <img class="star-icon" alt="" src="./img/welcome/star5.svg" />
-
-            <img class="star-icon1" alt="" src="./img/welcome/star6.svg" />
-
-            <img class="star-icon2" alt="" src="./img/welcome/star7.svg" />
-
-            <img class="star-icon3" alt="" src="./img/welcome/star8.svg" />
-
-            <img class="star-icon4" alt="" src="./img/welcome/star9.svg" />
-
-            <img class="group-icon" alt="" src="./img/welcome/group-2190.svg" />
+        <p class="text">Lorem ipsum dolor sit amet adipisicing elit. Sapiente fuga nisi rerum iusto intro.</p>
+        <!-- logo -->
+        <div class="sidebar-menu">
+            <h5 class="menu-title">Quick Links</h5>
+            <ul>
+                <li><a href="javascript:void(0)">About Us</a></li>
+                <li><a href="javascript:void(0)">Our Team</a></li>
+                <li><a href="javascript:void(0)">Latest News</a></li>
+                <li><a href="javascript:void(0)">Contact Us</a></li>
+            </ul>
         </div>
-        <div class="testimonials2">
-            <div class="testimonials-child"></div>
-            <div class="raja-abdullah">Raja Abdullah</div>
-            <div class="head-of-marketing">Head of Marketing</div>
-            <div class="i-have-been">
-                I have been using the company's Facebook advertising service for a
-                few months and am very pleased with the results. The consulting
-                staff is very enthusiastic and professional, helping me design and
-                optimize effective advertising campaigns, helping me increase the
-                number of potential customers and sales.
-            </div>
-            <div class="unsplashfg-ud73u-zm"></div>
-            <img class="star-icon" alt="" src="./img/welcome/star10.svg" />
-
-            <img class="star-icon1" alt="" src="./img/welcome/star11.svg" />
-
-            <img class="star-icon2" alt="" src="./img/welcome/star12.svg" />
-
-            <img class="star-icon3" alt="" src="./img/welcome/star13.svg" />
-
-            <img class="star-icon4" alt="" src="./img/welcome/star14.svg" />
-
-            <img class="group-icon" alt="" src="./img/welcome/group-2191.svg" />
+        <!-- menu -->
+        <div class="sidebar-social align-items-center justify-content-center">
+            <h5 class="social-title">Follow Us On</h5>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="lni lni-youtube"></i></a>
+                </li>
+            </ul>
         </div>
+        <!-- sidebar social -->
     </div>
-    <div class="our-advantages" id="services">
-        <div class="frame-group">
-            <div class="consultation-services-parent">
-                <img
-                    class="consultation-services-icon"
-                    alt=""
-                    src="./img/welcome/consultation-services.svg"
-                />
-                <p style="color: #616771; font-size: 18px;">Our team of experts is available to provide guidance and advice on running successful Facebook ad campaigns. Whether you are new to Facebook advertising or a seasoned pro, we can help you optimize your ad strategy and reach your target audience effectively. Our consultation services are completely free of charge, and we are committed to helping you achieve your advertising goals.
-                    Contact us today to schedule a consultation and learn how we can help your business succeed with Facebook ads.</p>
-            </div>
-            <div class="frame-parent">
-                <img class="frame-child4" alt="" src="./img/welcome/group-2182.svg" />
-
-                <img class="frame-child4" alt="" src="./img/welcome/group-2183.svg" />
-
-                <img class="frame-child4" alt="" src="./img/welcome/group-2184.svg" />
-            </div>
-        </div>
-    </div>
-    <div class="frame-div">
-        <div class="frame-child7"></div>
-        <div class="we-ofer-a">
-            We ofer a solution for partners who want to run their products but do
-            not have a healthy META ads account or page to do so. We accept all
-            products from our partners, including GAMING, CRYPTO, RECRUITMENT,
-            INVESTMENT, and more, and ensure that they will not experience any
-            interruptions while running their ads. We can provide multiple
-            accounts to our partners, and if any account fails, we will replace it
-            immediately to ensure the continuity of our clients’ advertising
-            campaigns.
-        </div>
-        <div class="frame-child8"></div>
-    </div>
-    <div class="line-div"></div>
-    <div class="parent">
-        <a target="_blank" style="color: #616771" href="https://t.me/catherine1677" class="div">Contact us <img style="position: absolute;
-    width: 25px;
-    left: 52px;
-    top: -2px;" src="./img/welcome/telegram.svg" alt=""></a>
-        <div class="group-child"></div>
-    </div>
-    <img
-        class="digital-marketing-landing-page-child1"
-        alt=""
-        src="./img/welcome/group-2188.svg"
-    />
-
-    <div class="digital-marketing-landing-page-child2"></div>
-    <div class="digital-marketing-landing-page-child3"></div>
-    <img class="image-1-icon" alt="" src="./img/welcome/image-1.png" />
-
-    <div class="bang-gia-01-02-recovered-1">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="./img/welcome/bang-gia0102recovered-1@2x.png" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="./img/welcome/bang-gia-101-3@2x.png" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="./img/welcome/banggia.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-    <div class="digital-marketing-landing-page-child6"></div>
-    <a target="_blank" href="https://photos.google.com/share/AF1QipONwFo9NIHHzROKTf1KUhz_R1Bms6Ob1ZtqqbVdKxdXW-1JWNqXC54ROgBcsQTQBQ?key=aS10MkMzQ0x0eERyUXdtWGFad3NQdVhQY1J5NWJ3"><div class="read-faq">READ FAQ</div></a>
+    <!-- content -->
 </div>
-</body>
-</html>
+<div class="overlay-left"></div>
+
+<!--====== SIDEBAR PART ENDS ======-->
+
+<!-- Start header Area -->
+<section id="hero-area" class="header-area header-eight">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="header-content">
+                    <h1>CALIN AGENCY</h1>
+                    <p>
+                        We ofer a solution for partners who want to run their products but do not have a healthy META ads account or page to do so. We accept all products from our partners, including GAMING, CRYPTO, RECRUITMENT, INVESTMENT, and more, and ensure that they will not experience any interruptions while running their ads. We can provide multiple accounts to our partners, and if any account fails, we will replace it immediately to ensure the continuity of our clients’ advertising campaigns.
+                    </p>
+                    <div class="button">
+                        <a href="javascript:void(0)" class="btn primary-btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="header-image">
+                    <img src="./images/header/hero-image.jpg" alt="#" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End header Area -->
+
+<!--====== ABOUT FIVE PART START ======-->
+
+<section class="about-area about-five">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-12">
+                <div class="about-image-five">
+                    <svg class="shape" width="106" height="134" viewBox="0 0 106 134" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="1.66654" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="1.66654" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.3333" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.3333" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.3333" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.3333" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.333" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.333" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.333" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.333" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.333" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="16.333" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="30.9998" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6665" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="30.9998" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6665" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="30.9998" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6665" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="30.9998" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6665" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="31" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6668" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="31" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6668" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="31" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6668" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="31" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6668" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="31" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6668" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="31" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="74.6668" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="45.6665" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="89.3333" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.3333" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="1.66679" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.3333" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="16.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.3333" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="31.0001" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.3333" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="45.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.333" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="60.3335" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.333" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="88.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.333" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="117.667" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.333" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="74.6668" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.333" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="103" r="1.66667" fill="#DADADA" />
+                        <circle cx="60.333" cy="132" r="1.66667" fill="#DADADA" />
+                        <circle cx="104" cy="132" r="1.66667" fill="#DADADA" />
+                    </svg>
+                    <img src="./images/about/about-img1.jpg" alt="about" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="about-five-content">
+                    <h6 class="small-title text-lg">OUR STORY</h6>
+                    <h2 class="main-title fw-bold">Our team comes with the experience and knowledge</h2>
+                    <div class="about-five-tab">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-who-tab" data-bs-toggle="tab" data-bs-target="#nav-who"
+                                        type="button" role="tab" aria-controls="nav-who" aria-selected="true">Who We Are</button>
+                                <button class="nav-link" id="nav-vision-tab" data-bs-toggle="tab" data-bs-target="#nav-vision"
+                                        type="button" role="tab" aria-controls="nav-vision" aria-selected="false">our Vision</button>
+                                <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab" data-bs-target="#nav-history"
+                                        type="button" role="tab" aria-controls="nav-history" aria-selected="false">our History</button>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-who" role="tabpanel" aria-labelledby="nav-who-tab">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                                    when
+                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                    distribution of letters, look like readable English.</p>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
+                                    form,
+                                    by injected humour.</p>
+                            </div>
+                            <div class="tab-pane fade" id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                                    when
+                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                    distribution of letters, look like readable English.</p>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
+                                    form,
+                                    by injected humour.</p>
+                            </div>
+                            <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                                    when
+                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                    distribution of letters, look like readable English.</p>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
+                                    form,
+                                    by injected humour.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container -->
+</section>
+
+<!--====== ABOUT FIVE PART ENDS ======-->
+
+<!-- ===== service-area start ===== -->
+<section id="services" class="services-area services-eight">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <h6>Services</h6>
+                        <h2 class="fw-bold">Our Best Services</h2>
+                        <p>
+                            There are many variations of passages of Lorem Ipsum available,
+                            but the majority have suffered alteration in some form.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-services">
+                    <div class="service-icon">
+                        <i class="lni lni-capsule"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>Refreshing Design</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
+                            eirmod tempor ividunt labor dolore magna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-services">
+                    <div class="service-icon">
+                        <i class="lni lni-bootstrap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>Solid Bootstrap 5</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
+                            eirmod tempor ividunt labor dolore magna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-services">
+                    <div class="service-icon">
+                        <i class="lni lni-shortcode"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>100+ Components</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
+                            eirmod tempor ividunt labor dolore magna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-services">
+                    <div class="service-icon">
+                        <i class="lni lni-dashboard"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>Speed Optimized</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
+                            eirmod tempor ividunt labor dolore magna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-services">
+                    <div class="service-icon">
+                        <i class="lni lni-layers"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>Fully Customizable</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
+                            eirmod tempor ividunt labor dolore magna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-services">
+                    <div class="service-icon">
+                        <i class="lni lni-reload"></i>
+                    </div>
+                    <div class="service-content">
+                        <h4>Regular Updates</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
+                            eirmod tempor ividunt labor dolore magna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===== service-area end ===== -->
+
+
+<!-- Start Pricing  Area -->
+<section id="pricing" class="pricing-area pricing-fourteen">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <h6>Pricing</h6>
+                        <h2 class="fw-bold">Pricing & Plans</h2>
+                        <p>
+                            There are many variations of passages of Lorem Ipsum available,
+                            but the majority have suffered alteration in some form.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="pricing-style-fourteen">
+                    <div class="table-head">
+                        <h6 class="title">Starter</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+                            <div class="price">
+                                <h2 class="amount">
+                                    <span class="currency">$</span>0<span class="duration">/mo </span>
+                                </h2>
+                            </div>
+                    </div>
+
+                    <div class="light-rounded-buttons">
+                        <a href="javascript:void(0)" class="btn primary-btn-outline">
+                            Start free trial
+                        </a>
+                    </div>
+
+                    <div class="table-content">
+                        <ul class="table-list">
+                            <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
+                            <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
+                            <li> <i class="lni lni-checkmark-circle deactive"></i> Morbi leo risus.</li>
+                            <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="pricing-style-fourteen middle">
+                    <div class="table-head">
+                        <h6 class="title">Exclusive</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+                            <div class="price">
+                                <h2 class="amount">
+                                    <span class="currency">$</span>99<span class="duration">/mo </span>
+                                </h2>
+                            </div>
+                    </div>
+
+                    <div class="light-rounded-buttons">
+                        <a href="javascript:void(0)" class="btn primary-btn">
+                            Start free trial
+                        </a>
+                    </div>
+
+                    <div class="table-content">
+                        <ul class="table-list">
+                            <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
+                            <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
+                            <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
+                            <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="pricing-style-fourteen">
+                    <div class="table-head">
+                        <h6 class="title">Premium</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+                            <div class="price">
+                                <h2 class="amount">
+                                    <span class="currency">$</span>150<span class="duration">/mo </span>
+                                </h2>
+                            </div>
+                    </div>
+
+                    <div class="light-rounded-buttons">
+                        <a href="javascript:void(0)" class="btn primary-btn-outline">
+                            Start free trial
+                        </a>
+                    </div>
+
+                    <div class="table-content">
+                        <ul class="table-list">
+                            <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
+                            <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
+                            <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
+                            <li> <i class="lni lni-checkmark-circle"></i> Excepteur sint occaecat velit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Pricing  Area -->
+
+
+
+<!-- Start Cta Area -->
+<section id="call-action" class="call-action">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+                <div class="inner-content">
+                    <h2>We love to make perfect <br />solutions for your business</h2>
+                    <p>
+                        Why I say old chap that is, spiffing off his nut cor blimey
+                        guvnords geeza<br />
+                        bloke knees up bobby, sloshed arse William cack Richard. Bloke
+                        fanny around chesed of bum bag old lost the pilot say there
+                        spiffing off his nut.
+                    </p>
+                    <div class="light-rounded-buttons">
+                        <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Cta Area -->
+
+
+
+<!-- Start Latest News Area -->
+<div id="blog" class="latest-news-area section">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <h6>latest news</h6>
+                        <h2 class="fw-bold">Latest News & Blog</h2>
+                        <p>
+                            There are many variations of passages of Lorem Ipsum available,
+                            but the majority have suffered alteration in some form.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Single News -->
+                <div class="single-news">
+                    <div class="image">
+                        <a href="javascript:void(0)"><img class="thumb" src="./images/blog/1.jpg" alt="Blog" /></a>
+                        <div class="meta-details">
+                            <img class="thumb" src="./images/blog/b6.jpg" alt="Author" />
+                            <span>BY TIM NORTON</span>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <h4 class="title">
+                            <a href="javascript:void(0)"> Make your team a Design driven company </a>
+                        </h4>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the industry's
+                            standard.
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single News -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Single News -->
+                <div class="single-news">
+                    <div class="image">
+                        <a href="javascript:void(0)"><img class="thumb" src="./images/blog/2.jpg" alt="Blog" /></a>
+                        <div class="meta-details">
+                            <img class="thumb" src="./images/blog/b6.jpg" alt="Author" />
+                            <span>BY TIM NORTON</span>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <h4 class="title">
+                            <a href="javascript:void(0)">
+                                The newest web framework that changed the world
+                            </a>
+                        </h4>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the industry's
+                            standard.
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single News -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Single News -->
+                <div class="single-news">
+                    <div class="image">
+                        <a href="javascript:void(0)"><img class="thumb" src="./images/blog/3.jpg" alt="Blog" /></a>
+                        <div class="meta-details">
+                            <img class="thumb" src="./images/blog/b6.jpg" alt="Author" />
+                            <span>BY TIM NORTON</span>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <h4 class="title">
+                            <a href="javascript:void(0)">
+                                5 ways to improve user retention for your startup
+                            </a>
+                        </h4>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the industry's
+                            standard.
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single News -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Latest News Area -->
+
+<!-- Start Brand Area -->
+<div id="clients" class="brand-area section">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <h6>Meet our Clients</h6>
+                        <h2 class="fw-bold">Our Awesome Clients</h2>
+                        <p>
+                            There are many variations of passages of Lorem Ipsum available,
+                            but the majority have suffered alteration in some form.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-12">
+                <div class="clients-logos">
+                    <div class="single-image">
+                        <img src="./images/client-logo/graygrids.svg" alt="Brand Logo Images" />
+                    </div>
+                    <div class="single-image">
+                        <img src="./images/client-logo/uideck.svg" alt="Brand Logo Images" />
+                    </div>
+                    <div class="single-image">
+                        <img src="./images/client-logo/ayroui.svg" alt="Brand Logo Images" />
+                    </div>
+                    <div class="single-image">
+                        <img src="./images/client-logo/lineicons.svg" alt="Brand Logo Images" />
+                    </div>
+                    <div class="single-image">
+                        <img src="./images/client-logo/tailwindtemplates.svg" alt="Brand Logo Images" />
+                    </div>
+                    <div class="single-image">
+                        <img src="./images/client-logo/ecomhtml.svg" alt="Brand Logo Images" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Brand Area -->
+
+<!-- ========================= contact-section start ========================= -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="contact-item-wrapper">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="lni lni-phone"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Contact</h4>
+                                    <p>0984537278623</p>
+                                    <p>yourmail@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="lni lni-map-marker"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Address</h4>
+                                    <p>175 5th Ave, New York, NY 10010</p>
+                                    <p>United States</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="lni lni-alarm-clock"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Schedule</h4>
+                                    <p>24 Hours / 7 Days Open</p>
+                                    <p>Office time: 10 AM - 5:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="contact-form-wrapper">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-8 mx-auto">
+                            <div class="section-title text-center">
+                                <span> Get in Touch </span>
+                                <h2>
+                                    Ready to Get Started
+                                </h2>
+                                <p>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus
+                                    quiblanditiis praesentium
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="#" class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="name" id="name" placeholder="Name" required />
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" id="email" placeholder="Email" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="phone" id="phone" placeholder="Phone" required />
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="subject" id="email" placeholder="Subject" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <textarea name="message" id="message" placeholder="Type Message" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="button text-center rounded-buttons">
+                                    <button type="submit" class="btn primary-btn rounded-full">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========================= contact-section end ========================= -->
+
+<!-- ========================= map-section end ========================= -->
+<section class="map-section map-style-9">
+    <div class="map-container">
+        <object style="border:0; height: 500px; width: 100%;"
+                data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7887109309127!2d-77.44196278417968!3d38.95165507956235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU3JzA2LjAiTiA3N8KwMjYnMjMuMiJX!5e0!3m2!1sen!2sbd!4v1545420879707"></object>
+    </div>
+    </div>
+</section>
+<!-- ========================= map-section end ========================= -->
+
+<!-- Start Footer Area -->
+<footer class="footer-area footer-eleven">
+    <!-- Start Footer Top -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="inner-content">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="footer-widget f-about">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="./images/logo.svg" alt="#" class="img-fluid" />
+                                </a>
+                            </div>
+                            <p>
+                                Making the world a better place through constructing elegant
+                                hierarchies.
+                            </p>
+                            <p class="copyright-text">
+                                <span>© 2024 Ayro UI.</span>Designed and Developed by
+                                <a href="javascript:void(0)" rel="nofollow"> Ayro UI </a>
+                            </p>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="footer-widget f-link">
+                            <h5>Solutions</h5>
+                            <ul>
+                                <li><a href="javascript:void(0)">Marketing</a></li>
+                                <li><a href="javascript:void(0)">Analytics</a></li>
+                                <li><a href="javascript:void(0)">Commerce</a></li>
+                                <li><a href="javascript:void(0)">Insights</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="footer-widget f-link">
+                            <h5>Support</h5>
+                            <ul>
+                                <li><a href="javascript:void(0)">Pricing</a></li>
+                                <li><a href="javascript:void(0)">Documentation</a></li>
+                                <li><a href="javascript:void(0)">Guides</a></li>
+                                <li><a href="javascript:void(0)">API Status</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="footer-widget newsletter">
+                            <h5>Subscribe</h5>
+                            <p>Subscribe to our newsletter for the latest updates</p>
+                            <form action="#" method="get" target="_blank" class="newsletter-form">
+                                <input name="EMAIL" placeholder="Email address" required="required" type="email" />
+                                <div class="button">
+                                    <button class="sub-btn">
+                                        <i class="lni lni-envelope"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Footer Top -->
+</footer>
+<!--/ End Footer Area -->
+
+<div class="made-in-ayroui mt-4">
+    <a href="https://ayroui.com" target="_blank" rel="nofollow">
+        <img style="width:220px" src="./images/ayroui.svg">
+    </a>
+</div>
+
+<a href="#" class="scroll-top btn-hover">
+    <i class="lni lni-chevron-up"></i>
+</a>
+
+<!--====== js ======-->
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/glightbox.min.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/tiny-slider.js"></script>
+
 <script>
-    $('.carousel').carousel({
-        interval: 2000
-    })
+
+    //===== close navbar-collapse when a  clicked
+    let navbarTogglerNine = document.querySelector(
+        ".navbar-nine .navbar-toggler"
+    );
+    navbarTogglerNine.addEventListener("click", function () {
+        navbarTogglerNine.classList.toggle("active");
+    });
+
+    // ==== left sidebar toggle
+    let sidebarLeft = document.querySelector(".sidebar-left");
+    let overlayLeft = document.querySelector(".overlay-left");
+    let sidebarClose = document.querySelector(".sidebar-close .close");
+
+    overlayLeft.addEventListener("click", function () {
+        sidebarLeft.classList.toggle("open");
+        overlayLeft.classList.toggle("open");
+    });
+    sidebarClose.addEventListener("click", function () {
+        sidebarLeft.classList.remove("open");
+        overlayLeft.classList.remove("open");
+    });
+
+    // ===== navbar nine sideMenu
+    let sideMenuLeftNine = document.querySelector(".navbar-nine .menu-bar");
+
+    sideMenuLeftNine.addEventListener("click", function () {
+        sidebarLeft.classList.add("open");
+        overlayLeft.classList.add("open");
+    });
+
+    //========= glightbox
+    GLightbox({
+        'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
 </script>
+</body>
+
+</html>

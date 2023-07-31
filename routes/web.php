@@ -36,6 +36,8 @@ Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], fun
     Route::get('/account', [CustomerAccount::class, 'index'])->name('customer.account');
     Route::get('/account/show/{id}', [CustomerAccount::class, 'show'])->name('customer.account.show');
     Route::get('/account/export', [CustomerAccount::class, 'export'])->name('customer.account.export');
+    Route::get('/customer/profile', [HomeCustomer::class, 'profile'])->name('customer.profile');
+    Route::post('/customer/updateProfile', [HomeCustomer::class, 'updateProfile'])->name('customer.updateProfile');
 });
 
 

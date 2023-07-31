@@ -16,6 +16,7 @@ class Customer extends Authenticatable
         'id',
         'email',
         'name',
+        'nick_name',
         'balance',
         'fee',
         'password',
