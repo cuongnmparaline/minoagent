@@ -7,7 +7,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!--====== Title ======-->
     <title>Business | Bootstrap 5 Business Template</title>
 
@@ -247,46 +250,50 @@
             </div>
             <div class="col-lg-6 col-12">
                 <div class="about-five-content">
-                    <h6 class="small-title text-lg">OUR STORY</h6>
-                    <h2 class="main-title fw-bold">Our team comes with the experience and knowledge</h2>
+                    <h6 class="small-title text-lg">OUR SERVICE</h6>
+                    <h2 class="main-title fw-bold">CONSUNTATION SERVICES</h2>
                     <div class="about-five-tab">
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-who-tab" data-bs-toggle="tab" data-bs-target="#nav-who"
-                                        type="button" role="tab" aria-controls="nav-who" aria-selected="true">Who We Are</button>
+                                        type="button" role="tab" aria-controls="nav-who" aria-selected="true">BUDGET OPTIMIZATION</button>
                                 <button class="nav-link" id="nav-vision-tab" data-bs-toggle="tab" data-bs-target="#nav-vision"
-                                        type="button" role="tab" aria-controls="nav-vision" aria-selected="false">our Vision</button>
+                                        type="button" role="tab" aria-controls="nav-vision" aria-selected="false">CUSTOMER
+                                    -CENTRIC</button>
                                 <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab" data-bs-target="#nav-history"
-                                        type="button" role="tab" aria-controls="nav-history" aria-selected="false">our History</button>
+                                        type="button" role="tab" aria-controls="nav-history" aria-selected="false">POTENTIAL
+                                    CUSTOMERS</button>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-who" role="tabpanel" aria-labelledby="nav-who-tab">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, look like readable English.</p>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                                    form,
-                                    by injected humour.</p>
+                            <div class="tab-pane fade show active" id="nav-who" role="tabpanel"
+                                 aria-labelledby="nav-who-tab">
+                                <p>Our team of experts is available to provide guidance and advice on running successful
+                                    Facebook ad campaigns. Whether you are new to Facebook advertising or a seasoned
+                                    pro, we can help you optimize your ad strategy and reach your target audience
+                                    effectively. Our consultation services are completely free of charge, and we are
+                                    committed to helping you achieve your advertising goals. Contact us today to
+                                    schedule a consultation and learn how we can help your business succeed with
+                                    Facebook ads.</p>
                             </div>
                             <div class="tab-pane fade" id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, look like readable English.</p>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                                    form,
-                                    by injected humour.</p>
+                                <p>Our team of experts is available to provide guidance and advice on running successful
+                                    Facebook ad campaigns. Whether you are new to Facebook advertising or a seasoned
+                                    pro, we can help you optimize your ad strategy and reach your target audience
+                                    effectively. Our consultation services are completely free of charge, and we are
+                                    committed to helping you achieve your advertising goals. Contact us today to
+                                    schedule a consultation and learn how we can help your business succeed with
+                                    Facebook ads.</p>
                             </div>
-                            <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, look like readable English.</p>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                                    form,
-                                    by injected humour.</p>
+                            <div class="tab-pane fade" id="nav-history" role="tabpanel"
+                                 aria-labelledby="nav-history-tab">
+                                <p>Our team of experts is available to provide guidance and advice on running successful
+                                    Facebook ad campaigns. Whether you are new to Facebook advertising or a seasoned
+                                    pro, we can help you optimize your ad strategy and reach your target audience
+                                    effectively. Our consultation services are completely free of charge, and we are
+                                    committed to helping you achieve your advertising goals. Contact us today to
+                                    schedule a consultation and learn how we can help your business succeed with
+                                    Facebook ads.</p>
                             </div>
                         </div>
                     </div>
@@ -307,11 +314,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="content">
-                        <h6>Services</h6>
-                        <h2 class="fw-bold">Our Best Services</h2>
+                        <h6>Fees</h6>
+                        <h2 class="fw-bold">FEE OF SERVICES</h2>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available,
-                            but the majority have suffered alteration in some form.
+                            We take fee base total spent of accs depend on the Niches and Scale
+                            We hasn’t ant other fee. Just free for Account.
                         </p>
                     </div>
                 </div>
@@ -326,84 +333,42 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single-services">
                     <div class="service-icon">
-                        <i class="lni lni-capsule"></i>
+                        <img src="./images/white-hat.svg" alt="">
                     </div>
                     <div class="service-content">
-                        <h4>Refreshing Design</h4>
+                        <h2>WHITE HAT</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                            eirmod tempor ividunt labor dolore magna.
+                            Depend on your volume
                         </p>
+                        <a style="border-radius: 56px; margin-top: 20px" class="btn primary-btn">Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="single-services">
                     <div class="service-icon">
-                        <i class="lni lni-bootstrap"></i>
+                        <img src="./images/grey-hat.svg" alt="">
                     </div>
                     <div class="service-content">
-                        <h4>Solid Bootstrap 5</h4>
+                        <h2>GREY HAT</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                            eirmod tempor ividunt labor dolore magna.
+                            Depend on your volume
                         </p>
+                        <a style="border-radius: 56px; margin-top: 20px" class="btn primary-btn">Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="single-services">
                     <div class="service-icon">
-                        <i class="lni lni-shortcode"></i>
+                        <img src="./images/black-hat.svg" alt="">
                     </div>
                     <div class="service-content">
-                        <h4>100+ Components</h4>
+                        <h2>BLACK HAT</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                            eirmod tempor ividunt labor dolore magna.
+                            Depend on your volume
                         </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-services">
-                    <div class="service-icon">
-                        <i class="lni lni-dashboard"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4>Speed Optimized</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                            eirmod tempor ividunt labor dolore magna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-services">
-                    <div class="service-icon">
-                        <i class="lni lni-layers"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4>Fully Customizable</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                            eirmod tempor ividunt labor dolore magna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-services">
-                    <div class="service-icon">
-                        <i class="lni lni-reload"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4>Regular Updates</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                            eirmod tempor ividunt labor dolore magna.
-                        </p>
+                        <a style="border-radius: 56px; margin-top: 20px" class="btn primary-btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -412,121 +377,59 @@
 </section>
 <!-- ===== service-area end ===== -->
 
+<section class="video-area video-one">
 
-<!-- Start Pricing  Area -->
-<section id="pricing" class="pricing-area pricing-fourteen">
-    <!--======  Start Section Title Five ======-->
     <div class="section-title-five">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="content">
-                        <h6>Pricing</h6>
-                        <h2 class="fw-bold">Pricing & Plans</h2>
-                        <p>
-                            There are many variations of passages of Lorem Ipsum available,
-                            but the majority have suffered alteration in some form.
-                        </p>
+                        <h6>Detail Fees</h6>
+                        <h2 class="fw-bold">DETAIL FEE OF SERVICES</h2>
                     </div>
                 </div>
             </div>
-            <!-- row -->
+
         </div>
-        <!-- container -->
+
     </div>
-    <!--======  End Section Title Five ======-->
+
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="pricing-style-fourteen">
-                    <div class="table-head">
-                        <h6 class="title">Starter</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
-                            <div class="price">
-                                <h2 class="amount">
-                                    <span class="currency">$</span>0<span class="duration">/mo </span>
-                                </h2>
-                            </div>
-                    </div>
 
-                    <div class="light-rounded-buttons">
-                        <a href="javascript:void(0)" class="btn primary-btn-outline">
-                            Start free trial
-                        </a>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="./images/bangia-1.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./images/bangia-2.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./images/bangia-3.jpg" alt="Third slide">
+                        </div>
                     </div>
-
-                    <div class="table-content">
-                        <ul class="table-list">
-                            <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                            <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                            <li> <i class="lni lni-checkmark-circle deactive"></i> Morbi leo risus.</li>
-                            <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="pricing-style-fourteen middle">
-                    <div class="table-head">
-                        <h6 class="title">Exclusive</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
-                            <div class="price">
-                                <h2 class="amount">
-                                    <span class="currency">$</span>99<span class="duration">/mo </span>
-                                </h2>
-                            </div>
-                    </div>
-
-                    <div class="light-rounded-buttons">
-                        <a href="javascript:void(0)" class="btn primary-btn">
-                            Start free trial
-                        </a>
-                    </div>
-
-                    <div class="table-content">
-                        <ul class="table-list">
-                            <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                            <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                            <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
-                            <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="pricing-style-fourteen">
-                    <div class="table-head">
-                        <h6 class="title">Premium</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
-                            <div class="price">
-                                <h2 class="amount">
-                                    <span class="currency">$</span>150<span class="duration">/mo </span>
-                                </h2>
-                            </div>
-                    </div>
-
-                    <div class="light-rounded-buttons">
-                        <a href="javascript:void(0)" class="btn primary-btn-outline">
-                            Start free trial
-                        </a>
-                    </div>
-
-                    <div class="table-content">
-                        <ul class="table-list">
-                            <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                            <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                            <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
-                            <li> <i class="lni lni-checkmark-circle"></i> Excepteur sint occaecat velit.</li>
-                        </ul>
-                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
+
     </div>
+
 </section>
-<!--/ End Pricing  Area -->
-
-
 
 <!-- Start Cta Area -->
 <section id="call-action" class="call-action">
@@ -535,13 +438,6 @@
             <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
                 <div class="inner-content">
                     <h2>We love to make perfect <br />solutions for your business</h2>
-                    <p>
-                        Why I say old chap that is, spiffing off his nut cor blimey
-                        guvnords geeza<br />
-                        bloke knees up bobby, sloshed arse William cack Richard. Bloke
-                        fanny around chesed of bum bag old lost the pilot say there
-                        spiffing off his nut.
-                    </p>
                     <div class="light-rounded-buttons">
                         <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
                     </div>
@@ -552,7 +448,179 @@
 </section>
 <!-- End Cta Area -->
 
+<section id="testimonial" class="testimonial-5">
 
+    <div class="section-title-five">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <h6>Customer Reviews</h6>
+                        <h2 class="fw-bold">WHAT OUR CLIENTS SAY</h2>
+                        <p>
+                            Clients experience during our place, and we share it with you as a reference to believe in us.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row testimonial-slider">
+            <div class="col-lg-6 col-12">
+
+                <div class="single-testimonial">
+                    <svg class="shape1" width="62" height="31" viewBox="0 0 62 31" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M-1.10459e-06 -3.51286e-06C-1.46049e-06 4.07097 0.801837 8.10209 2.35973 11.8632C3.91763 15.6243 6.20107 19.0417 9.07969 21.9203C11.9583 24.7989 15.3757 27.0824 19.1368 28.6403C22.8979 30.1982 26.929 31 31 31C35.071 31 39.1021 30.1982 42.8632 28.6403C46.6243 27.0824 50.0417 24.7989 52.9203 21.9203C55.7989 19.0417 58.0824 15.6243 59.6403 11.8632C61.1982 8.10209 62 4.07098 62 -8.02757e-07L31 -8.02758e-07L-1.10459e-06 -3.51286e-06Z"
+                            fill="#FF8686"></path>
+                    </svg>
+                    <svg class="shape2" width="82" height="74" viewBox="0 0 82 74" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="45.0005" cy="37" r="37" fill="#FE9955"></circle>
+                        <path
+                            d="M0.175359 2.73871C1.17682 4.85939 2.2739 6.88145 3.46802 8.90242C4.46524 10.732 5.46811 12.9497 6.94627 14.4811C7.73528 15.3431 9.37218 14.4457 8.96708 13.287C8.96708 13.287 8.96566 13.1899 8.86863 13.1913C9.05846 12.8974 9.2497 12.7003 9.53657 12.4052C9.63361 12.4037 9.82627 12.304 9.92331 12.3026C10.116 12.2027 10.3072 12.0059 10.4985 11.8088C15.7794 14.5465 21.0575 17.0902 25.9574 20.3188C27.4271 21.268 28.8012 22.3157 30.081 23.5587C25.1774 26.7359 19.5257 31.8654 20.6822 37.9632C22.255 45.996 30.8275 41.5036 33.678 37.2886C37.1963 32.2874 36.94 28.0206 33.4815 23.8005C36.7525 21.8117 40.4199 20.3993 44.0133 20.5412C52.6538 20.7066 54.2222 28.4483 52.0851 34.9823C49.548 34.0486 46.6328 33.7999 44.1182 34.4189C39.5716 35.4557 35.5978 42.5017 38.8594 46.5306C42.1196 50.4625 50.1618 42.8719 51.7762 40.422C52.2515 39.7356 52.7252 38.9523 53.1021 38.1703C53.2005 38.266 53.2977 38.2645 53.396 38.3602C60.4477 42.7221 54.5176 48.729 49.6083 51.5181C48.8377 51.9175 49.5325 52.975 50.3045 52.6726C55.415 50.3659 61.3648 45.7175 57.7824 39.6551C56.8879 38.2123 55.6081 36.9692 54.0428 36.1184C56.0998 30.7503 56.0094 24.5398 51.101 20.7292C45.211 16.1562 37.6845 19.1774 32.1017 22.3646C32.0032 22.2691 32.0032 22.2691 31.9048 22.1733C26.4872 16.7199 18.8689 13.4339 12.0254 10.0395C12.5007 9.3532 12.9746 8.56968 13.4499 7.88351C13.7339 7.39393 13.627 6.71609 13.2332 6.33375C9.89298 3.56774 5.88339 1.49089 1.50686 0.875232C0.435374 0.599667 -0.325372 1.67822 0.175359 2.73871ZM33.341 27.4905C35.5295 31.1468 32.9632 34.8724 30.4799 37.6262C27.2329 41.2646 21.8818 40.372 22.8688 34.8253C23.41 32.0028 25.9005 29.7342 27.9114 27.8608C28.9646 26.8749 30.2118 25.886 31.5576 24.9929C32.2483 25.7593 32.8433 26.6243 33.341 27.4905ZM51.1458 37.131C49.8256 39.7708 47.913 41.7398 45.5099 43.3277C44.4523 44.0226 43.2964 44.6217 42.0392 44.9312C38.7541 45.9496 40.3273 40.6856 40.9868 39.3172C42.9709 35.6001 47.6329 35.8234 51.1458 37.131ZM10.7274 7.53494C10.7288 7.63198 10.6318 7.63339 10.6332 7.73043C10.3421 7.73467 10.0538 7.93314 9.86536 8.32395C9.58414 9.00745 9.20589 9.69236 8.82764 10.3774C8.63781 10.6714 8.06407 11.2621 8.25814 11.2592C8.16111 11.2607 8.06548 11.3591 8.0669 11.4561C7.46913 10.3974 6.67729 9.34112 6.07953 8.28236C5.28345 6.93515 4.48596 5.4909 3.68846 4.0465C6.12426 4.69011 8.56855 5.91625 10.7274 7.53494Z"
+                            fill="#7C451F"></path>
+                    </svg>
+                    <div class="inner-content">
+                        <div class="qote-icon">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <p class="text">
+                            On the other hand denoun with righteous and disliks men who
+                            are beguiled demorae momentc blinded by desire that can
+                        </p>
+                        <div class="author">
+                            <div class="image">
+                                <img src="./images/testimonial/author-1.jpg" alt="Author">
+                            </div>
+                            <h4 class="name">
+                                Musharof Chowdhury
+                                <span class="deg">Web Entrepreneur</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-12">
+
+                <div class="single-testimonial">
+                    <svg class="shape1" width="62" height="31" viewBox="0 0 62 31" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M-1.10459e-06 -3.51286e-06C-1.46049e-06 4.07097 0.801837 8.10209 2.35973 11.8632C3.91763 15.6243 6.20107 19.0417 9.07969 21.9203C11.9583 24.7989 15.3757 27.0824 19.1368 28.6403C22.8979 30.1982 26.929 31 31 31C35.071 31 39.1021 30.1982 42.8632 28.6403C46.6243 27.0824 50.0417 24.7989 52.9203 21.9203C55.7989 19.0417 58.0824 15.6243 59.6403 11.8632C61.1982 8.10209 62 4.07098 62 -8.02757e-07L31 -8.02758e-07L-1.10459e-06 -3.51286e-06Z"
+                            fill="#FF8686"></path>
+                    </svg>
+                    <svg class="shape2" width="82" height="74" viewBox="0 0 82 74" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="45.0005" cy="37" r="37" fill="#FE9955"></circle>
+                        <path
+                            d="M0.175359 2.73871C1.17682 4.85939 2.2739 6.88145 3.46802 8.90242C4.46524 10.732 5.46811 12.9497 6.94627 14.4811C7.73528 15.3431 9.37218 14.4457 8.96708 13.287C8.96708 13.287 8.96566 13.1899 8.86863 13.1913C9.05846 12.8974 9.2497 12.7003 9.53657 12.4052C9.63361 12.4037 9.82627 12.304 9.92331 12.3026C10.116 12.2027 10.3072 12.0059 10.4985 11.8088C15.7794 14.5465 21.0575 17.0902 25.9574 20.3188C27.4271 21.268 28.8012 22.3157 30.081 23.5587C25.1774 26.7359 19.5257 31.8654 20.6822 37.9632C22.255 45.996 30.8275 41.5036 33.678 37.2886C37.1963 32.2874 36.94 28.0206 33.4815 23.8005C36.7525 21.8117 40.4199 20.3993 44.0133 20.5412C52.6538 20.7066 54.2222 28.4483 52.0851 34.9823C49.548 34.0486 46.6328 33.7999 44.1182 34.4189C39.5716 35.4557 35.5978 42.5017 38.8594 46.5306C42.1196 50.4625 50.1618 42.8719 51.7762 40.422C52.2515 39.7356 52.7252 38.9523 53.1021 38.1703C53.2005 38.266 53.2977 38.2645 53.396 38.3602C60.4477 42.7221 54.5176 48.729 49.6083 51.5181C48.8377 51.9175 49.5325 52.975 50.3045 52.6726C55.415 50.3659 61.3648 45.7175 57.7824 39.6551C56.8879 38.2123 55.6081 36.9692 54.0428 36.1184C56.0998 30.7503 56.0094 24.5398 51.101 20.7292C45.211 16.1562 37.6845 19.1774 32.1017 22.3646C32.0032 22.2691 32.0032 22.2691 31.9048 22.1733C26.4872 16.7199 18.8689 13.4339 12.0254 10.0395C12.5007 9.3532 12.9746 8.56968 13.4499 7.88351C13.7339 7.39393 13.627 6.71609 13.2332 6.33375C9.89298 3.56774 5.88339 1.49089 1.50686 0.875232C0.435374 0.599667 -0.325372 1.67822 0.175359 2.73871ZM33.341 27.4905C35.5295 31.1468 32.9632 34.8724 30.4799 37.6262C27.2329 41.2646 21.8818 40.372 22.8688 34.8253C23.41 32.0028 25.9005 29.7342 27.9114 27.8608C28.9646 26.8749 30.2118 25.886 31.5576 24.9929C32.2483 25.7593 32.8433 26.6243 33.341 27.4905ZM51.1458 37.131C49.8256 39.7708 47.913 41.7398 45.5099 43.3277C44.4523 44.0226 43.2964 44.6217 42.0392 44.9312C38.7541 45.9496 40.3273 40.6856 40.9868 39.3172C42.9709 35.6001 47.6329 35.8234 51.1458 37.131ZM10.7274 7.53494C10.7288 7.63198 10.6318 7.63339 10.6332 7.73043C10.3421 7.73467 10.0538 7.93314 9.86536 8.32395C9.58414 9.00745 9.20589 9.69236 8.82764 10.3774C8.63781 10.6714 8.06407 11.2621 8.25814 11.2592C8.16111 11.2607 8.06548 11.3591 8.0669 11.4561C7.46913 10.3974 6.67729 9.34112 6.07953 8.28236C5.28345 6.93515 4.48596 5.4909 3.68846 4.0465C6.12426 4.69011 8.56855 5.91625 10.7274 7.53494Z"
+                            fill="#7C451F"></path>
+                    </svg>
+                    <div class="inner-content">
+                        <div class="qote-icon">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <p class="text">
+                            On the other hand denoun with righteous and disliks men who
+                            are beguiled demorae momentc blinded by desire that can
+                        </p>
+                        <div class="author">
+                            <div class="image">
+                                <img src="./images/testimonial/author-2.jpg" alt="Author">
+                            </div>
+                            <h4 class="name">
+                                David Warner
+                                <span class="deg">Web Developer</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-12">
+
+                <div class="single-testimonial">
+                    <svg class="shape1" width="62" height="31" viewBox="0 0 62 31" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M-1.10459e-06 -3.51286e-06C-1.46049e-06 4.07097 0.801837 8.10209 2.35973 11.8632C3.91763 15.6243 6.20107 19.0417 9.07969 21.9203C11.9583 24.7989 15.3757 27.0824 19.1368 28.6403C22.8979 30.1982 26.929 31 31 31C35.071 31 39.1021 30.1982 42.8632 28.6403C46.6243 27.0824 50.0417 24.7989 52.9203 21.9203C55.7989 19.0417 58.0824 15.6243 59.6403 11.8632C61.1982 8.10209 62 4.07098 62 -8.02757e-07L31 -8.02758e-07L-1.10459e-06 -3.51286e-06Z"
+                            fill="#FF8686"></path>
+                    </svg>
+                    <svg class="shape2" width="82" height="74" viewBox="0 0 82 74" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="45.0005" cy="37" r="37" fill="#FE9955"></circle>
+                        <path
+                            d="M0.175359 2.73871C1.17682 4.85939 2.2739 6.88145 3.46802 8.90242C4.46524 10.732 5.46811 12.9497 6.94627 14.4811C7.73528 15.3431 9.37218 14.4457 8.96708 13.287C8.96708 13.287 8.96566 13.1899 8.86863 13.1913C9.05846 12.8974 9.2497 12.7003 9.53657 12.4052C9.63361 12.4037 9.82627 12.304 9.92331 12.3026C10.116 12.2027 10.3072 12.0059 10.4985 11.8088C15.7794 14.5465 21.0575 17.0902 25.9574 20.3188C27.4271 21.268 28.8012 22.3157 30.081 23.5587C25.1774 26.7359 19.5257 31.8654 20.6822 37.9632C22.255 45.996 30.8275 41.5036 33.678 37.2886C37.1963 32.2874 36.94 28.0206 33.4815 23.8005C36.7525 21.8117 40.4199 20.3993 44.0133 20.5412C52.6538 20.7066 54.2222 28.4483 52.0851 34.9823C49.548 34.0486 46.6328 33.7999 44.1182 34.4189C39.5716 35.4557 35.5978 42.5017 38.8594 46.5306C42.1196 50.4625 50.1618 42.8719 51.7762 40.422C52.2515 39.7356 52.7252 38.9523 53.1021 38.1703C53.2005 38.266 53.2977 38.2645 53.396 38.3602C60.4477 42.7221 54.5176 48.729 49.6083 51.5181C48.8377 51.9175 49.5325 52.975 50.3045 52.6726C55.415 50.3659 61.3648 45.7175 57.7824 39.6551C56.8879 38.2123 55.6081 36.9692 54.0428 36.1184C56.0998 30.7503 56.0094 24.5398 51.101 20.7292C45.211 16.1562 37.6845 19.1774 32.1017 22.3646C32.0032 22.2691 32.0032 22.2691 31.9048 22.1733C26.4872 16.7199 18.8689 13.4339 12.0254 10.0395C12.5007 9.3532 12.9746 8.56968 13.4499 7.88351C13.7339 7.39393 13.627 6.71609 13.2332 6.33375C9.89298 3.56774 5.88339 1.49089 1.50686 0.875232C0.435374 0.599667 -0.325372 1.67822 0.175359 2.73871ZM33.341 27.4905C35.5295 31.1468 32.9632 34.8724 30.4799 37.6262C27.2329 41.2646 21.8818 40.372 22.8688 34.8253C23.41 32.0028 25.9005 29.7342 27.9114 27.8608C28.9646 26.8749 30.2118 25.886 31.5576 24.9929C32.2483 25.7593 32.8433 26.6243 33.341 27.4905ZM51.1458 37.131C49.8256 39.7708 47.913 41.7398 45.5099 43.3277C44.4523 44.0226 43.2964 44.6217 42.0392 44.9312C38.7541 45.9496 40.3273 40.6856 40.9868 39.3172C42.9709 35.6001 47.6329 35.8234 51.1458 37.131ZM10.7274 7.53494C10.7288 7.63198 10.6318 7.63339 10.6332 7.73043C10.3421 7.73467 10.0538 7.93314 9.86536 8.32395C9.58414 9.00745 9.20589 9.69236 8.82764 10.3774C8.63781 10.6714 8.06407 11.2621 8.25814 11.2592C8.16111 11.2607 8.06548 11.3591 8.0669 11.4561C7.46913 10.3974 6.67729 9.34112 6.07953 8.28236C5.28345 6.93515 4.48596 5.4909 3.68846 4.0465C6.12426 4.69011 8.56855 5.91625 10.7274 7.53494Z"
+                            fill="#7C451F"></path>
+                    </svg>
+                    <div class="inner-content">
+                        <div class="qote-icon">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <p class="text">
+                            On the other hand denoun with righteous and disliks men who
+                            are beguiled demorae momentc blinded by desire that can
+                        </p>
+                        <div class="author">
+                            <div class="image">
+                                <img src="./images/testimonial/author-3.jpg" alt="Author">
+                            </div>
+                            <h4 class="name">
+                                Jems Gilario
+                                <span class="deg">Graphics Designer</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-12">
+
+                <div class="single-testimonial">
+                    <svg class="shape1" width="62" height="31" viewBox="0 0 62 31" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M-1.10459e-06 -3.51286e-06C-1.46049e-06 4.07097 0.801837 8.10209 2.35973 11.8632C3.91763 15.6243 6.20107 19.0417 9.07969 21.9203C11.9583 24.7989 15.3757 27.0824 19.1368 28.6403C22.8979 30.1982 26.929 31 31 31C35.071 31 39.1021 30.1982 42.8632 28.6403C46.6243 27.0824 50.0417 24.7989 52.9203 21.9203C55.7989 19.0417 58.0824 15.6243 59.6403 11.8632C61.1982 8.10209 62 4.07098 62 -8.02757e-07L31 -8.02758e-07L-1.10459e-06 -3.51286e-06Z"
+                            fill="#FF8686"></path>
+                    </svg>
+                    <svg class="shape2" width="82" height="74" viewBox="0 0 82 74" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="45.0005" cy="37" r="37" fill="#FE9955"></circle>
+                        <path
+                            d="M0.175359 2.73871C1.17682 4.85939 2.2739 6.88145 3.46802 8.90242C4.46524 10.732 5.46811 12.9497 6.94627 14.4811C7.73528 15.3431 9.37218 14.4457 8.96708 13.287C8.96708 13.287 8.96566 13.1899 8.86863 13.1913C9.05846 12.8974 9.2497 12.7003 9.53657 12.4052C9.63361 12.4037 9.82627 12.304 9.92331 12.3026C10.116 12.2027 10.3072 12.0059 10.4985 11.8088C15.7794 14.5465 21.0575 17.0902 25.9574 20.3188C27.4271 21.268 28.8012 22.3157 30.081 23.5587C25.1774 26.7359 19.5257 31.8654 20.6822 37.9632C22.255 45.996 30.8275 41.5036 33.678 37.2886C37.1963 32.2874 36.94 28.0206 33.4815 23.8005C36.7525 21.8117 40.4199 20.3993 44.0133 20.5412C52.6538 20.7066 54.2222 28.4483 52.0851 34.9823C49.548 34.0486 46.6328 33.7999 44.1182 34.4189C39.5716 35.4557 35.5978 42.5017 38.8594 46.5306C42.1196 50.4625 50.1618 42.8719 51.7762 40.422C52.2515 39.7356 52.7252 38.9523 53.1021 38.1703C53.2005 38.266 53.2977 38.2645 53.396 38.3602C60.4477 42.7221 54.5176 48.729 49.6083 51.5181C48.8377 51.9175 49.5325 52.975 50.3045 52.6726C55.415 50.3659 61.3648 45.7175 57.7824 39.6551C56.8879 38.2123 55.6081 36.9692 54.0428 36.1184C56.0998 30.7503 56.0094 24.5398 51.101 20.7292C45.211 16.1562 37.6845 19.1774 32.1017 22.3646C32.0032 22.2691 32.0032 22.2691 31.9048 22.1733C26.4872 16.7199 18.8689 13.4339 12.0254 10.0395C12.5007 9.3532 12.9746 8.56968 13.4499 7.88351C13.7339 7.39393 13.627 6.71609 13.2332 6.33375C9.89298 3.56774 5.88339 1.49089 1.50686 0.875232C0.435374 0.599667 -0.325372 1.67822 0.175359 2.73871ZM33.341 27.4905C35.5295 31.1468 32.9632 34.8724 30.4799 37.6262C27.2329 41.2646 21.8818 40.372 22.8688 34.8253C23.41 32.0028 25.9005 29.7342 27.9114 27.8608C28.9646 26.8749 30.2118 25.886 31.5576 24.9929C32.2483 25.7593 32.8433 26.6243 33.341 27.4905ZM51.1458 37.131C49.8256 39.7708 47.913 41.7398 45.5099 43.3277C44.4523 44.0226 43.2964 44.6217 42.0392 44.9312C38.7541 45.9496 40.3273 40.6856 40.9868 39.3172C42.9709 35.6001 47.6329 35.8234 51.1458 37.131ZM10.7274 7.53494C10.7288 7.63198 10.6318 7.63339 10.6332 7.73043C10.3421 7.73467 10.0538 7.93314 9.86536 8.32395C9.58414 9.00745 9.20589 9.69236 8.82764 10.3774C8.63781 10.6714 8.06407 11.2621 8.25814 11.2592C8.16111 11.2607 8.06548 11.3591 8.0669 11.4561C7.46913 10.3974 6.67729 9.34112 6.07953 8.28236C5.28345 6.93515 4.48596 5.4909 3.68846 4.0465C6.12426 4.69011 8.56855 5.91625 10.7274 7.53494Z"
+                            fill="#7C451F"></path>
+                    </svg>
+                    <div class="inner-content">
+                        <div class="qote-icon">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <p class="text">
+                            On the other hand denoun with righteous and disliks men who
+                            are beguiled demorae momentc blinded by desire that can
+                        </p>
+                        <div class="author">
+                            <div class="image">
+                                <img src="./images/testimonial/author-4.jpg" alt="Author">
+                            </div>
+                            <h4 class="name">
+                                David Warner
+                                <span class="deg">Web Developer</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Start Latest News Area -->
 <div id="blog" class="latest-news-area section">
@@ -562,7 +630,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="content">
-                        <h6>latest news</h6>
+                        <h6>Latest news</h6>
                         <h2 class="fw-bold">Latest News & Blog</h2>
                         <p>
                             There are many variations of passages of Lorem Ipsum available,
@@ -655,57 +723,6 @@
     </div>
 </div>
 <!-- End Latest News Area -->
-
-<!-- Start Brand Area -->
-<div id="clients" class="brand-area section">
-    <!--======  Start Section Title Five ======-->
-    <div class="section-title-five">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="content">
-                        <h6>Meet our Clients</h6>
-                        <h2 class="fw-bold">Our Awesome Clients</h2>
-                        <p>
-                            There are many variations of passages of Lorem Ipsum available,
-                            but the majority have suffered alteration in some form.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- row -->
-        </div>
-        <!-- container -->
-    </div>
-    <!--======  End Section Title Five ======-->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-12">
-                <div class="clients-logos">
-                    <div class="single-image">
-                        <img src="./images/client-logo/graygrids.svg" alt="Brand Logo Images" />
-                    </div>
-                    <div class="single-image">
-                        <img src="./images/client-logo/uideck.svg" alt="Brand Logo Images" />
-                    </div>
-                    <div class="single-image">
-                        <img src="./images/client-logo/ayroui.svg" alt="Brand Logo Images" />
-                    </div>
-                    <div class="single-image">
-                        <img src="./images/client-logo/lineicons.svg" alt="Brand Logo Images" />
-                    </div>
-                    <div class="single-image">
-                        <img src="./images/client-logo/tailwindtemplates.svg" alt="Brand Logo Images" />
-                    </div>
-                    <div class="single-image">
-                        <img src="./images/client-logo/ecomhtml.svg" alt="Brand Logo Images" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Brand Area -->
 
 <!-- ========================= contact-section start ========================= -->
 <section id="contact" class="contact-section">
@@ -808,15 +825,6 @@
 </section>
 <!-- ========================= contact-section end ========================= -->
 
-<!-- ========================= map-section end ========================= -->
-<section class="map-section map-style-9">
-    <div class="map-container">
-        <object style="border:0; height: 500px; width: 100%;"
-                data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7887109309127!2d-77.44196278417968!3d38.95165507956235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU3JzA2LjAiTiA3N8KwMjYnMjMuMiJX!5e0!3m2!1sen!2sbd!4v1545420879707"></object>
-    </div>
-    </div>
-</section>
-<!-- ========================= map-section end ========================= -->
 
 <!-- Start Footer Area -->
 <footer class="footer-area footer-eleven">
@@ -911,6 +919,9 @@
 <script src="./js/tiny-slider.js"></script>
 
 <script>
+    $('.carousel').carousel({
+        interval: 2000
+    })
 
     //===== close navbar-collapse when a  clicked
     let navbarTogglerNine = document.querySelector(
