@@ -913,10 +913,6 @@
 <script src="./js/tiny-slider.js"></script>
 
 <script>
-    $('.carousel').carousel({
-        interval: 2000
-    })
-
     //===== close navbar-collapse when a  clicked
     let navbarTogglerNine = document.querySelector(
         ".navbar-nine .navbar-toggler"
