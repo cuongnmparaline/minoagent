@@ -734,7 +734,7 @@
                 <div class="contact-item-wrapper">
                     <div class="row">
                         <div class="col-12 col-md-6 col-xl-12">
-                            <select class="form-select faq-select" aria-label="Default select example">
+                            <select class="form-select faq-select mb-sm-2 mb-md-4" aria-label="Default select example">
                                 <option selected>About the services of Calin</option>
                                 <option value="1">About the services of Calin</option>
                                 <option value="2">About the amount to use Calin’s services</option>
