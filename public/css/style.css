@@ -1873,7 +1873,7 @@ p {
 }
 
 .contact-form-wrapper {
-  padding: 50px 40px;
+  padding: 40px 30px;
   background: var(--white);
   border: 1px solid var(--gray-4);
   margin-left: 0px;
@@ -1935,7 +1935,6 @@ p {
 .map-style-9 {
   margin-top: -130px;
 }
-
 
 /* Footer eleven css */
 .footer-eleven {
@@ -2001,6 +2000,17 @@ p {
 .footer-eleven .f-about .copyright-text a:hover {
   color: var(--primary-dark);
 }
+
+.footer-eleven .f-about h3 {
+    margin-top: 20px;
+    color: #282A2D;
+    font-size: 30px;
+    font-family: 'Be Vietnam Pro';
+    font-weight: 600;
+    line-height: 32px;
+    word-wrap: break-word;
+}
+
 .footer-eleven .f-link li {
   display: block;
   margin-bottom: 12px;

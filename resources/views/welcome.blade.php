@@ -7,12 +7,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/logo.svg" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!--====== Title ======-->
-    <title>Business | Bootstrap 5 Business Template</title>
+    <title>Calin Agency | Facebook Advertise Service</title>
 
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg" />
@@ -732,92 +734,25 @@
                 <div class="contact-item-wrapper">
                     <div class="row">
                         <div class="col-12 col-md-6 col-xl-12">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="lni lni-phone"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <h4>Contact</h4>
-                                    <p>0984537278623</p>
-                                    <p>yourmail@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-xl-12">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="lni lni-map-marker"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <h4>Address</h4>
-                                    <p>175 5th Ave, New York, NY 10010</p>
-                                    <p>United States</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-xl-12">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="lni lni-alarm-clock"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <h4>Schedule</h4>
-                                    <p>24 Hours / 7 Days Open</p>
-                                    <p>Office time: 10 AM - 5:30 PM</p>
-                                </div>
-                            </div>
+                            <select class="form-select faq-select" aria-label="Default select example">
+                                <option selected>About the services of Calin</option>
+                                <option value="1">About the services of Calin</option>
+                                <option value="2">About the amount to use Calin’s services</option>
+                                <option value="3">About the ad account is locked</option>
+                                <option value="4">About the minimum & maximum deposit and budget</option>
+                                <option value="5">About the ad account is disabled</option>
+                                <option value="6">About the payment method</option>
+                                <option value="7">About how to access ad account after deposit</option>
+                                <option value="8">About credit card rental service</option>
+                                <option value="9">About the remaining balance when use credit card</option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-8">
                 <div class="contact-form-wrapper">
-                    <div class="row">
-                        <div class="col-xl-10 col-lg-8 mx-auto">
-                            <div class="section-title text-center">
-                                <span> Get in Touch </span>
-                                <h2>
-                                    Ready to Get Started
-                                </h2>
-                                <p>
-                                    At vero eos et accusamus et iusto odio dignissimos ducimus
-                                    quiblanditiis praesentium
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <form action="#" class="contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="name" id="name" placeholder="Name" required />
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" name="email" id="email" placeholder="Email" required />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="phone" id="phone" placeholder="Phone" required />
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" name="subject" id="email" placeholder="Subject" required />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <textarea name="message" id="message" placeholder="Type Message" rows="5"></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="button text-center rounded-buttons">
-                                    <button type="submit" class="btn primary-btn rounded-full">
-                                        Send Message
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    <img src="./images/faq-example.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -837,17 +772,15 @@
                         <!-- Single Widget -->
                         <div class="footer-widget f-about">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="">
                                     <img src="./images/logo.svg" alt="#" class="img-fluid" />
                                 </a>
                             </div>
-                            <p>
-                                Making the world a better place through constructing elegant
-                                hierarchies.
-                            </p>
+                            <h3>
+                                Make Your Business Grow With Us.
+                            </h3>
                             <p class="copyright-text">
-                                <span>© 2024 Ayro UI.</span>Designed and Developed by
-                                <a href="javascript:void(0)" rel="nofollow"> Ayro UI </a>
+                                <span>© Copyright Calin Agency. All rights reserved</span>
                             </p>
                         </div>
                         <!-- End Single Widget -->
@@ -855,12 +788,11 @@
                     <div class="col-lg-2 col-md-6 col-12">
                         <!-- Single Widget -->
                         <div class="footer-widget f-link">
-                            <h5>Solutions</h5>
                             <ul>
-                                <li><a href="javascript:void(0)">Marketing</a></li>
-                                <li><a href="javascript:void(0)">Analytics</a></li>
-                                <li><a href="javascript:void(0)">Commerce</a></li>
-                                <li><a href="javascript:void(0)">Insights</a></li>
+                                <li><a href="javascript:void(0)">About</a></li>
+                                <li><a href="javascript:void(0)">Partners Relations</a></li>
+                                <li><a href="javascript:void(0)">Press</a></li>
+                                <li><a href="javascript:void(0)">Blog</a></li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->
@@ -868,29 +800,33 @@
                     <div class="col-lg-2 col-md-6 col-12">
                         <!-- Single Widget -->
                         <div class="footer-widget f-link">
-                            <h5>Support</h5>
                             <ul>
-                                <li><a href="javascript:void(0)">Pricing</a></li>
-                                <li><a href="javascript:void(0)">Documentation</a></li>
-                                <li><a href="javascript:void(0)">Guides</a></li>
-                                <li><a href="javascript:void(0)">API Status</a></li>
+                                <li><a href="javascript:void(0)">Company</a></li>
+                                <li><a href="javascript:void(0)">Teams</a></li>
+                                <li><a href="javascript:void(0)">Contact Us</a></li>
+                                <li><a href="javascript:void(0)">Helps</a></li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="col-lg-2 col-md-6 col-12">
                         <!-- Single Widget -->
-                        <div class="footer-widget newsletter">
-                            <h5>Subscribe</h5>
-                            <p>Subscribe to our newsletter for the latest updates</p>
-                            <form action="#" method="get" target="_blank" class="newsletter-form">
-                                <input name="EMAIL" placeholder="Email address" required="required" type="email" />
-                                <div class="button">
-                                    <button class="sub-btn">
-                                        <i class="lni lni-envelope"></i>
-                                    </button>
-                                </div>
-                            </form>
+                        <div class="footer-widget f-link">
+                            <ul>
+                                <li><a href="javascript:void(0)">Careers</a></li>
+                                <li><a href="javascript:void(0)">Support</a></li>
+                                <li><a href="javascript:void(0)">Affiliate</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="footer-widget f-link">
+                            <ul>
+                                <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                            </ul>
                         </div>
                         <!-- End Single Widget -->
                     </div>
