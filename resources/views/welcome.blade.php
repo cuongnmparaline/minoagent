@@ -61,12 +61,17 @@
                             <li class="nav-item">
                                 <a class="page-scroll" href="#services">Services</a>
                             </li>
-
                             <li class="nav-item">
-                                <a class="page-scroll" href="#pricing">Pricing</a>
+                                <a class="page-scroll" href="#fees">Fees</a>
                             </li>
                             <li class="nav-item">
-                                <a class="page-scroll" href="#contact">Contact</a>
+                                <a class="page-scroll" href="#testimonial">Rating</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="page-scroll" href="#blog">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="page-scroll" href="#faq">FAQ</a>
                             </li>
                         </ul>
                     </div>
@@ -159,7 +164,7 @@
 
 <!--====== ABOUT FIVE PART START ======-->
 
-<section class="about-area about-five">
+<section id="services" class="about-area about-five">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-12">
@@ -309,7 +314,7 @@
 <!--====== ABOUT FIVE PART ENDS ======-->
 
 <!-- ===== service-area start ===== -->
-<section id="services" class="services-area services-eight">
+<section id="fees" class="services-area services-eight">
     <!--======  Start Section Title Five ======-->
     <div class="section-title-five">
         <div class="container">
@@ -727,7 +732,7 @@
 <!-- End Latest News Area -->
 
 <!-- ========================= contact-section start ========================= -->
-<section id="contact" class="contact-section">
+<section id="faq" class="contact-section">
     <div class="container">
         <div class="row">
             <div class="col-xl-4">
