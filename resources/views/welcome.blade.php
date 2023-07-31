@@ -903,7 +903,7 @@
 <!--/ End Footer Area -->
 
 <div class="made-in-ayroui mt-4">
-    <a href="https://ayroui.com" target="_blank" rel="nofollow">
+    <a href="https://t.me/catherine1677" target="_blank" rel="nofollow">
        <img style="width: 220px" src="./images/telecalin.svg">
     </a>
 </div>
