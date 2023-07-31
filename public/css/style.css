@@ -1533,6 +1533,9 @@ p {
 
 @media only screen and (min-width:768px) and (max-width:991px),
 (max-width:767px) {
+    .testimonial-5 {
+        padding: 80px;
+    }
     .testimonial-5 .tns-nav {
         bottom: 70px
     }
@@ -1567,6 +1570,9 @@ p {
 @media(max-width:767px) {
     .testimonial-5 .single-testimonial {
         padding: 50px 40px
+    }
+    .testimonial-5 {
+        padding: 60px 0;
     }
 }
 
