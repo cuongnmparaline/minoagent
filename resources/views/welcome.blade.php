@@ -31,7 +31,7 @@
     <!--====== gLightBox css ======-->
     <link rel="stylesheet" href="./css/glightbox.min.css" />
 
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/welcome.css" />
 </head>
 
 <body>
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="navbar-btn d-none d-lg-inline-block">
-                        <a class="menu-bar" href="#side-menu-left"><i class="lni lni-menu"></i></a>
+                        <a style="font-size: 12px" class="menu-bar" href="{{ route('customer.login') }}">Login <i class="lni lni-menu"></i></a>
                     </div>
                 </nav>
                 <!-- navbar -->
@@ -87,55 +87,6 @@
     </div>
     <!-- container -->
 </section>
-
-<!--====== NAVBAR NINE PART ENDS ======-->
-
-<!--====== SIDEBAR PART START ======-->
-
-<div class="sidebar-left">
-    <div class="sidebar-close">
-        <a class="close" href="#close"><i class="lni lni-close"></i></a>
-    </div>
-    <div class="sidebar-content">
-        <div class="sidebar-logo">
-            <a href="index.html"><img src="./images/logo.svg" alt="Logo" /></a>
-        </div>
-        <p class="text">Lorem ipsum dolor sit amet adipisicing elit. Sapiente fuga nisi rerum iusto intro.</p>
-        <!-- logo -->
-        <div class="sidebar-menu">
-            <h5 class="menu-title">Quick Links</h5>
-            <ul>
-                <li><a href="javascript:void(0)">About Us</a></li>
-                <li><a href="javascript:void(0)">Our Team</a></li>
-                <li><a href="javascript:void(0)">Latest News</a></li>
-                <li><a href="javascript:void(0)">Contact Us</a></li>
-            </ul>
-        </div>
-        <!-- menu -->
-        <div class="sidebar-social align-items-center justify-content-center">
-            <h5 class="social-title">Follow Us On</h5>
-            <ul>
-                <li>
-                    <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="lni lni-youtube"></i></a>
-                </li>
-            </ul>
-        </div>
-        <!-- sidebar social -->
-    </div>
-    <!-- content -->
-</div>
-<div class="overlay-left"></div>
-
-<!--====== SIDEBAR PART ENDS ======-->
 
 <!-- Start header Area -->
 <section id="hero-area" class="header-area header-eight">
@@ -148,7 +99,7 @@
                         We ofer a solution for partners who want to run their products but do not have a healthy META ads account or page to do so. We accept all products from our partners, including GAMING, CRYPTO, RECRUITMENT, INVESTMENT, and more, and ensure that they will not experience any interruptions while running their ads. We can provide multiple accounts to our partners, and if any account fails, we will replace it immediately to ensure the continuity of our clients’ advertising campaigns.
                     </p>
                     <div class="button">
-                        <a href="javascript:void(0)" class="btn primary-btn">Get Started</a>
+                        <a href="{{ route('customer.login') }}" class="btn primary-btn">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -446,7 +397,7 @@
                 <div class="inner-content">
                     <h2>We love to make perfect <br />solutions for your business</h2>
                     <div class="light-rounded-buttons">
-                        <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
+                        <a href="{{ route('customer.login') }}" class="btn primary-btn-outline">Get Started</a>
                     </div>
                 </div>
             </div>
