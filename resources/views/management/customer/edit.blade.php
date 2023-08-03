@@ -18,6 +18,14 @@
                             @endif
                         </div>
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control"
+                                   placeholder="Nick Name" name="nick_name" value="{{ $customer->nick_name }}">
+                            <label for="floatingInput">Nick Name</label>
+                            @if ($errors->has('nick_name'))
+                                <p style="color: #ff0000">{{ $errors->first('nick_name') }}</p>
+                            @endif
+                        </div>
+                        <div class="form-floating mb-3">
                             <input type="email" class="form-control"
                                    placeholder="name@example.com" name="email" value="{{ $customer->email }}">
                             <label for="floatingInput">Email address</label>
