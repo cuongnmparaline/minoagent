@@ -740,11 +740,11 @@ p {
   overflow: hidden;
   color: var(--white);
   height: 40px;
-  width: 40px;
+  width: 90px;
   line-height: 40px;
   text-align: center;
   border: 1px solid rgba(238, 238, 238, 0.425);
-  border-radius: 50%;
+  border-radius: 4%;
   -webkit-transition: all 0.3s ease-out 0s;
   -moz-transition: all 0.3s ease-out 0s;
   -ms-transition: all 0.3s ease-out 0s;
