@@ -79,7 +79,7 @@
                     <div class="navbar-btn d-none d-lg-inline-block">
                         <a style="font-size: 18px;
     background: white;
-    color: orange;
+    color: #FD8126;
     font-weight: bold;" class="menu-bar" href="{{ route('customer.login') }}">Login <i class="lni lni-backward"></i></a>
                     </div>
                 </nav>
