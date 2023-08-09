@@ -672,28 +672,48 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-4">
-                <div class="contact-item-wrapper">
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-xl-12 mb-3">
-                            <select class="form-select faq-select" aria-label="Default select example">
-                                <option selected>About the services of Calin</option>
-                                <option value="1">About the services of Calin</option>
-                                <option value="2">About the amount to use Calin’s services</option>
-                                <option value="3">About the ad account is locked</option>
-                                <option value="4">About the minimum & maximum deposit and budget</option>
-                                <option value="5">About the ad account is disabled</option>
-                                <option value="6">About the payment method</option>
-                                <option value="7">About how to access ad account after deposit</option>
-                                <option value="8">About credit card rental service</option>
-                                <option value="9">About the remaining balance when use credit card</option>
-                            </select>
-                        </div>
-                    </div>
+                <div class="contact-form-wrapper">
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-1.jpg">Can you provide more information about
+                        <br> the offered by CalinAgency?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-2.jpg">How much do i have to pay to use your services</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-3.jpg">If i deposit $500 and have spent about $330
+                        <br> and my account provided by you is locked,
+                        <br>what will happen to the remaining balance <br> and how will i know?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-4.jpg">If I'm running a product that's not allows on
+                        <br> FB ads such as crypto, weight gain, <br> weight loss, and this leads to the death of my ad
+                        <br> account and you provide me with a new ad acc, <br> will i have to pay any additional fees? </button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-5.jpg">What is the minium and maximum amount i can deposit <br> and how much budget can you provide me with?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-6.jpg">Assuming you are running ads and your Facebook ads
+                        <br> account is disabled, how long will it take for <br> you to be provided with a new account from your side?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-7.jpg">What payment methods do you accept ?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-8.jpg">How can i access my account to run my campains
+                        <br> after i have deposited the funds?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-9.jpg">Do you offer credit card rental service for running
+                        <br> Facebook ads?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-10.jpg">If i use your credit card rental service
+                        <br> and then don't br want to use it anymore,<br> what happens to the remaining balance?</button>
                 </div>
+{{--                <div class="contact-item-wrapper">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-12 col-md-6 col-xl-12 mb-3">--}}
+{{--                            <select class="form-select faq-select" aria-label="Default select example">--}}
+{{--                                <option selected value="./images/faq-1.jpg">Can you provide more information about the services offered by CalinAgency</option>--}}
+{{--                                <option value="./images/faq-2.jpg">How much do i have to pay to use your services</option>--}}
+{{--                                <option value="./images/faq-3.jpg">If i deposit $500 and have spent about $330 and my account provided by you is locked, what will happen to the remaining balance and how will i know?</option>--}}
+{{--                                <option value="./images/faq-4.jpg">If i'm</option>--}}
+{{--                                <option value="./images/faq-5.jpg">About the ad account is disabled</option>--}}
+{{--                                <option value="./images/faq-6.jpg">About the payment method</option>--}}
+{{--                                <option value="./images/faq-7.jpg">About how to access ad account after deposit</option>--}}
+{{--                                <option value="./images/faq-8.jpg">About credit card rental service</option>--}}
+{{--                                <option value="./images/faq-9.jpg">About the remaining balance when use credit card</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="col-xl-8">
                 <div class="contact-form-wrapper">
-                    <img src="./images/faq-example.jpg" alt="">
+                    <img id="faq-images" src="./images/faq-example.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -796,6 +816,11 @@
 <script src="./js/tiny-slider.js"></script>
 
 <script>
+
+    $(".faq-button").click(function() {
+        $("#faq-images").attr('src', this.value);
+    });
+
     //===== close navbar-collapse when a  clicked
     let navbarTogglerNine = document.querySelector(
         ".navbar-nine .navbar-toggler"

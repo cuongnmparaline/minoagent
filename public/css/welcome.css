@@ -2079,3 +2079,10 @@ p {
   color: var(--white);
   background-color: var(--primary-dark);
 }
+
+
+.faq-button {
+    font-size: 9px !important;
+    width: 350px !important;
+}
+
