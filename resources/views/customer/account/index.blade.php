@@ -31,7 +31,7 @@
                     <i class="fa fa-chart-bar fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Live</p>
-                        <h6 class="mb-0">2</h6>
+                        <h6 class="mb-0">{{ $accounts->where('status', 'Live')->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <i class="fa fa-chart-area fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Die</p>
-                        <h6 class="mb-0">0</h6>
+                        <h6 class="mb-0">{{ $accounts->where('status', 'Die')->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -48,8 +48,8 @@
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-pie fa-3x text-primary"></i>
                     <div class="ms-3">
-                        <p class="mb-2">Comback</p>
-                        <h6 class="mb-0">0</h6>
+                        <p class="mb-2">Comeback</p>
+                        <h6 class="mb-0">{{ $accounts->where('status', 'Comeback')->count() }}</h6>
                     </div>
                 </div>
             </div>

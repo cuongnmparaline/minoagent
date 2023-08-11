@@ -20,9 +20,9 @@ return [
         '14' => 'MYR',
     ],
     'status' => [
-        '0' => 'Active',
-        '1' => 'Disabled',
-        '2' => 'Past due',
+        '0' => 'Live',
+        '1' => 'Die',
+        '2' => 'Comeback',
     ],
     'TEMP_DIR' => 'public/tmp/',
     'PATH_UPLOAD' => 'public/uploads/',

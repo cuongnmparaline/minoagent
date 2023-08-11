@@ -682,15 +682,15 @@
                     <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-4.jpg">If I'm running a product that's not allows on
                         <br> FB ads such as crypto, weight gain, <br> weight loss, and this leads to the death of my ad
                         <br> account and you provide me with a new ad acc, <br> will i have to pay any additional fees? </button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-5.jpg">What is the minium and maximum amount i can deposit <br> and how much budget can you provide me with?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-6.jpg">Assuming you are running ads and your Facebook ads
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-5.jpg"  style="font-size: 9px; width: 350px">What is the minium and maximum amount i can deposit <br> and how much budget can you provide me with?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-6.jpg"  style="font-size: 9px; width: 350px">Assuming you are running ads and your Facebook ads
                         <br> account is disabled, how long will it take for <br> you to be provided with a new account from your side?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-7.jpg">What payment methods do you accept ?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-8.jpg">How can i access my account to run my campains
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-7.jpg"  style="font-size: 9px; width: 350px">What payment methods do you accept ?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-8.jpg"  style="font-size: 9px; width: 350px">How can i access my account to run my campains
                         <br> after i have deposited the funds?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-9.jpg">Do you offer credit card rental service for running
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-9.jpg"  style="font-size: 9px; width: 350px">Do you offer credit card rental service for running
                         <br> Facebook ads?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-10.jpg">If i use your credit card rental service
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-10.jpg"  style="font-size: 9px; width: 350px">If i use your credit card rental service
                         <br> and then don't br want to use it anymore,<br> what happens to the remaining balance?</button>
                 </div>
 {{--                <div class="contact-item-wrapper">--}}
