@@ -76,7 +76,7 @@ class ReportController extends Controller
                 ->latest()
                 ->base('USD')
                 ->get();
-            $date = request('date') ? request('date') : Carbon::now();
+            $date = request('date') ? request('date') : Carbon::now()->format('Y-m-d');
             $excel = Excel::import(new ReportsImport($date, $currencies), request()->file('reportImport'));
             return redirect()->route('management.report');
         } catch (\Exception $e) {

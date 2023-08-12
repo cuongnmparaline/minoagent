@@ -49,7 +49,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                     if (!empty($account)) {
                         $report = Report::where([
                             'account_id' => $account->id,
-                            'date' => $this->date->format('Y-m-d'),
+                            'date' => $this->date,
                         ])->first();
                         if (!empty($report)) {
                             $oldAmount = $report->getOriginal('amount');
