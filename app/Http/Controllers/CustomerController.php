@@ -74,6 +74,9 @@ class CustomerController extends Controller
         try {
             DB::beginTransaction();
             $data = request()->all();
+            if(!empty($data['addBalance'])) {
+                $data['balance'] += $data['addBalance'];
+            }
             if (request()->get('password') == null) {
                 $data = Arr::except($data, 'password');
             }
