@@ -6,10 +6,9 @@ use App\Models\Account;
 use App\Models\Customer;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -29,10 +28,11 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
         $this->currencies = $currencies;
     }
 
-    public function collection(\Illuminate\Support\Collection $rows)
+    public function collection(Collection $rows)
     {
         foreach ($rows as $row)
         {
+            Log::error($row['account_name']);
             $accountRepo = app((AccountRepository::class));
             $account = Account::where('code', substr($row['account_code'], strpos($row['account_code'], "_") + 1))->get()->first();
             if($row['limit'] == 'No limit') {
@@ -40,6 +40,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
             }
             $customerName = substr($row['account_name'], 0, strpos($row['account_name'], "_"));
             $haveCustomer = Customer::where('name', $customerName)->get()->first();
+
             if($haveCustomer){
                 try {
                     $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
@@ -48,10 +49,9 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                     if (!empty($account)) {
                         $report = Report::where([
                             'account_id' => $account->id,
-                            'date' => $this->date,
+                            'date' => $this->date->format('Y-m-d'),
                         ])->first();
-
-                        if ($report !== null) {
+                        if (!empty($report)) {
                             $oldAmount = $report->getOriginal('amount');
                             $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                                 'upd_id' => Auth::guard('admin')->id()]);
@@ -103,7 +103,6 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amount * ($haveCustomer->fee / 100))]);
                         }
                     }
-                    return $account;
                 } catch (\Exception $exception){
                     Log::error('Report Create Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $exception->getMessage()]);
                 }
