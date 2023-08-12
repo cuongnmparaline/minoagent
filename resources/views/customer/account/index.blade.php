@@ -56,10 +56,42 @@
         </div>
     </div>
     <div class="container-fluid pt-4 px-4">
+        <form action="" method="get">
+            <div class="row">
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control"
+                               placeholder="Name" name="name" value="{{ request('name') }}">
+                        <label for="floatingInput">Name</label>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control"
+                               placeholder="Name" name="code" value="{{ request('code') }}" >
+                        <label for="floatingInput">Code</label>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control"
+                               placeholder="Name" name="date" value="{{ request()->get('date') }}" >
+                        <label for="floatingInput">Date</label>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="submit" class="btn btn-sm btn-primary" value="Search">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <a href="{{ route('customer.account') }}" type="submit" class="btn btn-sm btn-primary" >Clear</a>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">
-                    <a href="{{ route('management.account.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </h6>
                 <a href="{{ route('customer.account.export') }}">Export Excel</a>
             </div>

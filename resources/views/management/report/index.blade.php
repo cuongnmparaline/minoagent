@@ -58,23 +58,42 @@
     <div class="container-fluid pt-4 px-4">
         <form action="" method="get">
             <div class="row">
-                <div class="col-3 col-xl-3">
+                <div class="col-4 col-xl-4">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control"
-                               placeholder="Name" name="name" value="{{ request('name') }}">
+                               placeholder="Name" name="searchName" value="{{ request('name') }}">
                         <label for="floatingInput">Name</label>
                     </div>
                 </div>
-                <div class="col-3 col-xl-3">
+                <div class="col-4 col-xl-4">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control"
-                               placeholder="Name" name="code" value="{{ request('code') }}" >
+                               placeholder="Name" name="searchCode" value="{{ request('code') }}" >
                         <label for="floatingInput">Code</label>
                     </div>
                 </div>
+                <div class="col-4 col-xl-4">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control"
+                               name="searchDate" value="{{ request('date') }}" >
+                        <label for="floatingInput">Date</label>
+                    </div>
+                </div>
+
                 <div class="col-3 col-xl-3">
                     <div class="form-floating mb-3">
                         <input type="submit" class="btn btn-sm btn-primary" value="Search">
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+
+                </div>
+                <div class="col-3 col-xl-3">
+
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3 float-end">
+                        <a href="{{ route('management.report') }}" class="btn btn-sm btn-primary">Clear</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +115,6 @@
                         <th scope="col">Account Name</th>
                         <th scope="col">Account Code</th>
                         <th scope="col">@sortablelink('date', 'Date')</th>
-                        <th scope="col">@sortablelink('unpaid', 'Unpaid')</th>
                         <th scope="col">@sortablelink('amount', 'Amount')</th>
                         <th scope="col">Amount Fee</th>
                         <th scope="col">Currency</th>
@@ -110,7 +128,6 @@
                         <td>{{ $report->account->name }}</td>
                         <td>{{ $report->account->code }}</td>
                         <td>{{ $report['date'] }}</td>
-                        <td>{{ $report['unpaid'] }}</td>
                         <td>{{ $report['amount'] }}</td>
                         <td>{{ $report['amount']*$report->account->customer->fee/100 }}</td>
                         <td>{{ $report['currency'] }}</td>
