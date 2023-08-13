@@ -39,6 +39,7 @@ Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], fun
     Route::get('/account/export', [CustomerAccount::class, 'export'])->name('customer.account.export');
     Route::get('/customer/profile', [HomeCustomer::class, 'profile'])->name('customer.profile');
     Route::post('/customer/updateProfile', [HomeCustomer::class, 'updateProfile'])->name('customer.updateProfile');
+    Route::get('/history', [HistoryController::class, 'index'])->name('customer.history');
 });
 
 

@@ -30,12 +30,13 @@
             <a href="{{ route('management.account') }}" class="nav-item nav-link {{ request()->is('management/account*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Account</a>
             <a href="{{ route('management.report') }}" class="nav-item nav-link {{ (request()->is('management/report*') && !request()->is('management/report/import')) ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Report</a>
             <a href="{{ route('management.customer') }}" class="nav-item nav-link {{ request()->is('management/customer*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Customer</a>
-                <a href="{{ route('management.history') }}" class="nav-item nav-link {{ request()->is('management/history*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>History Top Up</a>
+            <a href="{{ route('management.history') }}" class="nav-item nav-link {{ request()->is('management/history*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>History Top Up</a>
             <a href="{{ route('management.report.import') }}" class="nav-item nav-link {{ request()->is('management/report/import') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Import Excel</a>
             @endif
             @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
                     <a href="{{ route('customer.home') }}" class="nav-item nav-link {{ request()->is('customer') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="{{ route('customer.account') }}" class="nav-item nav-link {{ request()->is('customer/account*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Account</a>
+                    <a href="{{ route('customer.history') }}" class="nav-item nav-link {{ request()->is('customer/history*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>History Top Up</a>
 
             @endif
         </div>

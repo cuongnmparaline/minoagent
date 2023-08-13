@@ -22,12 +22,14 @@
 
     <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
+            @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">
                     <a href="{{ route('management.history.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </h6>
                 <a href="">Export Excel</a>
             </div>
+            @endif
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
@@ -37,7 +39,9 @@
                         <th scope="col">@sortablelink('date', 'Date')</th>
                         <th scope="col">@sortablelink('amount', 'Amount')</th>
                         <th scope="col">Hash Code</th>
+                        @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
                         <th scope="col">Action</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -48,6 +52,7 @@
                         <td>{{ $history['date'] }}</td>
                         <td>{{ $history['amount'] }}</td>
                         <td>{{ $history['hashcode'] }}</td>
+                        @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">
@@ -78,6 +83,7 @@
                                 }
                             </script>
                         </td>
+                            @endif
                     </tr>
                     @endforeach
                     </tbody>

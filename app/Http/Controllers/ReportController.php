@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use AmrShawky\LaravelCurrency\Facade\Currency;
 use App\Http\Requests\Report\CreateRequest;
 use App\Http\Requests\Report\ExportRequest;
-use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
 use App\Repositories\Customer\CustomerRepository;
 use App\Repositories\Report\ReportRepositoryInterface;

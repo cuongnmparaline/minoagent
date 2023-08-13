@@ -5,7 +5,7 @@ namespace App\Imports;
 use App\Models\Account;
 use App\Models\Customer;
 use App\Models\Report;
-use App\Repositories\History\AccountRepository;
+use App\Repositories\Account\AccountRepository;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
