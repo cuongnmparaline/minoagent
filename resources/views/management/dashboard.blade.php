@@ -13,7 +13,7 @@
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Total Customer</p>
-                        <h6 class="mb-0"></h6>
+                        <h6 class="mb-0">{{ $customers->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-bar fa-3x text-primary"></i>
                     <div class="ms-3">
-                        <p class="mb-2">Live</p>
-                        <h6 class="mb-0">2</h6>
+                        <p class="mb-2">Total Balance</p>
+                        <h6 class="mb-0">{{ $customers->sum('balance') }}</h6>
                     </div>
                 </div>
             </div>
@@ -30,17 +30,8 @@
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-area fa-3x text-primary"></i>
                     <div class="ms-3">
-                        <p class="mb-2">Die</p>
-                        <h6 class="mb-0">0</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Comback</p>
-                        <h6 class="mb-0">0</h6>
+                        <p class="mb-2">Total Spend Month</p>
+                        <h6 class="mb-0">{{ $reports->sum('amount') }}</h6>
                     </div>
                 </div>
             </div>

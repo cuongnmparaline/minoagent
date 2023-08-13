@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Report\ReportRepositoryInterface::class,
             \App\Repositories\Report\ReportRepository::class
         );
+        $this->app->singleton(
+            \App\Repositories\History\HistoryRepositoryInterface::class,
+            \App\Repositories\History\HistoryRepository::class
+        );
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 use App\Http\Controllers\Customer\AccountController as CustomerAccount;
@@ -64,6 +65,13 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/account/edit/{id}', [AccountController::class, 'edit'])->name('management.account.edit');
     Route::post('/account/update/{id}', [AccountController::class, 'update'])->name('management.account.update');
     Route::get('/account/delete/{id}', [AccountController::class, 'delete'])->name('management.account.delete');
+
+    Route::get('/history', [HistoryController::class, 'index'])->name('management.history');
+    Route::get('/history/create', [HistoryController::class, 'create'])->name('management.history.create');
+    Route::post('/history/store', [HistoryController::class, 'store'])->name('management.history.store');
+    Route::get('/history/edit/{id}', [HistoryController::class, 'edit'])->name('management.history.edit');
+    Route::post('/history/update/{id}', [HistoryController::class, 'update'])->name('management.history.update');
+    Route::get('/history/delete/{id}', [HistoryController::class, 'delete'])->name('management.history.delete');
 
     // Report
     Route::get('/report', [ReportController::class, 'index'])->name('management.report');
