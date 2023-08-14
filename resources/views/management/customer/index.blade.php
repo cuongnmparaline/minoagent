@@ -72,7 +72,7 @@
                     <tr>
                         <td>{{ $customer['id'] }}</td>
                         <td>{{ $customer['name'] }}</td>
-                        <td>{{ $customer['balance'] }}</td>
+                        <td>{{ sprintf("%.2f",  $customer['balance']) }}</td>
                         <td>{{ $customer['fee'] }}</td>
                         <td>{{ $customer['email'] }}</td>
                         <td>{{ $customer->accounts->count() }}</td>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Repositories\Report\ReportRepositoryInterface;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,7 +21,8 @@ class HomeController extends Controller
 
     public function dashboard() {
         $customers = $this->customerRepo->getAll();
-        $reports = Report::whereRaw('MONTH(date) = 8')->get();
+        $currentMonth = Carbon::now()->month;
+        $reports = Report::whereRaw("MONTH(date) = $currentMonth")->get();
         return view("management.dashboard", ['customers' => $customers, 'reports' => $reports]);
     }
 }
