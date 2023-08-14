@@ -673,24 +673,24 @@
         <div class="row">
             <div class="col-xl-4">
                 <div class="contact-form-wrapper">
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-1.jpg">Can you provide more information about
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-1.jpg">Can you provide more information about
                         <br> the offered by CalinAgency?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-2.jpg">How much do i have to pay to use your services</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-3.jpg">If i deposit $500 and have spent about $330
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-2.jpg">How much do i have to pay to use your services</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-3.jpg">If i deposit $500 and have spent about $330
                         <br> and my account provided by you is locked,
                         <br>what will happen to the remaining balance <br> and how will i know?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-4.jpg">If I'm running a product that's not allows on
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-4.jpg">If I'm running a product that's not allows on
                         <br> FB ads such as crypto, weight gain, <br> weight loss, and this leads to the death of my ad
                         <br> account and you provide me with a new ad acc, <br> will i have to pay any additional fees? </button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-5.jpg"  style="font-size: 9px; width: 350px">What is the minium and maximum amount i can deposit <br> and how much budget can you provide me with?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-6.jpg"  style="font-size: 9px; width: 350px">Assuming you are running ads and your Facebook ads
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-5.jpg"  style="font-size: 9px; width: 350px">What is the minium and maximum amount i can deposit <br> and how much budget can you provide me with?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-6.jpg"  style="font-size: 9px; width: 350px">Assuming you are running ads and your Facebook ads
                         <br> account is disabled, how long will it take for <br> you to be provided with a new account from your side?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-7.jpg"  style="font-size: 9px; width: 350px">What payment methods do you accept ?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-8.jpg"  style="font-size: 9px; width: 350px">How can i access my account to run my campains
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-7.jpg"  style="font-size: 9px; width: 350px">What payment methods do you accept ?</button>
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-8.jpg"  style="font-size: 9px; width: 350px">How can i access my account to run my campains
                         <br> after i have deposited the funds?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-9.jpg"  style="font-size: 9px; width: 350px">Do you offer credit card rental service for running
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-9.jpg"  style="font-size: 9px; width: 350px">Do you offer credit card rental service for running
                         <br> Facebook ads?</button>
-                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/faq-10.jpg"  style="font-size: 9px; width: 350px">If i use your credit card rental service
+                    <button class="btn btn-sm btn-primary mb-4 faq-button" value="./images/FAQ-10.jpg"  style="font-size: 9px; width: 350px">If i use your credit card rental service
                         <br> and then don't br want to use it anymore,<br> what happens to the remaining balance?</button>
                 </div>
 {{--                <div class="contact-item-wrapper">--}}
