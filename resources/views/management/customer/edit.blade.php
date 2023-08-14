@@ -35,20 +35,20 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control"
-                                   placeholder="Balcne" name="balance" value="{{ $customer->balance }}">
+                                   placeholder="Balcne" name="balance" value="{{ $customer->balance }}" readonly>
                             <label for="floatingInput">Balance</label>
                             @if ($errors->has('balance'))
                                 <p style="color: #ff0000">{{ $errors->first('balance') }}</p>
                             @endif
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control"
-                                   placeholder="Add Balance" name="addBalance" value="">
-                            <label for="floatingInput">Add Balance</label>
-                            @if ($errors->has('addBalance'))
-                                <p style="color: #ff0000">{{ $errors->first('addBalance') }}</p>
-                            @endif
-                        </div>
+{{--                        <div class="form-floating mb-3">--}}
+{{--                            <input type="text" class="form-control"--}}
+{{--                                   placeholder="Add Balance" name="addBalance" value="">--}}
+{{--                            <label for="floatingInput">Add Balance</label>--}}
+{{--                            @if ($errors->has('addBalance'))--}}
+{{--                                <p style="color: #ff0000">{{ $errors->first('addBalance') }}</p>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control"
                                    placeholder="name@example.com" name="fee" value="{{ $customer->fee }}" maxlength="2">

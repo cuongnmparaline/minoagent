@@ -28,10 +28,18 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control"
-                                   placeholder="Amount" name="amount" id="amount" value="{{ $history->amount }}">
+                                   placeholder="Amount" name="amount" id="amount" value="{{ $history->amount }}" readonly>
                             <label for="floatingInput">Amount</label>
                             @if ($errors->has('amount'))
                                 <p style="color: #ff0000">{{ $errors->first('amount') }}</p>
+                            @endif
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control"
+                                   placeholder="Add Amount" name="addAmount" id="addAmount" value="">
+                            <label for="floatingInput">Add Amount</label>
+                            @if ($errors->has('addAmount'))
+                                <p style="color: #ff0000">{{ $errors->first('addAmount') }}</p>
                             @endif
                         </div>
                         <div class="form-floating mb-3">

@@ -24,7 +24,7 @@ class EditRequest extends FormRequest
         return [
             'customer_id' => 'required',
             'date' => 'bail|required|date',
-            'amount' => 'required',
+            'addAmount' => 'nullable|numeric',
             'hashcode' => 'required'
         ];
     }

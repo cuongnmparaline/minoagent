@@ -68,6 +68,9 @@ class HistoryController extends Controller
         try {
             DB::beginTransaction();
             $data = request()->all();
+            if (!empty($data['addAmount']))  {
+                $data['amount'] += $data['addAmount'];
+            }
             $result = $this->historyRepo->update($id, $data);
             if (!empty($result)) {
                 session()->flash('success', __('messages.historyUpdated'));
