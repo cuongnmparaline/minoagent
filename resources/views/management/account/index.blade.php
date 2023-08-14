@@ -19,7 +19,7 @@
             </div>
             <div class="col-sm-6 col-xl-3">
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                    <i class="fa fa-heart fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Live</p>
                         <h6 class="mb-0">{{ $accounts->where('status', 'Live')->count() }}</h6>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-sm-6 col-xl-3">
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-area fa-3x text-primary"></i>
+                    <i class="fa fa-skull fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Die</p>
                         <h6 class="mb-0">{{ $accounts->where('status', 'Die')->count() }}</h6>
@@ -37,7 +37,7 @@
             </div>
             <div class="col-sm-6 col-xl-3">
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                    <i class="fa fa-arrow-left fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Comeback</p>
                         <h6 class="mb-0">{{ $accounts->where('status', 'Comeback')->count() }}</h6>

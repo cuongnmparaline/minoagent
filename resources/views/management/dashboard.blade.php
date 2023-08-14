@@ -46,7 +46,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-area fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Total Spend Month</p>
+                            <p class="mb-2">Total Fee Month</p>
                             <h6 class="mb-0">{{ sprintf("%.2f",$reports->sum('amount')*($customerSpend->avg('avgFee')/100)) }}</h6>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
     <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
             <div class="table-responsive">
-                <table class="table text-start align-middle table-bordered table-hover mb-0 table-striped">
+                <table class="table text-start align-middle table-bordered mb-0 table-striped">
                     <thead>
                     <tr class="text-dark">
                         <th scope="col">Customer name</th>
