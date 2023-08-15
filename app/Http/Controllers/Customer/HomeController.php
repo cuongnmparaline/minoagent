@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Models\Report;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Http\Requests\Customer\UpdateProfileRequest;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,8 +22,15 @@ class HomeController extends Controller
     }
 
     public function dashboard() {
-        $customer = $this->customerRepo->find(Auth::guard('customer')->id());
-        return view("customer.dashboard", ['customer' => $customer]);
+        $customerId = Auth::guard('customer')->id();
+        $customer = $this->customerRepo->find($customerId);
+        $currentMonth = Carbon::now()->month;
+        $reports = \App\Models\Report::withoutGlobalScopes()->join('accounts', 'accounts.id', '=', 'reports.account_id')
+            ->join('customers', 'customers.id', '=', 'accounts.customer_id')
+            ->whereRaw("MONTH(date) = $currentMonth")->where('accounts.del_flag', '=', config('const.active'))
+            ->where('accounts.customer_id', $customerId)
+            ->get();
+        return view("customer.dashboard", ['customer' => $customer, 'reports' => $reports]);
     }
 
     public function profile() {
