@@ -58,17 +58,19 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $newAmount = $amount - $oldAmount;
                             $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
                         } else {
+                            $amountFee = $amount * ($haveCustomer->fee / 100);
                             $report = Report::create([
                                 'account_id' => $account->id,
                                 'date' => $this->date,
                                 'unpaid' => $unpaid,
                                 'amount' => $amount,
+                                'amount_fee' => $amountFee,
                                 'currency' => $currency,
                                 'limit' => $row['limit'],
                                 'ins_datetime' => date('Y-m-d H:i:s'),
                                 'ins_id' => Auth::guard('admin')->id()
                             ]);
-                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amount * ($haveCustomer->fee / 100))]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amountFee)]);
                         }
                     } else {
                         $account = $accountRepo->create([
@@ -90,17 +92,19 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $newAmount = $amount - $oldAmount;
                             $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
                         } else {
+                            $amountFee = $amount * ($haveCustomer->fee / 100);
                             $report = Report::create([
                                 'account_id' => $account->id,
                                 'date' => $this->date,
                                 'unpaid' => $unpaid,
                                 'amount' => $amount,
+                                'amount_fee' => $amountFee,
                                 'currency' => $currency,
                                 'limit' => $row['limit'],
                                 'ins_datetime' => date('Y-m-d H:i:s'),
                                 'ins_id' => Auth::guard('admin')->id()
                             ]);
-                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amount * ($haveCustomer->fee / 100))]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amountFee)]);
                         }
                     }
                 } catch (\Exception $exception){

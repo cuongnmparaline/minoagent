@@ -17,42 +17,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total Spending</p>
-                        <h6 class="mb-0">{{ $reports->sum('amount') }}</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-heart fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Live</p>
-                        <h6 class="mb-0">2</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-skull fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Die</p>
-                        <h6 class="mb-0">0</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-arrow-left fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Comback</p>
-                        <h6 class="mb-0">0</h6>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container-fluid pt-4 px-4">
@@ -129,7 +93,7 @@
                         <td>{{ $report->account->code }}</td>
                         <td>{{ $report['date'] }}</td>
                         <td>{{ $report['amount'] }}</td>
-                        <td>{{ $report['amount']*$report->account->customer->fee/100 }}</td>
+                        <td>{{ $report['amount_fee'] }}</td>
                         <td>{{ $report['currency'] }}</td>
                         <td><a class="btn btn-sm btn-primary" href="{{ route('management.report.edit', ['id' => $report['id'] ]) }}">Edit</a></td>
                     </tr>

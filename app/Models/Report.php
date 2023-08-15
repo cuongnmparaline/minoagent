@@ -20,6 +20,7 @@ class Report extends Model
         'date',
         'unpaid',
         'amount',
+        'amount_fee',
         'currency',
         'ins_id',
         'upd_id',

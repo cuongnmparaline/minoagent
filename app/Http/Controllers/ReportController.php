@@ -77,6 +77,7 @@ class ReportController extends Controller
                 ->get();
             $date = request('date') ? request('date') : Carbon::now()->format('Y-m-d');
             $excel = Excel::import(new ReportsImport($date, $currencies), request()->file('reportImport'));
+            session()->flash('success', "Import successed");
             return redirect()->route('management.report');
         } catch (\Exception $e) {
             dd($e);
