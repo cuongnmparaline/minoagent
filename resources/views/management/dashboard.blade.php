@@ -1,10 +1,5 @@
 @php
     $currentMonth = \Carbon\Carbon::now()->month;
-    $customerSpend = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
-    ->join('customers', 'customers.id', '=', 'accounts.customer_id')
-    ->whereRaw("MONTH(date) = $currentMonth")->where('accounts.del_flag', '=', config('const.active'))
-    ->groupBy('customers.id')
-    ->get(\Illuminate\Support\Facades\DB::raw('avg(customers.fee) as avgFee'));
 @endphp
 @extends('layouts.main')
 @section('content')
@@ -47,7 +42,7 @@
                         <i class="fa fa-chart-area fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2">Total Fee Month</p>
-                            <h6 class="mb-0">{{ sprintf("%.2f",$reports->sum('amount')*($customerSpend->avg('avgFee')/100)) }}</h6>
+                            <h6 class="mb-0">{{ sprintf("%.2f",$reports->sum('amount_fee')) }}</h6>
                         </div>
                     </div>
                 </div>
@@ -93,7 +88,7 @@
                             ->sum('amount');
                         @endphp
                         <td><b>{{ sprintf("%.2f", $reports->sum('amount')) }}</b></td>
-                        <td><b>{{ sprintf("%.2f",$reports->sum('amount')*($customerSpend->avg('avgFee')/100)) }}</b></td>
+                        <td><b>{{ sprintf("%.2f",$reports->sum('amount_fee')) }}</b></td>
                     </tr>
                     @foreach($customers as $customer)
                         <tr>
@@ -121,7 +116,17 @@
                                 ->sum('amount');
                             @endphp
                             <td>{{ sprintf("%.2f",  $totalAmountMonth) }}</td>
-                            <td>{{ sprintf("%.2f", $totalAmountMonth*($customer['fee']/100)) }}</td>
+
+                            @php
+                                $totalFeeMonth = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
+                                ->join('customers', 'customers.id', '=', 'accounts.customer_id')
+                                ->whereRaw("MONTH(date) = $currentMonth")->where('accounts.del_flag', '=', config('const.active'))
+                                ->where('accounts.customer_id', '=', $customer->id)
+                                ->groupBy('accounts.id')
+                                ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount_fee) as amount_fee')])
+                                ->sum('amount_fee');
+                            @endphp
+                            <td>{{ sprintf("%.2f", $totalFeeMonth) }}</td>
                         </tr>
                     @endforeach
                     </tbody>
