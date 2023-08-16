@@ -4,22 +4,18 @@ namespace App\Models;
 
 use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Account extends Model
+class Group  extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'accounts';
+    protected $table = 'groups';
 
     protected $fillable = [
         'id',
-        'code',
         'name',
         'customer_id',
-        'group_id',
-        'limit',
-        'status',
         'ins_id',
         'upd_id',
         'ins_datetime',
@@ -29,11 +25,6 @@ class Account extends Model
 
     public $timestamps = false;
 
-    public function getStatusAttribute()
-    {
-        return config('const.status.'.$this->attributes['status']);
-    }
-
     protected static function booted()
     {
         static::addGlobalScope(new DelFlagScope());
@@ -42,10 +33,5 @@ class Account extends Model
     public function customer()
     {
         return $this->belongsTo(Customer::class);
-    }
-
-    public function reports()
-    {
-        return $this->hasMany(Report::class);
     }
 }

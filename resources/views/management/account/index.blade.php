@@ -95,8 +95,8 @@
                         <th scope="col">Code</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Recent Date</th>
-                        <th scope="col">Recent Amount</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Amount</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>

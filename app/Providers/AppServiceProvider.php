@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\History\HistoryRepositoryInterface::class,
             \App\Repositories\History\HistoryRepository::class
         );
+        $this->app->singleton(
+            \App\Repositories\Group\GroupRepositoryInterface::class,
+            \App\Repositories\Group\GroupRepository::class
+        );
     }
 
     /**

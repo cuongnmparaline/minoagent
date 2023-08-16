@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 use App\Http\Controllers\Customer\AccountController as CustomerAccount;
@@ -81,4 +82,15 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/report/edit/{id}', [ReportController::class, 'edit'])->name('management.report.edit');
     Route::get('/report/import', [ReportController::class, 'import'])->name('management.report.import');
     Route::post('/report/saveImport', [ReportController::class, 'saveImport'])->name('management.report.saveImport');
+
+    // Report
+    Route::get('/group', [GroupController::class, 'index'])->name('management.group');
+    Route::get('/group/create', [GroupController::class, 'create'])->name('management.group.create');
+    Route::post('/group/store', [GroupController::class, 'store'])->name('management.group.store');
+    Route::get('/group/edit/{id}', [GroupController::class, 'edit'])->name('management.group.edit');
+    Route::post('/group/update/{id}', [GroupController::class, 'update'])->name('management.group.update');
+    Route::get('/group/delete/{id}', [GroupController::class, 'delete'])->name('management.group.delete');
+    Route::get('/group/addAccount/{id}/', [GroupController::class, 'addAccount'])->name('management.group.addAccount');
+    Route::get('/group/saveToGroup/{id}/{accountId}', [GroupController::class, 'saveToGroup'])->name('management.group.saveToGroup');
+//    Route::post('/report/saveImport', [ReportController::class, 'saveImport'])->name('management.report.saveImport');
 });

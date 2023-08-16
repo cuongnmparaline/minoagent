@@ -12,17 +12,8 @@
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
                     <div class="ms-3">
-                        <p class="mb-2">Total Customer</p>
-                        <h6 class="mb-0">{{ $customers->count() }}</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total Balance</p>
-                        <h6 class="mb-0">{{ $customers->sum('balance') }}</h6>
+                        <p class="mb-2">Total Group</p>
+                        <h6 class="mb-0">{{ $groups->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -32,9 +23,8 @@
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">
-                    <a href="{{ route('management.customer.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
+                    <a href="{{ route('management.group.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </h6>
-                <a href="{{ route('management.customer.export') }}">Export Excel</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -42,22 +32,16 @@
                     <tr class="text-dark">
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Balance</th>
-                        <th scope="col">Fee</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Total Account</th>
+                        <th scope="col">Customer</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($customers as $customer)
+                    @foreach($groups as $group)
                     <tr>
-                        <td>{{ $customer['id'] }}</td>
-                        <td>{{ $customer['name'] }}</td>
-                        <td>{{ sprintf("%.2f",  $customer['balance']) }}</td>
-                        <td>{{ $customer['fee'] }}</td>
-                        <td>{{ $customer['email'] }}</td>
-                        <td>{{ $customer->accounts->count() }}</td>
+                        <td>{{ $group['id'] }}</td>
+                        <td>{{ $group['name'] }}</td>
+                        <td>{{ $group->customer->name }}</td>
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">
@@ -78,9 +62,10 @@
                                 </div>
                             </div>
                             <div class="justify-content-around">
-                                <a class="btn btn-sm btn-warning" href="{{ route('management.customer.show', ['id' => $customer->id]) }}">Show</a>
-                                <a class="btn btn-sm btn-primary" href="{{ route('management.customer.edit', ['id' => $customer->id]) }}">Edit</a>
-                                <button data-url="{{route('management.customer.delete', ['id'=>$customer->id])}}"
+                                <a class="btn btn-sm btn-secondary" href="{{ route('management.group.addAccount', ['id' => $group->id]) }}">Add Account</a>
+                                <a class="btn btn-sm btn-warning" href="{{ route('management.customer.show', ['id' => $group->id]) }}">Show</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('management.group.edit', ['id' => $group->id]) }}">Edit</a>
+                                <button data-url="{{route('management.group.delete', ['id'=>$group->id])}}"
                                         onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
                                 </button>
                                 <script>
@@ -96,7 +81,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex align-items-center justify-content-center mt-4">
-                    {{ $customers->links() }}
+                    {{ $groups->links() }}
                 </div>
             </div>
         </div>

@@ -5,8 +5,15 @@ namespace App\Http\Controllers;
 use App\Exports\AccountsExport;
 use App\Exports\CustomerExport;
 use App\Http\Requests\Customer\EditRequest;
+use App\Models\Account;
+use App\Models\Group;
+use App\Models\History;
+use App\Repositories\Account\AccountRepositoryInterface;
 use App\Repositories\Customer\CustomerRepositoryInterface;
+use App\Repositories\Group\GroupRepositoryInterface;
+use App\Repositories\History\HistoryRepositoryInterface;
 use App\Repositories\Report\ReportRepository;
+use App\Repositories\Report\ReportRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\Customer\CreateRequest;
 use Illuminate\Support\Arr;
@@ -19,11 +26,18 @@ use Mockery\Exception;
 class CustomerController extends Controller
 {
     protected $customerRepo;
+    protected $accountRepo;
+    protected $historyRepo;
+    protected $reportRepo;
+    protected $groupRepo;
 
-    public function __construct(CustomerRepositoryInterface $customerRepo, ReportRepository $reportRepo)
+    public function __construct(CustomerRepositoryInterface $customerRepo, ReportRepository $reportRepo, AccountRepositoryInterface $accountRepo, GroupRepositoryInterface $groupRepo, HistoryRepositoryInterface $historyRepo)
     {
         $this->customerRepo = $customerRepo;
         $this->reportRepo = $reportRepo;
+        $this->accountRepo = $accountRepo;
+        $this->historyRepo = $historyRepo;
+        $this->groupRepo = $groupRepo;
     }
 
     public function index()
@@ -94,10 +108,25 @@ class CustomerController extends Controller
     }
 
     public function delete($id) {
+        DB::beginTransaction();
         try {
             $this->customerRepo->delete($id);
+            $accounts = Account::where('customer_id', $id)->get();
+            $histories = History::where('customer_id', $id)->get();
+            $groups = Group::where('customer_id', $id)->get();
+            foreach ($accounts as $account) {
+                $this->accountRepo->delete($account->id);
+            }
+            foreach ($histories as $history) {
+                $this->historyRepo->delete($history->id);
+            }
+            foreach ($groups as $group) {
+                $this->groupRepo->delete($group->id);
+            }
+            DB::commit();
             session()->flash('success', __('messages.customerDeleted'));
         } catch (Exception $e) {
+            DB::rollBack();
             Log::error('Account Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
             session()->flash('error', __('messages.deleteFail'));
         }
