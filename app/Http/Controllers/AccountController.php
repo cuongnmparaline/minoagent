@@ -26,8 +26,9 @@ class AccountController extends Controller
 
     public function index()
     {
+        $totalAccount = $this->accountRepo->getAll();
         $accounts = $this->accountRepo->search();
-        return view('management.account.index', ['accounts' => $accounts]);
+        return view('management.account.index', ['accounts' => $accounts, 'totalAccount' => $totalAccount]);
     }
 
     public function create() {

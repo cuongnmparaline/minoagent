@@ -13,7 +13,7 @@
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Total Account</p>
-                        <h6 class="mb-0">{{ $accounts->count() }}</h6>
+                        <h6 class="mb-0">{{ $totalAccount->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <i class="fa fa-heart fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Live</p>
-                        <h6 class="mb-0">{{ $accounts->where('status', 'Live')->count() }}</h6>
+                        <h6 class="mb-0">{{ $totalAccount->where('status', 'Live')->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     <i class="fa fa-skull fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Die</p>
-                        <h6 class="mb-0">{{ $accounts->where('status', 'Die')->count() }}</h6>
+                        <h6 class="mb-0">{{ $totalAccount->where('status', 'Die')->count() }}</h6>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <i class="fa fa-arrow-left fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Comeback</p>
-                        <h6 class="mb-0">{{ $accounts->where('status', 'Comeback')->count() }}</h6>
+                        <h6 class="mb-0">{{ $totalAccount->where('status', 'Comeback')->count() }}</h6>
                     </div>
                 </div>
             </div>
