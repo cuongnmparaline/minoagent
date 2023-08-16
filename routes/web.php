@@ -92,5 +92,6 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/group/delete/{id}', [GroupController::class, 'delete'])->name('management.group.delete');
     Route::get('/group/addAccount/{id}/', [GroupController::class, 'addAccount'])->name('management.group.addAccount');
     Route::get('/group/saveToGroup/{id}/{accountId}', [GroupController::class, 'saveToGroup'])->name('management.group.saveToGroup');
-//    Route::post('/report/saveImport', [ReportController::class, 'saveImport'])->name('management.report.saveImport');
+    Route::get('/group/show/{id}', [GroupController::class, 'show'])->name('management.group.show');
+    Route::get('/group/remove/{id}/{accountId}', [GroupController::class, 'remove'])->name('management.group.remove');
 });

@@ -63,7 +63,7 @@
                             </div>
                             <div class="justify-content-around">
                                 <a class="btn btn-sm btn-secondary" href="{{ route('management.group.addAccount', ['id' => $group->id]) }}">Add Account</a>
-                                <a class="btn btn-sm btn-warning" href="{{ route('management.customer.show', ['id' => $group->id]) }}">Show</a>
+                                <a class="btn btn-sm btn-warning" href="{{ route('management.group.show', ['id' => $group->id]) }}">Show</a>
                                 <a class="btn btn-sm btn-primary" href="{{ route('management.group.edit', ['id' => $group->id]) }}">Edit</a>
                                 <button data-url="{{route('management.group.delete', ['id'=>$group->id])}}"
                                         onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete

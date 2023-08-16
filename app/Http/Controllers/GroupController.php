@@ -51,12 +51,12 @@ class GroupController extends Controller
 
         return redirect()->route('management.group');
     }
-//
-//    public function show($id) {
-//        $customer = $this->customerRepo->find($id);
-//        return view('management.customer.show', ['customer' => $customer]);
-//    }
-//
+
+    public function show($id) {
+        $accounts = Account::where('group_id', $id)->get();
+        return view('management.group.show', ['accounts' => $accounts, 'groupId' => $id]);
+    }
+
     public function edit($id) {
         try {
             $group = $this->groupRepo->find($id);
@@ -124,5 +124,17 @@ class GroupController extends Controller
         }
 
         return redirect()->route('management.group.addAccount', ['id' => $id]);
+    }
+
+    public function remove($id, $accountId){
+        try {
+            $this->accountRepo->update($accountId, ['group_id' => null]);
+            session()->flash('success', "Remove from group complete!");
+        } catch (\Exception $e) {
+            Log::error('Remove from group error', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            session()->flash('error', __('messages.deleteFail'));
+        }
+
+        return redirect()->route('management.group.show', ['id' => $id]);
     }
 }
