@@ -70,11 +70,29 @@
                             <label for="floatingInput">Customer</label>
                         </div>
                     </div>
-                    <div class="col-3 col-xl-3">
-                        <div class="form-floating mb-3">
-                            <input type="submit" class="btn btn-sm btn-primary" value="Search">
-                        </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control"
+                               placeholder="Name" name="date" value="{{ request()->get('date') }}" >
+                        <label for="floatingInput">Date</label>
                     </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="submit" class="btn btn-sm btn-primary" value="Search">
+
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                </div>
+                <div class="col-3 col-xl-3">
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3 float-end">
+                        <a href="{{ route('management.account') }}" type="submit" class="btn btn-sm btn-primary" >Clear</a>
+                    </div>
+                </div>
+
             </div>
         </form>
     </div>
