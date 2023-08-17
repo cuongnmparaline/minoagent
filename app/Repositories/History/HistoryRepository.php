@@ -7,6 +7,7 @@ use App\Repositories\Customer\CustomerRepository;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Repositories\Report\ReportRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class HistoryRepository extends BaseRepository implements HistoryRepositoryInterface
 {

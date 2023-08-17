@@ -39,6 +39,8 @@ class HistoryController extends Controller
             DB::beginTransaction();
             $data = request()->all();
             $this->historyRepo->create($data);
+            $customer = $this->customerRepo->find($data['customer_id']);
+            $this->customerRepo->update($customer->id, ['balance' => $customer->balance+$data['amount']]);
             session()->flash('success', __('messages.historyCreated'));
             DB::commit();
         } catch (\Exception $e) {
@@ -72,6 +74,8 @@ class HistoryController extends Controller
                 $data['amount'] += $data['addAmount'];
             }
             $result = $this->historyRepo->update($id, $data);
+            $customer = $this->customerRepo->find($data['customer_id']);
+            $this->customerRepo->update($customer->id, ['balance' => $customer->balance+$data['addAmount']]);
             if (!empty($result)) {
                 session()->flash('success', __('messages.historyUpdated'));
             }
