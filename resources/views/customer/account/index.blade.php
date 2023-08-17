@@ -113,36 +113,8 @@
                         <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
                         <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount }} @endif</td>
                         <td>
-                            <div class="modal" id="myModal">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Confirm</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p class="text-left">Are you sure?</p>
-                                        </div>
-                                        <div class="modal-footer justify-between">
-                                            <button type="button" class="btn btn-default"
-                                                    data-dismiss="modal">Cancel
-                                            </button>
-                                            <a href="" class="btn btn-danger btn-agree">OK</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <a class="btn btn-sm btn-primary" href="{{ route('customer.account.show', ['id' => $account->id]) }}">Show</a>
-                            <button data-url="{{route('management.account.delete', ['id'=>$account->id])}}"
-                                    onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
-                            </button>
-                            <script>
-                                function showDeleteModal(e){
-                                    let url = $(e).data('url');
-                                    $('#myModal').find('.btn-agree').attr('href', url);
-                                }
-                            </script>
                         </td>
-
                     </tr>
                     @endforeach
                     </tbody>
