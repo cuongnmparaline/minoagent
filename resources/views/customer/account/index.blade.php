@@ -100,6 +100,7 @@
                         <th scope="col">Status</th>
                         <th scope="col">Date</th>
                         <th scope="col">Amount</th>
+                        <th scope="col">Amount Fee</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -112,6 +113,7 @@
                         <td>{{ $account['status'] }}</td>
                         <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
                         <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount }} @endif</td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount_fee }} @endif</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('customer.account.show', ['id' => $account->id]) }}">Show</a>
                         </td>
