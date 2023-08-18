@@ -34,14 +34,6 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control"
-                                   placeholder="name@example.com" name="balance">
-                            <label for="floatingInput">Money</label>
-                            @if ($errors->has('balance'))
-                                <p style="color: #ff0000">{{ $errors->first('balance') }}</p>
-                            @endif
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control"
                                    placeholder="name@example.com" name="fee" maxlength="2">
                             <label for="floatingInput">Fee</label>
                             @if ($errors->has('fee'))

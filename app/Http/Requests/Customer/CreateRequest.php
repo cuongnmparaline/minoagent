@@ -23,8 +23,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|max:128',
-            'email' => 'bail|required|email|max:128|unique:customers',
-            'balance' => 'required|numeric',
+            'email' => 'bail|required|email|max:128',
             'fee' => 'required|numeric|digits:1',
             'password' => 'required|max:64',
             'passwordVerify' => 'same:password',
