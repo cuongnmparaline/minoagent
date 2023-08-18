@@ -30,7 +30,7 @@
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                     <tr class="text-dark">
-                        <th scope="col">ID</th>
+                        <th scope="col">STT</th>
                         <th scope="col">Account Code</th>
                         <th scope="col">Account Name</th>
                         <th scope="col">Action</th>
@@ -39,7 +39,7 @@
                     <tbody>
                     @foreach($accounts as $account)
                     <tr>
-                        <td>{{ $account['id'] }}</td>
+                        <td>{{ ++$loop->index }}</td>
                         <td>{{ $account['code'] }}</td>
                         <td>{{ $account['name'] }}</td>
                         <td>
