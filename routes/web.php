@@ -11,6 +11,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 use App\Http\Controllers\Customer\AccountController as CustomerAccount;
+use App\Http\Controllers\Customer\GroupController as CustomerGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,19 @@ Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], fun
     Route::get('/account/export', [CustomerAccount::class, 'export'])->name('customer.account.export');
     Route::get('/customer/profile', [HomeCustomer::class, 'profile'])->name('customer.profile');
     Route::post('/customer/updateProfile', [HomeCustomer::class, 'updateProfile'])->name('customer.updateProfile');
+
     Route::get('/history', [HistoryController::class, 'index'])->name('customer.history');
+
+    Route::get('/group/create', [CustomerGroup::class, 'create'])->name('customer.group.create');
+    Route::post('/group/store', [CustomerGroup::class, 'store'])->name('customer.group.store');
+    Route::get('/group/edit/{id}', [CustomerGroup::class, 'edit'])->name('customer.group.edit');
+    Route::post('/group/update/{id}', [CustomerGroup::class, 'update'])->name('customer.group.update');
+    Route::get('/group/delete/{id}', [CustomerGroup::class, 'delete'])->name('customer.group.delete');
+    Route::get('/group', [CustomerGroup::class, 'index'])->name('customer.group');
+    Route::get('/group/show/{id}', [CustomerGroup::class, 'show'])->name('customer.group.show');
+    Route::get('/group/addAccount/{id}/', [CustomerGroup::class, 'addAccount'])->name('customer.group.addAccount');
+    Route::get('/group/saveToGroup/{id}/{accountId}', [CustomerGroup::class, 'saveToGroup'])->name('customer.group.saveToGroup');
+    Route::get('/group/remove/{id}/{accountId}', [CustomerGroup::class, 'remove'])->name('customer.group.remove');
 });
 
 

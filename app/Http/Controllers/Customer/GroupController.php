@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Group\EditRequest;
 use App\Models\Account;
 use App\Repositories\Account\AccountRepositoryInterface;
@@ -28,18 +29,19 @@ class GroupController extends Controller
     public function index()
     {
         $groups = $this->groupRepo->search();
-        return view('management.group.index', ['groups' => $groups]);
+        return view('customer.group.index', ['groups' => $groups]);
     }
 
     public function create() {
-        $customers = $this->customerRepo->getAll();
-        return view('management.group.create', ['customers' => $customers]);
+        return view('customer.group.create');
     }
 
     public function store(CreateRequest $createRequest) {
         try {
             DB::beginTransaction();
             $data = request()->all();
+            $data['customer_id'] = $id = Auth::guard('customer')->id();
+            $data['ins_id'] = $id = Auth::guard('customer')->id();
             $this->groupRepo->create($data);
             session()->flash('success', __('messages.groupCreated'));
             DB::commit();
@@ -49,12 +51,12 @@ class GroupController extends Controller
             session()->flash('error', __('messages.createFail'));
         }
 
-        return redirect()->route('management.group');
+        return redirect()->route('customer.group');
     }
 
     public function show($id) {
-        $accounts = Account::where('group_id', $id)->where('customer_id', Auth::guard('customer')->id())->get();
-        return view('management.group.show', ['accounts' => $accounts, 'groupId' => $id]);
+        $accounts = Account::where('group_id', $id)->get();
+        return view('customer.group.show', ['accounts' => $accounts, 'groupId' => $id]);
     }
 
     public function edit($id) {
@@ -63,11 +65,11 @@ class GroupController extends Controller
             $customers = $this->customerRepo->getAll();
             session()->put('group_data', $group);
         } catch (\Exception $e) {
-            Log::error('Group Edit Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            Log::error('Group Edit Error ', ['admin_id' => Auth::guard('customer')->id(), 'error' => $e->getMessage()]);
             session()->flash('error', __('messages.customerNotFound'));
             return redirect()->route('management.group');
         }
-        return view('management.group.edit', ['group' => $group, 'customers' => $customers]);
+        return view('customer.group.edit', ['group' => $group, 'customers' => $customers]);
     }
 
     public function update(EditRequest $editRequest, $id)
@@ -81,11 +83,11 @@ class GroupController extends Controller
             }
             DB::commit();
         } catch (\Exception $e) {
-            Log::error('Update group Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            Log::error('Update group Error ', ['admin_id' => Auth::guard('customer')->id(), 'error' => $e->getMessage()]);
             DB::rollBack();
             session()->flash('error', __('messages.updateFail'));
         }
-        return redirect()->route('management.group');
+        return redirect()->route('customer.group');
     }
 
     public function delete($id) {
@@ -97,44 +99,55 @@ class GroupController extends Controller
             session()->flash('error', __('messages.deleteFail'));
         }
 
-        return redirect()->route('management.group');
+        return redirect()->route('customer.group');
     }
 
     public function addAccount($id) {
         try {
+            $customerId = Auth::guard('customer')->id();
             $group = $this->groupRepo->find($id);
-            $accountsNotIn = Account::whereNotIn('group_id', [$id])->get();
-            $accountsNull = Account::where('group_id', null)->get();
+            $accountsNotIn = Account::whereNotIn('group_id', [$id])->where('customer_id', $customerId)->get();
+            $accountsNull = Account::where('group_id', null)->where('customer_id', $customerId)->get();
             $accounts = $accountsNotIn->merge($accountsNull);
         } catch (\Exception $e) {
             Log::error('Group Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
             session()->flash('error', __('messages.deleteFail'));
         }
 
-        return view('management.group.addAccount', ['group' => $group, 'accounts' => $accounts]);
+        return view('customer.group.addAccount', ['group' => $group, 'accounts' => $accounts]);
     }
 
     public function saveToGroup($id, $accountId){
         try {
-            $this->accountRepo->update($accountId, ['group_id' => $id]);
-            session()->flash('success', "Add to group complete!");
+            $account = $this->accountRepo->find($accountId);
+            if ($account['customer_id'] != Auth::guard('customer')->id()) {
+                session()->flash('error', "Add account fail!");
+            } else {
+                $this->accountRepo->update($accountId, ['group_id' => $id]);
+                session()->flash('success', "Add to group complete!");
+            }
         } catch (\Exception $e) {
             Log::error('Add to group error', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
-            session()->flash('error', __('messages.deleteFail'));
+            session()->flash('error', 'Add account fail!');
         }
 
-        return redirect()->route('management.group.addAccount', ['id' => $id]);
+        return redirect()->route('customer.group.addAccount', ['id' => $id]);
     }
 
     public function remove($id, $accountId){
         try {
-            $this->accountRepo->update($accountId, ['group_id' => null]);
-            session()->flash('success', "Remove from group complete!");
+            $account = $this->accountRepo->find($accountId);
+            if ($account['customer_id'] != Auth::guard('customer')->id()) {
+                session()->flash('error', "Add account fail!");
+            } else {
+                $this->accountRepo->update($accountId, ['group_id' => null]);
+                session()->flash('success', "Remove from group complete!");
+            }
         } catch (\Exception $e) {
             Log::error('Remove from group error', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
             session()->flash('error', __('messages.deleteFail'));
         }
 
-        return redirect()->route('management.group.show', ['id' => $id]);
+        return redirect()->route('customer.group.show', ['id' => $id]);
     }
 }

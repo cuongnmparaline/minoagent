@@ -37,6 +37,7 @@
             @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
                     <a href="{{ route('customer.home') }}" class="nav-item nav-link {{ request()->is('customer') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="{{ route('customer.account') }}" class="nav-item nav-link {{ request()->is('customer/account*') ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Account</a>
+                    <a href="{{ route('customer.group') }}" class="nav-item nav-link {{ request()->is('customer/group*') ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Group</a>
                     <a href="{{ route('customer.history') }}" class="nav-item nav-link {{ request()->is('customer/history*') ? 'active' : '' }}"><i class="fa fa-book me-2"></i>History Top Up</a>
 
             @endif
