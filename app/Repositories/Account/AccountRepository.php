@@ -40,9 +40,9 @@ class AccountRepository extends BaseRepository implements AccountRepositoryInter
         }
         if (request()->get('date')) {
             if (Auth::guard('customer')->check()) {
-                $result = \App\Models\Account::withoutGlobalScopes()->select('accounts.id', 'accounts.name', 'accounts.code', 'accounts.customer_id', 'accounts.status')->join('reports', 'reports.account_id', '=', 'accounts.id')->where('reports.date', '=', request()->get('date'))->where('accounts.del_flag', '=', config('const.active'))->where('accounts.customer_id', Auth::guard('customer')->id());
+                $result = \App\Models\Account::withoutGlobalScopes()->select('accounts.id', 'accounts.name', 'accounts.code', 'accounts.customer_id', 'accounts.status', 'reports.date', 'reports.amount', 'reports.amount_fee')->join('reports', 'reports.account_id', '=', 'accounts.id')->where('reports.date', '=', request()->get('date'))->where('accounts.del_flag', '=', config('const.active'))->where('accounts.customer_id', Auth::guard('customer')->id());
             } else {
-                $result = \App\Models\Account::withoutGlobalScopes()->select('accounts.id', 'accounts.name', 'accounts.code', 'accounts.customer_id', 'accounts.status')->join('reports', 'reports.account_id', '=', 'accounts.id')->where('reports.date', '=', request()->get('date'))->where('accounts.del_flag', '=', config('const.active'));
+                $result = \App\Models\Account::withoutGlobalScopes()->select('accounts.id', 'accounts.name', 'accounts.code', 'accounts.customer_id', 'accounts.status', 'reports.date', 'reports.amount', 'reports.amount_fee')->join('reports', 'reports.account_id', '=', 'accounts.id')->where('reports.date', '=', request()->get('date'))->where('accounts.del_flag', '=', config('const.active'));
             }
         }
         $customerId = '';
