@@ -224,7 +224,7 @@
             <div class="col-lg-6 col-12">
                 <div class="about-five-content">
                     <h6 class="small-title text-lg">OUR SERVICE</h6>
-                    <h2 class="main-title fw-bold">CONSUNTATION SERVICES</h2>
+                    <h2 class="main-title fw-bold">CONSULTATION SERVICES</h2>
                     <div class="about-five-tab">
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
