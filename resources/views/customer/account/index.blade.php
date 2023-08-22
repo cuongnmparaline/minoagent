@@ -111,9 +111,9 @@
                         <td>{{ $account['name'] }}</td>
                         <td>{{ $account['code'] }}</td>
                         <td>{{ $account['status'] }}</td>
-                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
-                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount }} @endif</td>
-                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount_fee }} @endif</td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->first()->date }} @endif</td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->first()->amount }} @endif</td>
+                        <td>@if(!empty($account->reports->last())) {{ $account->reports->first()->amount_fee }} @endif</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('customer.account.show', ['id' => $account->id]) }}">Show</a>
                         </td>
