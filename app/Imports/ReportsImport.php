@@ -56,6 +56,12 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                                 'upd_id' => Auth::guard('admin')->id()]);
                             $newAmount = $amount - $oldAmount;
+
+                            $report->update([
+                                'amount' => $amount,
+                                'amount_fee' =>$amount * ($haveCustomer->fee / 100),
+                            ]);
+
                             $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
                         } else {
                             $amountFee = $amount * ($haveCustomer->fee / 100);
@@ -90,6 +96,10 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                                 'upd_id' => Auth::guard('admin')->id()]);
                             $newAmount = $amount - $oldAmount;
+                            $report->update([
+                                'amount' => $amount,
+                                'amount_fee' =>$amount * ($haveCustomer->fee / 100),
+                            ]);
                             $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
                         } else {
                             $amountFee = $amount * ($haveCustomer->fee / 100);
