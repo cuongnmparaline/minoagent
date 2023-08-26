@@ -49,27 +49,13 @@
     <div class="container-fluid pt-4 px-4">
         <form action="" method="get">
             <div class="row">
-                    <div class="col-3 col-xl-3">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control"
-                                   placeholder="Name" name="name" value="{{ request('name') }}">
-                            <label for="floatingInput">Name</label>
-                        </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control"
+                               placeholder="Name" name="name" value="{{ request('name') }}">
+                        <label for="floatingInput">Name</label>
                     </div>
-                    <div class="col-3 col-xl-3">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control"
-                                   placeholder="Name" name="code" value="{{ request('code') }}" >
-                            <label for="floatingInput">Code</label>
-                        </div>
-                    </div>
-                    <div class="col-3 col-xl-3">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control"
-                                   placeholder="Name" name="customer" value="{{ request()->get('customer') }}" >
-                            <label for="floatingInput">Customer</label>
-                        </div>
-                    </div>
+                </div>
                 <div class="col-3 col-xl-3">
                     <div class="form-floating mb-3">
                         <input type="date" class="form-control"
@@ -78,18 +64,17 @@
                     </div>
                 </div>
                 <div class="col-3 col-xl-3">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="customer">
+                        <option value="">Choose customer</option>
+                        @foreach($customers as $customer)
+                            <option {{getDataCreateForm('account_data', 'customer_id') == $customer->id ? "selected" : ""}} value="{{$customer->name}}">{{$customer->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-3 col-xl-3">
                     <div class="form-floating mb-3">
                         <input type="submit" class="btn btn-sm btn-primary" value="Search">
-
-                    </div>
-                </div>
-                <div class="col-3 col-xl-3">
-                </div>
-                <div class="col-3 col-xl-3">
-                </div>
-                <div class="col-3 col-xl-3">
-                    <div class="form-floating mb-3 float-end">
-                        <a href="{{ route('management.account') }}" type="submit" class="btn btn-sm btn-primary" >Clear</a>
+                        <a href="{{ route('management.account') }}" type="submit" class="btn btn-sm btn-primary">Clear</a>
                     </div>
                 </div>
 

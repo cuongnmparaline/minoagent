@@ -49,6 +49,20 @@
         </div>
     </div>
     <div class="container-fluid pt-4 px-4">
+        <form action="" method="get">
+            <div class="col-4 col-xl-4">
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control"
+                           name="searchDate" value="{{ request('searchDate') }}" >
+                    <label for="floatingInput">Date</label>
+                </div>
+            </div>
+            <div class="col-3 col-xl-3">
+                <div class="form-floating mb-3">
+                    <input type="submit" class="btn btn-sm btn-primary" value="Search">
+                </div>
+            </div>
+        </form>
         <div class="bg-light text-center rounded p-4">
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered mb-0 table-striped">
@@ -57,7 +71,10 @@
                         <th scope="col">Customer name</th>
                         <th scope="col">Balance</th>
                         @for($i = 6; $i >= 0; $i--)
-                            <th scope="col">{{ \Carbon\Carbon::today()->subDay($i)->format('d/m') }}</th>
+                            @php
+                                $day = request('searchDate') ? \Carbon\Carbon::createFromFormat("Y-m-d",request('searchDate')) : \Carbon\Carbon::today();
+                            @endphp
+                            <th scope="col">{{ $day->subDay($i)->format('d/m') }}</th>
                         @endfor
                         <th scope="col">Total Amount Month</th>
                         <th scope="col">Total Fee</th>
@@ -69,12 +86,13 @@
                         <td><b>{{ sprintf("%.2f", $customers->sum('balance')) }}</b></td>
                         @for($i = 6; $i >= 0; $i--)
                             @php
-                                $totalAmountDay = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
-                                ->join('customers', 'customers.id', '=', 'accounts.customer_id')
-                                ->where('reports.date', '=', \Carbon\Carbon::today()->subDay($i))->where('accounts.del_flag', '=', config('const.active'))
-                                ->groupBy('accounts.id')
-                                ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount) as amount')])
-                                ->sum('amount');
+                                $day = request('searchDate') ? \Carbon\Carbon::createFromFormat("Y-m-d",request('searchDate')) : \Carbon\Carbon::today();
+                                    $totalAmountDay = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
+                                    ->join('customers', 'customers.id', '=', 'accounts.customer_id')
+                                    ->where('reports.date', '=', $day->subDay($i)->format("Y-m-d"))->where('accounts.del_flag', '=', config('const.active'))
+                                    ->groupBy('accounts.id')
+                                    ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount) as amount')])
+                                    ->sum('amount');
                             @endphp
                             <td><b>{{ sprintf("%.2f",  $totalAmountDay) }}</b></td>
 
@@ -96,13 +114,14 @@
                             <td>{{ sprintf("%.2f",  $customer['balance']) }}</td>
                             @for($i = 6; $i >= 0; $i--)
                                 @php
-                                    $totalAmount = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
-                                ->join('customers', 'customers.id', '=', 'accounts.customer_id')
-                                ->where('reports.date', '=', \Carbon\Carbon::today()->subDay($i))->where('accounts.del_flag', '=', config('const.active'))
-                                ->where('accounts.customer_id', '=', $customer->id)
-                                ->groupBy('accounts.id')
-                                ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount) as amount')])
-                                ->sum('amount');
+                                    $day = request('searchDate') ? \Carbon\Carbon::createFromFormat("Y-m-d",request('searchDate')) : \Carbon\Carbon::today();
+                                        $totalAmount = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
+                                    ->join('customers', 'customers.id', '=', 'accounts.customer_id')
+                                    ->where('reports.date', '=', $day->subDay($i)->format("Y-m-d"))->where('accounts.del_flag', '=', config('const.active'))
+                                    ->where('accounts.customer_id', '=', $customer->id)
+                                    ->groupBy('accounts.id')
+                                    ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount) as amount')])
+                                    ->sum('amount');
                                 @endphp
                                 <td>{{ sprintf("%.2f",  $totalAmount) }}</td>
                             @endfor

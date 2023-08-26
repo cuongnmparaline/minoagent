@@ -21,6 +21,21 @@
     </div>
 
     <div class="container-fluid pt-4 px-4">
+        <form action="" method="get">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="customer">
+                <option value="">Choose customer</option>
+                @foreach($customers as $customer)
+                    <option {{getDataCreateForm('account_data', 'customer_id') == $customer->email ? "selected" : ""}} value="{{$customer->id}}">{{$customer->name}}</option>
+                @endforeach
+
+            </select>
+            <div class="col-3 col-xl-3">
+                <div class="form-floating mb-3">
+                    <input type="submit" class="btn btn-sm btn-primary" value="Search">
+                    <a href="{{ route('management.history') }}" type="submit" class="btn btn-sm btn-primary">Clear</a>
+                </div>
+            </div>
+        </form>
         <div class="bg-light text-center rounded p-4">
             @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
             <div class="d-flex align-items-center justify-content-between mb-4">

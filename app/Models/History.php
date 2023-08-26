@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class History extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     protected $table = 'histories';
 
@@ -26,6 +27,8 @@ class History extends Model
     ];
 
     public $timestamps = false;
+
+    public $sortable = ['date', 'amount'];
 
     protected static function booted()
     {
