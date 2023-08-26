@@ -21,6 +21,15 @@ class HomeController extends Controller
     }
 
     public function dashboard() {
+
+        $reports = $this->reportRepo->getAll();
+
+        foreach ($reports as $report) {
+            $amountFee = $report->amount * ($report->account->customer->fee/100);
+            $this->reportRepo->update($report->id, ['amount_fee' => $amountFee]);
+        }
+
+
         $customers = $this->customerRepo->getAll();
         $currentMonth = Carbon::now()->month;
         $reports = Report::whereRaw("MONTH(date) = $currentMonth")->get();
