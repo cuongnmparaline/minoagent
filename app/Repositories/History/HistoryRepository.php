@@ -19,7 +19,7 @@ class HistoryRepository extends BaseRepository implements HistoryRepositoryInter
 
     public function search($paginate = true)
     {
-        $result = $this->model->select('id', 'customer_id', 'date', 'amount', 'hashcode')->sortable(['date' => 'desc']);;
+        $result = $this->model->select('id', 'customer_id', 'date', 'amount', 'hashcode')->sortable(['id' => 'desc']);;
         if (Auth::guard('customer')->check()) {
             $result->where('customer_id', Auth::guard('customer')->id());
         }

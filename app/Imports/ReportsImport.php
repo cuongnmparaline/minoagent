@@ -39,6 +39,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                 $row['limit'] = 0;
             }
             $customerName = substr($row['account_name'], 0, strpos($row['account_name'], "_"));
+
             $haveCustomer = Customer::where('name', $customerName)->get()->first();
 
             if($haveCustomer){

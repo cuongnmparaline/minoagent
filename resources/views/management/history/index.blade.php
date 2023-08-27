@@ -58,7 +58,7 @@
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                     <tr class="text-dark">
-                        <th scope="col">STT</th>
+                        <th scope="col">@sortablelink('id', 'ID')</th>
                         <th scope="col">Customer Name</th>
                         <th scope="col">@sortablelink('date', 'Date')</th>
                         <th scope="col">@sortablelink('amount', 'Amount')</th>
@@ -71,7 +71,7 @@
                     <tbody>
                     @foreach($histories as $history)
                     <tr>
-                        <td>{{ ++$loop->index }}</td>
+                        <td>{{ $history['id'] }}</td>
                         <td>{{ $history->customer->name }}</td>
                         <td>{{ $history['date'] }}</td>
                         <td>{{ $history['amount'] }}</td>

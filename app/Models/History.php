@@ -28,7 +28,7 @@ class History extends Model
 
     public $timestamps = false;
 
-    public $sortable = ['date', 'amount'];
+    public $sortable = ['id', 'date', 'amount'];
 
     protected static function booted()
     {

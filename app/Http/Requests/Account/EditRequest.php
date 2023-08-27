@@ -22,7 +22,7 @@ class EditRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'bail|required|max:15|unique:accounts,code,'.request()->get('id'),
+            'code' => 'bail|required|unique:accounts,code,'.request()->get('id'),
             'name' => 'bail|required|max:128',
             'customer_id' => 'required',
             'status' => 'required',
