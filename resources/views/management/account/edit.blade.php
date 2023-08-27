@@ -28,7 +28,7 @@
                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="customer_id">
                             <option value="">Choose customer</option>
                             @foreach($customers as $customer)
-                                <option {{ $account->customer_id == $customer->id ? "selected" : ""}} value="{{$customer->id}}">{{$customer->email}}</option>
+                                <option {{ $account->customer_id == $customer->id ? "selected" : ""}} value="{{$customer->id}}">{{$customer->name}}</option>
                             @endforeach
 
                         </select>

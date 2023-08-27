@@ -91,7 +91,10 @@ class HistoryController extends Controller
 
     public function delete($id) {
         try {
+            $history = $this->historyRepo->find($id);
             $this->historyRepo->delete($id);
+            $customer = $this->customerRepo->find($history['customer_id']);
+            $customer->update(['balance' => $customer->balance - $history->amount]);
             session()->flash('success', __('messages.historyDeleted'));
         } catch (Exception $e) {
             Log::error('History Delete Error ', ['admin' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
