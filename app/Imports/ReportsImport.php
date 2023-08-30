@@ -61,7 +61,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                                 'amount_fee' =>$amount * ($haveCustomer->fee / 100),
                             ]);
 
-//                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
                         } else {
                             $amountFee = $amount * ($haveCustomer->fee / 100);
                             $report = Report::create([
@@ -75,7 +75,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                                 'ins_datetime' => date('Y-m-d H:i:s'),
                                 'ins_id' => Auth::guard('admin')->id()
                             ]);
-//                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amountFee)]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amountFee)]);
                         }
                     } else {
                         $account = $accountRepo->create([
@@ -99,7 +99,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                                 'amount' => $amount,
                                 'amount_fee' =>$amount * ($haveCustomer->fee / 100),
                             ]);
-//                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($newAmount + ($newAmount * ($haveCustomer->fee / 100)))]);
                         } else {
                             $amountFee = $amount * ($haveCustomer->fee / 100);
                             $report = Report::create([
@@ -113,7 +113,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                                 'ins_datetime' => date('Y-m-d H:i:s'),
                                 'ins_id' => Auth::guard('admin')->id()
                             ]);
-//                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amountFee)]);
+                            $haveCustomer->update(['balance' => $haveCustomer->balance - ($amount + $amountFee)]);
                         }
                     }
                 } catch (\Exception $exception){
