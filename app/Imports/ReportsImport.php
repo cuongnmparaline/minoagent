@@ -34,12 +34,11 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
         {
             Log::error($row['account_name']);
             $accountRepo = app((AccountRepository::class));
-            $account = Account::where('code', substr($row['account_code'], strpos($row['account_code'], "_") + 1))->get()->first();
+            $account = Account::where('code', $row['account_code'])->get()->first();
             if($row['limit'] == 'No limit') {
                 $row['limit'] = 0;
             }
             $customerName = substr($row['account_name'], 0, strpos($row['account_name'], "_"));
-
             $haveCustomer = Customer::where('name', $customerName)->get()->first();
 
             if($haveCustomer){
