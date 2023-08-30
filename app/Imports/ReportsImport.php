@@ -34,7 +34,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
         {
             Log::error($row['account_name']);
             $accountRepo = app((AccountRepository::class));
-            $account = Account::where('code', $row['account_code'])->get()->first();
+            $account = Account::where('name', $row['account_code'])->get()->first();
             if($row['limit'] == 'No limit') {
                 $row['limit'] = 0;
             }
