@@ -92,13 +92,24 @@
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
+                    @php
+                        $start = \Carbon\Carbon::now()->startOfMonth();
+                        $end = \Carbon\Carbon::now()->endOfMonth();
+                        $dates = [];
+                        while ($start->lte($end)) {
+                             $dates[] = $start->copy();
+                             $start->addDay();
+                        }
+                    @endphp
                     <tr class="text-dark">
                         <th scope="col">STT</th>
                         <th scope="col">Name</th>
                         <th scope="col">Code</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Date</th>
+                        @foreach($dates as $date)
+                            <th>{{ $date->format('m/d/y') }}</th>
+                        @endforeach
                         <th scope="col">Amount</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -111,8 +122,9 @@
                         <td>{{ $account['code'] }}</td>
                         <td>{{ $account->customer->name }}</td>
                         <td>{{ $account['status'] }}</td>
-                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->date }} @endif</td>
-                        <td>@if(!empty($account->reports->last())) {{ $account->reports->last()->amount }} @endif</td>
+                        @foreach($dates as $date)
+                            <th>{{ $account->reports->where('date', $date->format('Y-m-d'))->sum('amount') }}</th>
+                        @endforeach
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">
