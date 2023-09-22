@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ReportsImport;
+use AshAllenDesign\LaravelExchangeRates\Classes\ExchangeRate;
 
 class ReportController extends Controller
 {
@@ -71,12 +72,8 @@ class ReportController extends Controller
 
     public function saveImport(ExportRequest $request){
         try {
-            $currencies = Currency::rates()
-                ->latest()
-                ->base('USD')
-                ->get();
             $date = request('date') ? request('date') : Carbon::now()->format('Y-m-d');
-            $excel = Excel::import(new ReportsImport($date, $currencies), request()->file('reportImport'));
+            $excel = Excel::import(new ReportsImport($date), request()->file('reportImport'));
             session()->flash('success', "Import successed");
             return redirect()->route('management.report');
         } catch (\Exception $e) {

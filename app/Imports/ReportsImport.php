@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Customer;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
+use AshAllenDesign\LaravelExchangeRates\Classes\ExchangeRate;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -22,36 +23,44 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
     * @return \Illuminate\Database\Eloquent\Model|null
     */
 
-    public function __construct($date, $currencies)
+    public function __construct($date)
     {
         $this->date = $date;
-        $this->currencies = $currencies;
+        $this->exchangeRates = app(ExchangeRate::class);
     }
 
     public function collection(Collection $rows)
     {
         foreach ($rows as $row)
         {
+
             $accountRepo = app((AccountRepository::class));
             $account = Account::where('name', $row['account_name'])->get()->first();
             if($row['limit'] == 'No limit') {
                 $row['limit'] = 0;
             }
+
             $customerName = substr($row['account_name'], 0, strpos($row['account_name'], "_"));
             $haveCustomer = Customer::where('name', $customerName)->get()->first();
 
             if($haveCustomer){
                 try {
+
                     $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
-                    (double)$unpaid = $row['unpaid'] / $this->currencies[$currency];
-                    (double)$amount = $row['spend'] / $this->currencies[$currency];
+//                    (double)$unpaid = $row['unpaid'] / $this->currencies[$currency];
+
+                    (double)$amount = $row['spend'] / $this->exchangeRates->exchangeRate('USD', $currency);
+
+
                     if (!empty($account)) {
                         $report = Report::where([
                             'account_id' => $account->id,
                             'date' => $this->date,
                         ])->first();
                         if (!empty($report)) {
+
                             $oldAmount = $report->getOriginal('amount');
+
                             $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
                                 'upd_id' => Auth::guard('admin')->id()]);
                             $newAmount = $amount - $oldAmount;
@@ -67,7 +76,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $report = Report::create([
                                 'account_id' => $account->id,
                                 'date' => $this->date,
-                                'unpaid' => $unpaid,
+                                'unpaid' => 0,
                                 'amount' => $amount,
                                 'amount_fee' => $amountFee,
                                 'currency' => $currency,
@@ -105,7 +114,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $report = Report::create([
                                 'account_id' => $account->id,
                                 'date' => $this->date,
-                                'unpaid' => $unpaid,
+                                'unpaid' => 0,
                                 'amount' => $amount,
                                 'amount_fee' => $amountFee,
                                 'currency' => $currency,
