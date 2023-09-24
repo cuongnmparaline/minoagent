@@ -6,7 +6,6 @@ use App\Models\Account;
 use App\Models\Customer;
 use App\Models\Report;
 use App\Repositories\Account\AccountRepository;
-use AshAllenDesign\LaravelExchangeRates\Classes\ExchangeRate;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -23,10 +22,10 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
     * @return \Illuminate\Database\Eloquent\Model|null
     */
 
-    public function __construct($date)
+    public function __construct($date, $currencies)
     {
         $this->date = $date;
-        $this->exchangeRates = app(ExchangeRate::class);
+        $this->currencies = $currencies;
     }
 
     public function collection(Collection $rows)
@@ -47,10 +46,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                 try {
 
                     $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
-//                    (double)$unpaid = $row['unpaid'] / $this->currencies[$currency];
-
-                    (double)$amount = $row['spend'] / $this->exchangeRates->exchangeRate('USD', $currency);
-
+                    (double)$amount = $row['spend'] / $this->currencies[$currency];
 
                     if (!empty($account)) {
                         $report = Report::where([
