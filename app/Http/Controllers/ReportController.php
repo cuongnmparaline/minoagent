@@ -72,12 +72,8 @@ class ReportController extends Controller
 
     public function saveImport(ExportRequest $request){
         try {
-            $currencies = Currency::rates()
-                ->latest()
-                ->base('USD')
-                ->get();
             $date = request('date') ? request('date') : Carbon::now()->format('Y-m-d');
-            $excel = Excel::import(new ReportsImport($date, $currencies), request()->file('reportImport'));
+            $excel = Excel::import(new ReportsImport($date), request()->file('reportImport'));
             session()->flash('success', "Import successed");
             return redirect()->route('management.report');
         } catch (\Exception $e) {
