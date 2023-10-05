@@ -1,7 +1,7 @@
 @php
     $month = \Carbon\Carbon::now()->format('Y-m');
-    $start = \Carbon\Carbon::parse($month)->startOfMonth();
-    $end = \Carbon\Carbon::parse($month)->endOfMonth();
+    $start = \Carbon\Carbon::parse("2023-09")->startOfMonth();
+    $end = \Carbon\Carbon::parse("2023-09")->endOfMonth();
     $dates = [];
     while ($start->lte($end)) {
        $dates[] = $start->copy();
