@@ -22,6 +22,6 @@ return [
     | Define your API key here.
     |
     */
-    'api_key' => env('EXCHANGE_RATES_API_KEY', 'rcA9lwM7TDBVV1ikHFqpIY7U59YZTFOH'),
+    'api_key' => env('EXCHANGE_RATES_API_KEY', 'PDMCnAJMuw1GOr54Am9g5mIEhRL2i0P4'),
 
 ];

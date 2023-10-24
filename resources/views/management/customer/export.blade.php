@@ -19,7 +19,7 @@
             @endforeach
             <td>Total</td>
         </tr>
-    </thead>
+    </thead>  
     <tbody>
         @foreach($customers as $customer)
             <tr>
