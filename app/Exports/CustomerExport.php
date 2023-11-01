@@ -9,10 +9,16 @@ use Maatwebsite\Excel\Concerns\FromView;
 
 class CustomerExport implements FromView
 {
+    public function __construct($date)
+    {
+        $this->date = $date;
+    }
+
     public function view(): View
     {
         return view('management.customer.export', [
-            'customers' => Customer::all()
+            'customers' => Customer::all(),
+            'exportDate' => $this->date
         ]);
     }
 }

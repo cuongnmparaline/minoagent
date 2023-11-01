@@ -1,7 +1,7 @@
 @php
     $month = \Carbon\Carbon::now()->format('Y-m');
-    $start = \Carbon\Carbon::parse("2023-09")->startOfMonth();
-    $end = \Carbon\Carbon::parse("2023-09")->endOfMonth();
+    $start = \Carbon\Carbon::parse($exportDate)->startOfMonth();
+    $end = \Carbon\Carbon::parse($exportDate)->endOfMonth();
     $dates = [];
     while ($start->lte($end)) {
        $dates[] = $start->copy();
@@ -19,7 +19,7 @@
             @endforeach
             <td>Total</td>
         </tr>
-    </thead>  
+    </thead>
     <tbody>
         @foreach($customers as $customer)
             <tr>

@@ -29,12 +29,28 @@
         </div>
     </div>
     <div class="container-fluid pt-4 px-4">
+        <form action="{{ route('management.customer.export') }}" method="get">
+            <div class="row">
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control"
+                               placeholder="Name" name="month" value="" >
+                        <label for="floatingInput">Date to Export</label>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="submit" class="btn btn-sm btn-primary" value="Export">
+                    </div>
+                </div>
+
+            </div>
+        </form>
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">
                     <a href="{{ route('management.customer.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </h6>
-                <a href="{{ route('management.customer.export') }}">Export Excel</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
