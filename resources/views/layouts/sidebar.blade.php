@@ -33,6 +33,8 @@
             <a href="{{ route('management.group') }}" class="nav-item nav-link {{ request()->is('management/group*') ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Group</a>
             <a href="{{ route('management.history') }}" class="nav-item nav-link {{ request()->is('management/history*') ? 'active' : '' }}"><i class="fa fa-book me-2"></i>History Top Up</a>
             <a href="{{ route('management.report.import') }}" class="nav-item nav-link {{ request()->is('management/report/import') ? 'active' : '' }}"><i class="fa fa-file-excel me-2"></i>Import Excel</a>
+            <a href="{{ route('management.post') }}" class="nav-item nav-link {{ request()->is('management.post') ? 'active' : '' }}"><i class="fa fa-blog me-2"></i>Blog</a>
+            <a href="{{ route('management.setup') }}" class="nav-item nav-link {{ request()->is('management.setup') ? 'active' : '' }}"><i class="fa fa-cogs me-2"></i>Setup</a>
             @endif
             @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
                     <a href="{{ route('customer.home') }}" class="nav-item nav-link {{ request()->is('customer') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>

@@ -22,4 +22,12 @@ return [
     'wellComeNewEmployee' => 'Welcome to our system!',
     'teamNotFound' => 'Team not found!',
     'customerNotFound' => 'Customer not found!',
+    'listPostFail' => 'Something wrong when list blog! Try again!',
+    'deletePostSuccess' => 'Delete post success',
+    'deletePostFail' => 'Delete post fail',
+    'updatePostSuccess' => 'Update post success',
+    'updatePostFail' => 'Update post fail',
+    'createPostFail' => 'Create post fail',
+    'createPostSuccess' => 'Create post success',
+    'updatePostFailNotFound' => 'Not found post status to update'
 ];

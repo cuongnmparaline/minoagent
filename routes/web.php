@@ -12,6 +12,9 @@ use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 use App\Http\Controllers\Customer\AccountController as CustomerAccount;
 use App\Http\Controllers\Customer\GroupController as CustomerGroup;
+use App\Http\Controllers\PostCategoriesController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostStatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +28,7 @@ use App\Http\Controllers\Customer\GroupController as CustomerGroup;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.main');
 });
 Route::get('management/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('management/login', [AuthController::class, 'postLogin'])->name('checkLogin');
@@ -107,4 +110,33 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/group/saveToGroup/{id}/{accountId}', [GroupController::class, 'saveToGroup'])->name('management.group.saveToGroup');
     Route::get('/group/show/{id}', [GroupController::class, 'show'])->name('management.group.show');
     Route::get('/group/remove/{id}/{accountId}', [GroupController::class, 'remove'])->name('management.group.remove');
+
+    Route::get('/post', [PostController::class, 'index'])->name('management.post');
+    Route::get('/post/create', [PostController::class, 'create'])->name('management.post.create');
+    Route::post('/post/store', [PostController::class, 'store'])->name('management.post.store');
+    Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('management.post.edit');
+    Route::post('/post/update/{id}', [PostController::class, 'update'])->name('management.post.update');
+    Route::get('/post/delete/{id}', [PostController::class, 'delete'])->name('management.post.delete');
+    Route::get('/post/show/{id}', [PostController::class, 'show'])->name('management.post.show');
+    Route::post('post/ckeditorUpload', [PostController::class, 'ckeditorUpload'])->name('management.post.ckeditorUpload');
+
+    Route::get('/postCategories', [PostCategoriesController::class, 'index'])->name('management.postCategories');
+    Route::get('/postCategories/create', [PostCategoriesController::class, 'create'])->name('management.postCategories.create');
+    Route::post('/postCategories/store', [PostCategoriesController::class, 'store'])->name('management.postCategories.store');
+    Route::get('/postCategories/edit/{id}', [PostCategoriesController::class, 'edit'])->name('management.postCategories.edit');
+    Route::post('/postCategories/update/{id}', [PostCategoriesController::class, 'update'])->name('management.postCategories.update');
+    Route::get('/postCategories/delete/{id}', [PostCategoriesController::class, 'delete'])->name('management.postCategories.delete');
+    Route::get('/postCategories/show/{id}', [PostCategoriesController::class, 'show'])->name('management.postCategories.show');
+
+    Route::get('/postStatus', [PostStatusController::class, 'index'])->name('management.postStatus');
+    Route::get('/postStatus/create', [PostStatusController::class, 'create'])->name('management.postStatus.create');
+    Route::post('/postStatus/store', [PostStatusController::class, 'store'])->name('management.postStatus.store');
+    Route::get('/postStatus/edit/{id}', [PostStatusController::class, 'edit'])->name('management.postStatus.edit');
+    Route::post('/postStatus/update/{id}', [PostStatusController::class, 'update'])->name('management.postStatus.update');
+    Route::get('/postStatus/delete/{id}', [PostStatusController::class, 'delete'])->name('management.postStatus.delete');
+    Route::get('/postStatus/show/{id}', [PostStatusController::class, 'show'])->name('management.postStatus.show');
+
+    Route::get('/setup', function () {
+        return view('management.setup.index');
+    })->name('management.setup');
 });

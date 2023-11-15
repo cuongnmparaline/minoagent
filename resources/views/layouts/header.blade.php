@@ -31,4 +31,6 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    @yield('style')
 </head>
