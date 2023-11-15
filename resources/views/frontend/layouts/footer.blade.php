@@ -10,7 +10,7 @@
                         <div class="footer-widget f-about">
                             <div class="logo">
                                 <a href="">
-                                    <img src="./images/logo.svg" alt="#" class="img-fluid"/>
+                                    <img src="{{ asset('/images/logo.svg') }}" alt="#" class="img-fluid"/>
                                 </a>
                             </div>
                             <h3>

@@ -12,6 +12,8 @@ use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 use App\Http\Controllers\Customer\AccountController as CustomerAccount;
 use App\Http\Controllers\Customer\GroupController as CustomerGroup;
+use App\Http\Controllers\Frontend\BlogController as FrontendBlogController;
+use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\PostCategoriesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostStatusController;
@@ -27,9 +29,13 @@ use App\Http\Controllers\PostStatusController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.main');
+Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.home');
+
+Route::group(['prefix' => 'blog'], function () {
+    Route::get('/', [FrontendBlogController::class, 'index'])->name('frontend.blog');
+    Route::get('/view/{id}', [FrontendBlogController::class, 'show'])->name('frontend.blog.show');
 });
+    
 Route::get('management/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('management/login', [AuthController::class, 'postLogin'])->name('checkLogin');
 Route::get('management/logout', [AuthController::class, 'logout'])->name('logout');
