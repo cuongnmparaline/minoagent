@@ -31,7 +31,7 @@ class UpdateRequest extends FormRequest
             'user_id' => 'exists:users,id',
             'status_id' => 'required|integer|max:3',
             'content' => 'required',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10000',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:4000',
             'summary' => 'required|string|max:255',
             'category_id' => 'nullable'
         ];

@@ -38,6 +38,11 @@
       </div>
       <div class="form-group mb-3">
         {{ Form::label('content', 'Ảnh đại diện', array('for' => 'image', 'class' => $errors->has('image') ? ' is-invalid' : '')) }}
+        @error('image')
+            <div class="invalid-feedback">
+            {{ $message }}
+            </div>
+        @enderror
         @if(isset($post->image))
             <img src="{{ $post->image ? asset('storage/images/'.$post->image) : '' }}" style="width: 100px;height: 80px;object-fit: cover;"/><br><br>
         @endif
