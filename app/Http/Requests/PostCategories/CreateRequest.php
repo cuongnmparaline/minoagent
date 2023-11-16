@@ -35,7 +35,6 @@ class CreateRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        session()->flash('error', __('messages.updatePostFail'));
-        return parent::failedValidation($validator);
+        return redirect()->back()->withErrors($validator)->withInput();
     }
 }

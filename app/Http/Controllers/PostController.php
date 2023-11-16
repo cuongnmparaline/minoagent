@@ -102,8 +102,9 @@ class PostController extends Controller
 
     public function update(UpdateRequest $request, $id)
     {
+        $data = $request->validated();
+
         try {
-            $data = $request->validated();
 
             if (isset($data['image'])) {
                 $relativePath = self::saveImageByStore($request->file('image'));
@@ -129,7 +130,6 @@ class PostController extends Controller
             }
             session()->flash('success', __('messages.updatePostSuccess'));
         } catch (\Exception $e) {
-            dd($e);
             session()->flash('error', __('messages.updatePostFail'));
         }
         

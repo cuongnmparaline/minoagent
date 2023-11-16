@@ -11,11 +11,11 @@
   @endif
       <div class="form-group mb-3">
           {{ Form::label('title', 'Tiêu đề', array('class' => $errors->has('title') ? ' is-invalid' : '') )}}
-          @if($errors->has('title'))
+            @error('title')
               <div class="invalid-feedback">
-                  {{ $errors->first('title') }}
+                {{ $message }}
               </div>
-          @endif
+            @enderror
           {{ Form::text('title', null, array('class' => 'form-control')) }}
       </div>
       <div class="form-group mb-3">

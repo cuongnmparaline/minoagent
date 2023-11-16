@@ -66,9 +66,9 @@ class PostCategoriesController extends Controller
 
     public function update(UpdateRequest $request, $id)
     {
-        try {
-            $data = $request->validated();
+        $data = $request->validated();
 
+        try {
             $postCategories = PostCategories::find($id);
 
             if ($postCategories) {
