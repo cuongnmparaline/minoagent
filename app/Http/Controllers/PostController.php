@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BLog\CreateRequest;
+use App\Http\Requests\Blog\CreateRequest;
 use App\Http\Requests\Blog\UpdateRequest;
 use App\Models\Post;
 use App\Models\PostCategories;
