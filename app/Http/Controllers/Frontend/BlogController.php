@@ -22,14 +22,14 @@ class BlogController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $post = Post::find($id);
+        $post = Post::where(['slug' => $slug])->first();
 
         $postRelated = Post::whereHas('post_categories', function ($query) use ($post) {
             $query->whereIn('post_categories_id', $post->post_categories->pluck('post_categories_id'));
         })
-        ->orderBy('created_at', 'asc')
+        ->orderBy('created_at', 'desc')
         ->limit(5)
         ->get();
 

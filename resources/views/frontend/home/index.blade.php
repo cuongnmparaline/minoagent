@@ -500,7 +500,7 @@
                 <!-- Single News -->
                 <div class="single-news">
                     <div class="image">
-                        <a href="{{ route('frontend.blog.show', ['id' => $post->id]) }}"><img class="thumb" style="height: 300px;" src="{{ $post->image ? asset('/storage/images/'.$post->image) : asset('storage/images/noimg.png') }}" alt="Blog"/></a>
+                        <a href="{{ route('frontend.blog.show', ['slug' => $post->slug]) }}"><img class="thumb" style="height: 300px;" src="{{ $post->image ? asset('/storage/images/'.$post->image) : asset('storage/images/noimg.png') }}" alt="{{ $post->slug }}"/></a>
                         <div class="meta-details">
                             <img class="thumb" src="{{ $post->image ? asset('/storage/images/'.$post->image) : asset('storage/images/noimg.png') }}" alt="Author"/>
                             <span>BY <?= strtoupper($post->author->name); ?></span>
@@ -508,7 +508,7 @@
                     </div>
                     <div class="content-body">
                         <h4 class="title">
-                            <a href="{{ route('frontend.blog.show', ['id' => $post->id]) }}"> {{ $post->title ?? '' }} </a>
+                            <a href="{{ route('frontend.blog.show', ['slug' => $post->slug]) }}"> {{ $post->title ?? '' }} </a>
                         </h4>
                         <p>
                         {{ $post->summary ?? '' }}

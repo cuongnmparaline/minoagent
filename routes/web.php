@@ -33,7 +33,7 @@ Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.home')
 
 Route::group(['prefix' => 'blog'], function () {
     Route::get('/', [FrontendBlogController::class, 'index'])->name('frontend.blog');
-    Route::get('/view/{id}', [FrontendBlogController::class, 'show'])->name('frontend.blog.show');
+    Route::get('/view/{slug}', [FrontendBlogController::class, 'show'])->name('frontend.blog.show');
 });
     
 Route::get('management/login', [AuthController::class, 'getLogin'])->name('login');

@@ -33,7 +33,8 @@ class CreateRequest extends FormRequest
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:4000',
             'summary' => 'required|string|max:255',
-            'category_id' => 'nullable'
+            'category_id' => 'nullable',
+            'slug' => 'required|string|max:255'
         ];
     }
 

@@ -92,4 +92,14 @@ if (!function_exists('getRoleName')) {
     }
 }
 
+if (!function_exists('convertToSlug')) {
+    function convertToSlug($string) {
+        $string = strtolower($string);
+        $string = str_replace(' ', '-', $string);
+        $string = preg_replace('/[^a-z0-9-]/', '', $string);
+        $string = preg_replace('/-+/', '-', $string);
+
+        return $string;
+    }
+}
 

@@ -63,6 +63,7 @@ class PostController extends Controller
             }
             
             $data['user_id'] = Auth::guard('admin')->id();
+            $data['slug'] = convertToSlug($request->title);
             $post = Post::create($data);
 
             if (isset($data['category_id']) && count($data['category_id'])) {
@@ -115,7 +116,8 @@ class PostController extends Controller
             if ($post->image) {
                 Storage::delete('public/'.$post->image);
             }
-    
+            
+            $data['slug'] = convertToSlug($request->title);
             $post->update($data);
 
             $post_has_categories = PostHasCategories::where(['post_id' => $post->id])->delete();

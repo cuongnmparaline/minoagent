@@ -41,7 +41,7 @@
     color: white;">RELATED POSTS</span>
         <ul style="margin-top: 15px;">
           @foreach ($postRelated as $post_related)
-          <li><a href="{{ route('frontend.blog.show', ['id' => $post_related->id]) }}">{{ $post_related->title }}</a></li>
+          <li><a href="{{ route('frontend.blog.show', ['slug' => $post->slug]) }}">{{ $post_related->title }}</a></li>
           @endforeach
         </ul>
       </div>

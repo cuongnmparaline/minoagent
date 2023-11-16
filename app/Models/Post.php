@@ -23,7 +23,8 @@ class Post extends Model
         'status_id', 
         'content', 
         'image', 
-        'user_id'
+        'user_id',
+        'slug'
     ];
 
     public function post_categories() {
