@@ -17,7 +17,7 @@ class PostStatusController extends Controller
             })->when(!empty(request('date')), function ($query) {
                 return $query->where('created_at', 'LIKE', '%' . request('date') . '%');
             })
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         } catch (\Exception $e) {
             session()->flash('error', __('messages.listPostFail'));
