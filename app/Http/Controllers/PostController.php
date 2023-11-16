@@ -19,7 +19,14 @@ class PostController extends Controller
     public function index()
     {
         try { 
-            $posts = Post::orderBy('posts.created_at', 'asc')->paginate(10);
+            $posts = Post::when(!empty(request('title')), function ($query) {
+                return $query->where('title', 'LIKE', '%' . request('title') . '%');
+            })->when(!empty(request('date')), function ($query) {
+                return $query->where('created_at', 'LIKE', '%' . request('date') . '%');
+            })
+            ->orderBy('created_at', 'asc')
+            ->paginate(10);
+            
         } catch (\Exception $commonException) {
             session()->flash('error', __('messages.listPostFail'));
         }

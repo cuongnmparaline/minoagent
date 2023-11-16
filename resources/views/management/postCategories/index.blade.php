@@ -31,6 +31,30 @@
                 </div>
             @endif
         </div>
+        <form action="{{ route('management.postCategories') }}" method="get">
+            <div class="row">
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control"
+                            placeholder="Name" name="name" value="{{ request('name') }}">
+                        <label for="floatingInput">Name</label>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control"
+                            placeholder="Name" name="date" value="{{ request()->get('date') }}" >
+                        <label for="floatingInput">Date</label>
+                    </div>
+                </div>
+                <div class="col-3 col-xl-3">
+                    <div class="form-floating mb-3">
+                        <input type="submit" class="btn btn-sm btn-primary" value="Search">
+                        <a href="{{ route('management.post') }}" type="submit" class="btn btn-sm btn-primary">Clear</a>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">

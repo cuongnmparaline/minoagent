@@ -12,7 +12,13 @@ class PostStatusController extends Controller
     public function index()
     {
         try {
-            $postStatus = PostStatus::orderBy('created_at', 'asc')->paginate(10);
+            $postStatus = PostStatus::when(!empty(request('name')), function ($query) {
+                return $query->where('name', 'LIKE', '%' . request('name') . '%');
+            })->when(!empty(request('date')), function ($query) {
+                return $query->where('created_at', 'LIKE', '%' . request('date') . '%');
+            })
+            ->orderBy('created_at', 'asc')
+            ->paginate(10);
         } catch (\Exception $e) {
             session()->flash('error', __('messages.listPostFail'));
         }
