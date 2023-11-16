@@ -5,14 +5,14 @@
     <!--====== Required meta tags ======-->
     @include('frontend.layouts.header')
 </head>
-
 <body>
+@yield('style')
     <section class="navbar-area navbar-nine">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="">
+                        <a class="navbar-brand" href="{{ route('frontend.home') }}">
                             <img src="{{ asset('/images/white-logo.svg') }}" alt="Logo"/>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"

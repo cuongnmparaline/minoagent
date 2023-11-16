@@ -1,5 +1,17 @@
 @extends('frontend.layouts.main')
-
+@section('style')
+<style>
+  .single-post-sidebar ul li {
+    margin-bottom: 5px;
+  }
+  .single-post-sidebar ul li a {
+    color: black;
+  }
+  .single-post-sidebar ul li a:hover {
+    color: #fd8127;
+  }
+</style>
+@endsection
 @section('content')
 <div class="container mt-5 pt-5 mb-5">
   <div class="row justify-content-center mt-5">
@@ -28,12 +40,9 @@
     border-radius: 3px;
     color: white;">RELATED POSTS</span>
         <ul style="margin-top: 15px;">
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, accusantium.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, accusantium.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, accusantium.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, accusantium.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, accusantium.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, accusantium.</li>
+          @foreach ($postRelated as $post_related)
+          <li><a href="{{ route('frontend.blog.show', ['id' => $post_related->id]) }}">{{ $post_related->title }}</a></li>
+          @endforeach
         </ul>
       </div>
     </div>

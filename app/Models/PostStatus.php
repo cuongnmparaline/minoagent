@@ -14,4 +14,7 @@ class PostStatus extends Model
         'id',
         'name',
     ];
+
+    public const ACTIVE = "Đang Hoạt động";
+    public const DEACTIVE = "Không hoạt động";
 }
