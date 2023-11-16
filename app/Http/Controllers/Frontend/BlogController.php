@@ -11,7 +11,15 @@ class BlogController extends Controller
 {
     public function index()
     {
+        try { 
+            $posts = Post::orderBy('created_at', 'asc')->paginate(9);
+        } catch (\Exception $commonException) {
+            session()->flash('error', __('messages.listPostFail'));
+        }
 
+        return view('frontend.blog.index', [
+            'posts' => $posts
+        ]);
     }
 
     public function show($id)

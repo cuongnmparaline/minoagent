@@ -519,6 +519,11 @@
             </div>
             @endforeach
         </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-4 col-md-6 col-12 text-center">
+                <a href="{{ route('frontend.blog') }}" class="btn btn-primary">Blog</a>
+            </div>
+        </div>
     </div>
 </div>
 <!-- End Latest News Area -->
