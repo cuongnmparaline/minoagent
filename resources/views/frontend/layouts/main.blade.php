@@ -37,7 +37,7 @@
                                     <a class="page-scroll" href="#testimonial">Rating</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="#blog">Blog</a>
+                                    <a class="page-scroll" href="{{ route('frontend.blog') }}">Blog</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#faq">FAQ</a>
