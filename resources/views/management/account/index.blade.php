@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
@@ -109,7 +108,7 @@
                         @foreach($dates as $date)
                             <th>{{ $date->format('m/d/y') }}</th>
                         @endforeach
-                        <th scope="col">Amount</th>
+                        <th scope="col">Amount Month</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -124,6 +123,7 @@
                         @foreach($dates as $date)
                             <th>{{ $account->reports->where('date', $date->format('Y-m-d'))->sum('amount') }}</th>
                         @endforeach
+                        <th>{{ $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount') }}</th>
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">
@@ -154,7 +154,6 @@
                                 }
                             </script>
                         </td>
-
                     </tr>
                     @endforeach
                     </tbody>

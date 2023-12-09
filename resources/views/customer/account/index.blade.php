@@ -93,14 +93,25 @@
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
+                    @php
+                        $start = \Carbon\Carbon::now()->startOfMonth();
+                        $end = \Carbon\Carbon::now()->endOfMonth();
+                        $dates = [];
+                        while ($start->lte($end)) {
+                             $dates[] = $start->copy();
+                             $start->addDay();
+                        }
+                    @endphp
                     <tr class="text-dark">
                         <th scope="col">STT</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Code</th>
+                        <th scope="col">Limit</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Amount Fee</th>
+                        @foreach($dates as $date)
+                            <th>{{ $date->format('m/d/y') }}</th>
+                        @endforeach
+                        <th scope="col">Amount month</th>
+{{--                        <th scope="col">Amount Fee</th>--}}
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -109,11 +120,13 @@
                     <tr>
                         <td>{{ ++$loop->index }}</td>
                         <td>{{ $account['name'] }}</td>
-                        <td>{{ $account['code'] }}</td>
+                        <td>{{ $account['limit'] }}</td>
                         <td>{{ $account['status'] }}</td>
-                        <td>@if(!empty($account['date'])) {{ $account['date'] }} @else {{ $account->reports->last()->date }} @endif</td>
-                        <td>@if(!empty($account['amount'])) {{ $account['amount'] }} @else {{ $account->reports->last()->amount }} @endif</td>
-                        <td>@if(!empty($account['amount_fee'])) {{ $account['amount_fee'] }} @else {{ $account->reports->last()->amount_fee }} @endif</td>
+                        @foreach($dates as $date)
+                            <th>{{ $account->reports->where('date', $date->format('Y-m-d'))->sum('amount') }}</th>
+                        @endforeach
+                        <th>@if(!empty($account->reports)) {{ $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount') }} @endif</th>
+{{--                        <td>@if(!empty($account['amount_fee'])) {{ $account['amount_fee'] }} @else {{ $account->reports->last()->amount_fee }} @endif</td>--}}
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('customer.account.show', ['id' => $account->id]) }}">Show</a>
                         </td>
