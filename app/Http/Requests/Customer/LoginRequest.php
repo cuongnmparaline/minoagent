@@ -31,6 +31,7 @@ class LoginRequest extends FormRequest
     public function withValidator($validator)
     {
         if(!empty(request()->get('email')) && !empty(request()->get('password'))){
+
             $validator->after(function ($validator) {
                 if(Auth::guard('customer')->attempt(request()->only(['email', 'password']))){
                     Auth::guard('admin')->logout();

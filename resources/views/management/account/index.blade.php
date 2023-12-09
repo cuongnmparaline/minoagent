@@ -121,9 +121,9 @@
                         <td>{{ $account->customer->name }}</td>
                         <td>{{ $account['status'] }}</td>
                         @foreach($dates as $date)
-                            <th>{{ $account->reports->where('date', $date->format('Y-m-d'))->sum('amount') }}</th>
+                            <th>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</th>
                         @endforeach
-                        <th>{{ $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount') }}</th>
+                        <th>{{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }}</th>
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">

@@ -123,9 +123,9 @@
                         <td>{{ $account['limit'] }}</td>
                         <td>{{ $account['status'] }}</td>
                         @foreach($dates as $date)
-                            <th>{{ $account->reports->where('date', $date->format('Y-m-d'))->sum('amount') }}</th>
+                            <th>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</th>
                         @endforeach
-                        <th>@if(!empty($account->reports)) {{ $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount') }} @endif</th>
+                        <th>@if(!empty($account->reports)) {{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }} @endif</th>
 {{--                        <td>@if(!empty($account['amount_fee'])) {{ $account['amount_fee'] }} @else {{ $account->reports->last()->amount_fee }} @endif</td>--}}
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('customer.account.show', ['id' => $account->id]) }}">Show</a>
