@@ -59,6 +59,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Balance</th>
+                        <th scope="col">Spend Month</th>
+                        <th scope="col">Avarage Month</th>
                         <th scope="col">Fee</th>
                         <th scope="col">Email</th>
                         <th scope="col">Total Account</th>
@@ -68,9 +70,36 @@
                     <tbody>
                     @foreach($customers as $customer)
                     <tr>
+                        @php
+                            $start = \Carbon\Carbon::now()->startOfMonth();
+                            $end = \Carbon\Carbon::now()->endOfMonth();
+                            $dates = [];
+                            while ($start->lte($end)) {
+                                 $dates[] = $start->copy();
+                                 $start->addDay();
+                            }
+                            $totalSpendMonth = 0;
+                            $totalDay = 0;
+                            $avarageMonth = 0;
+                            foreach ($customer->accounts as $account) {
+                                $totalSpendMonth += $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount');
+                            }
+                              $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
+                              $now = \Carbon\Carbon::now();
+
+                              $numberOfMonth = Carbon\Carbon::now()->daysInMonth;
+                              $datediff = $datework->diffInDays($now);
+                                if ($datediff > $numberOfMonth) {
+                                    $avarageMonth = $totalSpendMonth / $numberOfMonth;
+                                } else {
+                                    $avarageMonth = $totalSpendMonth / $datediff;
+                                }
+                        @endphp
                         <td>{{ $customer['id'] }}</td>
                         <td>{{ $customer['name'] }}</td>
                         <td>{{ sprintf("%.2f",  $customer['balance']) }}</td>
+                        <th scope="col">{{ sprintf("%.2f", $totalSpendMonth) }}</th>
+                        <th scope="col">{{ sprintf("%.2f", $avarageMonth) }}</th>
                         <td>{{ $customer['fee'] }}</td>
                         <td>{{ $customer['email'] }}</td>
                         <td>{{ $customer->accounts->count() }}</td>
