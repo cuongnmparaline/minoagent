@@ -108,6 +108,63 @@
                 </table>
             </div>
         </div>
+        @php
+            $start = \Carbon\Carbon::now()->startOfMonth();
+                $end = \Carbon\Carbon::now()->endOfMonth();
+                $dates = [];
+                while ($start->lte($end)) {
+                     $dates[] = $start->copy();
+                     $start->addDay();
+                }
+                $totalSpendMonth = 0;
+                $totalDay = 0;
+                $avarageMonth = 0;
+                foreach ($customer->accounts as $account) {
+                    $totalSpendMonth += $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount');
+                }
+
+                $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
+                                      $now = \Carbon\Carbon::now();
+
+              $numberOfMonth = Carbon\Carbon::now()->daysInMonth;
+              $datediff = $datework->diffInDays($now);
+                if ($datediff > $numberOfMonth) {
+                    $avarageMonth = $totalSpendMonth / $numberOfMonth;
+                } else {
+                    $avarageMonth = $totalSpendMonth / ($numberOfMonth - $datediff);
+                }
+        @endphp
+        <div class="modal fadeOut" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Discout Fee Alert!</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <p>You have spent avarage <b>{{ sprintf("%.2f", $avarageMonth) }}$</b> this month!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.onload = function() {myFunction()};
+            document.getElementById("btnClose").onclick = function () {
+                document.getElementById("myModal").style.display = "none";
+            }
+            document.getElementById("btnX").onclick = function () {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            function myFunction() {
+                document.getElementById("myModal").style.display = "block";
+            }
+        </script>
     </div>
+
 @endsection
 

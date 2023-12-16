@@ -71,6 +71,8 @@
                     @foreach($customers as $customer)
                     <tr>
                         @php
+
+
                             $start = \Carbon\Carbon::now()->startOfMonth();
                             $end = \Carbon\Carbon::now()->endOfMonth();
                             $dates = [];
