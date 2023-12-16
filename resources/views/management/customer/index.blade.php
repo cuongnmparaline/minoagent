@@ -92,7 +92,7 @@
                                 if ($datediff > $numberOfMonth) {
                                     $avarageMonth = $totalSpendMonth / $numberOfMonth;
                                 } else {
-                                    $avarageMonth = $totalSpendMonth / $datediff;
+                                    $avarageMonth = $totalSpendMonth / ($numberOfMonth - $datediff);
                                 }
                         @endphp
                         <td>{{ $customer['id'] }}</td>
