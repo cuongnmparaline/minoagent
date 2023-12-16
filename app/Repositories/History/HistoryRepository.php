@@ -31,6 +31,11 @@ class HistoryRepository extends BaseRepository implements HistoryRepositoryInter
         if (request()->get('customer')) {
             $result->where('customer_id', '=', request()->get('customer'));
         }
+
+        if (request()->get('month')) {
+//            dd("MONTH(date) = '".request()->get('month')."'");
+            return $result->whereRaw("MONTH(date) = '".request()->get('month')."'")->paginate(100);
+        }
         return $result->paginate(config('const.numPerPage'));
     }
 }

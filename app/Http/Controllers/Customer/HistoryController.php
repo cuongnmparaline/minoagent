@@ -26,6 +26,7 @@ class HistoryController extends Controller
     public function index()
     {
         $histories = $this->historyRepo->search();
+        dd($histories);
         return view('management.history.index', ['histories' => $histories]);
     }
 }
