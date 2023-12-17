@@ -71,8 +71,6 @@
                     @foreach($customers as $customer)
                     <tr>
                         @php
-
-
                             $start = \Carbon\Carbon::now()->startOfMonth();
                             $end = \Carbon\Carbon::now()->endOfMonth();
                             $dates = [];
@@ -86,16 +84,20 @@
                             foreach ($customer->accounts as $account) {
                                 $totalSpendMonth += $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount');
                             }
-                              $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
-                              $now = \Carbon\Carbon::now();
+                          $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
+                          $now = \Carbon\Carbon::now();
 
-                              $numberOfMonth = Carbon\Carbon::now()->daysInMonth;
-                              $datediff = $datework->diffInDays($now);
-                                if ($datediff > $numberOfMonth) {
-                                    $avarageMonth = $totalSpendMonth / $numberOfMonth;
-                                } else {
-                                    $avarageMonth = $totalSpendMonth / ($numberOfMonth - $datediff);
-                                }
+                          $numberOfMonth = Carbon\Carbon::now()->daysInMonth;
+                          $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
+                          $now = \Carbon\Carbon::now();
+
+                          $totalDay = $dates[0]->diffInDays($now)+1;
+                          $datediff = $datework->diffInDays($now)+1;
+                            if ($datediff < $totalDay) {
+                                $avarageMonth = $totalSpendMonth / $datediff;
+                            } else {
+                                $avarageMonth = $totalSpendMonth / $totalDay;
+                            }
                         @endphp
                         <td>{{ $customer['id'] }}</td>
                         <td>{{ $customer['name'] }}</td>

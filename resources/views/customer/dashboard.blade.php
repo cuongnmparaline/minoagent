@@ -123,15 +123,25 @@
                     $totalSpendMonth += $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount');
                 }
 
-                $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
-                                      $now = \Carbon\Carbon::now();
+                  $datework = \Carbon\Carbon::createFromDate($customer['ins_datetime']);
+                  $now = \Carbon\Carbon::now();
 
-              $numberOfMonth = Carbon\Carbon::now()->daysInMonth;
-              $datediff = $datework->diffInDays($now);
-                if ($datediff > $numberOfMonth) {
-                    $avarageMonth = $totalSpendMonth / $numberOfMonth;
+                  $totalDay = $dates[0]->diffInDays($now)+1;
+                  $datediff = $datework->diffInDays($now)+1;
+                    if ($datediff < $totalDay) {
+                        $avarageMonth = $totalSpendMonth / $datediff;
+                    } else {
+                        $avarageMonth = $totalSpendMonth / $totalDay;
+                    }
+
+                if ($avarageMonth <= 1000 ) {
+                    $nextFee = "9%";
+                } else if($avarageMonth > 1000 && $avarageMonth <= 3000) {
+                    $nextFee = "8%";
+                } else if ($avarageMonth > 3000 && $avarageMonth <= 5000){
+                    $nextFee = "7%";
                 } else {
-                    $avarageMonth = $totalSpendMonth / ($numberOfMonth - $datediff);
+                    $nextFee = "NEGOTIATE";
                 }
         @endphp
         <div class="modal fadeOut" tabindex="-1" role="dialog" id="myModal">
@@ -142,7 +152,9 @@
 
                     </div>
                     <div class="modal-body">
-                        <p>You have spent avarage <b>{{ sprintf("%.2f", $avarageMonth) }}$</b> this month!</p>
+{{--                        <p>You have spent an average of  this month!</p>--}}
+                        <p>Look!! WIth <b>{{ sprintf("%.2f",$totalSpendMonth) }}$</b> total spending, your average spending is <b>{{ sprintf("%.2f", $avarageMonth) }}$</b> this month.
+                            Let's spend  more to achieve your goal budget, then the fee next month will be reduced to <b>{{ $nextFee }}</b></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Close</button>
