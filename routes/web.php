@@ -8,6 +8,8 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\NotPayController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuth;
 use App\Http\Controllers\Customer\HomeController as HomeCustomer;
 use App\Http\Controllers\Customer\AccountController as CustomerAccount;
@@ -35,7 +37,7 @@ Route::group(['prefix' => 'blog'], function () {
     Route::get('/', [FrontendBlogController::class, 'index'])->name('frontend.blog');
     Route::get('/view/{slug}', [FrontendBlogController::class, 'show'])->name('frontend.blog.show');
 });
-    
+
 Route::get('management/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('management/login', [AuthController::class, 'postLogin'])->name('checkLogin');
 Route::get('management/logout', [AuthController::class, 'logout'])->name('logout');
@@ -141,6 +143,17 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::post('/postStatus/update/{id}', [PostStatusController::class, 'update'])->name('management.postStatus.update');
     Route::get('/postStatus/delete/{id}', [PostStatusController::class, 'delete'])->name('management.postStatus.delete');
     Route::get('/postStatus/show/{id}', [PostStatusController::class, 'show'])->name('management.postStatus.show');
+
+    Route::get('/notpay/create', [NotPayController::class, 'create'])->name('management.notpay.create');
+    Route::get('/notpay', [NotPayController::class, 'index'])->name('management.notpay');
+    Route::get('/notpay/listAccount', [NotPayController::class, 'listAccount'])->name('management.notpay.listAccount');
+    Route::post('/notpay/store', [NotPayController::class, 'store'])->name('management.notpay.store');
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('management.admin');
+    Route::get('/admin/create', [AdminController::class, 'create'])->name('management.admin.create');
+    Route::post('/admin/store', [AdminController::class, 'store'])->name('management.admin.store');
+    Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('management.admin.delete');
+
 
     Route::get('/setup', function () {
         return view('management.setup.index');

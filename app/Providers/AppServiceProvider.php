@@ -32,6 +32,16 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Group\GroupRepositoryInterface::class,
             \App\Repositories\Group\GroupRepository::class
         );
+
+        $this->app->singleton(
+            \App\Repositories\NotPay\NotPayRepositoryInterface::class,
+            \App\Repositories\NotPay\NotPayRepository::class
+        );
+
+        $this->app->singleton(
+            \App\Repositories\Admin\AdminRepositoryInterface::class,
+            \App\Repositories\Admin\AdminRepository::class
+        );
     }
 
     /**

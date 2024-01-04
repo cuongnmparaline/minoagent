@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>CALIN AGENT</title>
+    <meta name="_token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon-Calin.svg') }}"/>
     <meta content="" name="keywords">

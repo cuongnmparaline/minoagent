@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\DelFlagScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,8 +16,8 @@ class Admin extends Authenticatable
         'id',
         'email',
         'name',
-        'avatar',
-        'role_type',
+        'password',
+        'role',
         'ins_id',
         'upd_id',
         'ins_datetime',
@@ -34,4 +35,9 @@ class Admin extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+    protected static function booted()
+    {
+        static::addGlobalScope(new DelFlagScope());
+    }
+
 }

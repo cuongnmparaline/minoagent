@@ -179,6 +179,12 @@ return [
         '1' => 'Die',
         '2' => 'Comeback',
     ],
+
+    'role' => [
+        '1' => 'Admin',
+        '2' => 'Tech'
+    ],
+
     'TEMP_DIR' => 'public/tmp/',
     'PATH_UPLOAD' => 'public/uploads/',
     'AVATAR_DIR' => 'storage/uploads/',

@@ -1,5 +1,5 @@
 @include('layouts.header')
-
+@include('layouts.load_js')
 <body>
 <div class="container-xxl position-relative bg-white d-flex p-0">
     @include('layouts.sidebar')
@@ -10,9 +10,7 @@
         @yield('content')
     </div>
 </div>
-
 <!-- JavaScript Libraries -->
-@include('layouts.load_js')
 </body>
 
 </html>

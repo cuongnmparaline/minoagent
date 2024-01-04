@@ -32,7 +32,9 @@
             <a href="{{ route('management.customer') }}" class="nav-item nav-link {{ request()->is('management/customer*') ? 'active' : '' }}"><i class="fa fa-business-time me-2"></i>Customer</a>
             <a href="{{ route('management.group') }}" class="nav-item nav-link {{ request()->is('management/group*') ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Group</a>
             <a href="{{ route('management.history') }}" class="nav-item nav-link {{ request()->is('management/history*') ? 'active' : '' }}"><i class="fa fa-book me-2"></i>History Top Up</a>
+            <a href="{{ route('management.notpay') }}" class="nav-item nav-link {{ request()->is('management/notpay*') ? 'active' : '' }}"><i class="fa fa-book me-2"></i>Not Pay</a>
             <a href="{{ route('management.report.import') }}" class="nav-item nav-link {{ request()->is('management/report/import') ? 'active' : '' }}"><i class="fa fa-file-excel me-2"></i>Import Excel</a>
+                <a href="{{ route('management.admin') }}" class="nav-item nav-link {{ request()->is('management/admin*') ? 'active' : '' }}"><i class="fa fa-user me-2"></i>User</a>
             <a href="{{ route('management.post') }}" class="nav-item nav-link {{ request()->is('management.post') ? 'active' : '' }}"><i class="fa fa-blog me-2"></i>Blog</a>
             <a href="{{ route('management.setup') }}" class="nav-item nav-link {{ request()->is('management.setup') ? 'active' : '' }}"><i class="fa fa-cogs me-2"></i>Setup</a>
             @endif

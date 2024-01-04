@@ -1,5 +1,8 @@
 <?php
 return [
+    'notPayCreated' => 'A new not pay was created!',
+    'notPayUpdated' => 'Not pay was updated!',
+    'notPayDeleted' => 'Not Pay was deleted!',
     'accountCreated' => 'A new account was created!',
     'accountUpdated' => 'Account was updated!',
     'accountDeleted' => 'Account was deleted!',
