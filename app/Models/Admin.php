@@ -40,4 +40,9 @@ class Admin extends Authenticatable
         static::addGlobalScope(new DelFlagScope());
     }
 
+    public function customers()
+    {
+        return $this->hasMany(Customer::class);
+    }
+
 }

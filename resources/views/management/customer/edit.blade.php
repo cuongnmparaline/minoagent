@@ -9,6 +9,18 @@
                     <form action="{{route('management.customer.update', ['id' => $customer->id])}}" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{ $customer->id }}">
+
+                        <div class="col-12 col-xl-12">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="admin_id">
+                                <option value="">Choose Tech</option>
+                                @foreach($techs as $tech)
+                                    <option {{$customer['admin_id'] == $tech->id ? "selected" : ""}} value="{{$tech->id}}">{{$tech->name}}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('admin_id'))
+                                <p style="color: #ff0000">{{ $errors->first('admin_id') }}</p>
+                            @endif
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control"
                                    placeholder="Name" name="name" value="{{ $customer->name }}">

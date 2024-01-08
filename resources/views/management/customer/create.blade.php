@@ -8,6 +8,17 @@
                     <h6 class="mb-4">Add New Customer</h6>
                     <form action="{{route('management.customer.store')}}" method="post">
                         @csrf
+                        <div class="col-12 col-xl-12">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="admin_id">
+                                <option value="">Choose Tech</option>
+                                @foreach($techs as $tech)
+                                    <option {{getDataCreateForm('customer_data', 'admin_id') == $tech->id ? "selected" : ""}} value="{{$tech->id}}">{{$tech->name}}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('admin_id'))
+                                <p style="color: #ff0000">{{ $errors->first('admin_id') }}</p>
+                            @endif
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control"
                                    placeholder="Name" name="name">

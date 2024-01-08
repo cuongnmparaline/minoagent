@@ -6,6 +6,7 @@ use App\Exports\AccountsExport;
 use App\Exports\CustomerExport;
 use App\Http\Requests\Customer\EditRequest;
 use App\Models\Account;
+use App\Models\Admin;
 use App\Models\Group;
 use App\Models\History;
 use App\Repositories\Account\AccountRepositoryInterface;
@@ -47,7 +48,8 @@ class CustomerController extends Controller
     }
 
     public function create() {
-        return view('management.customer.create');
+        $techs = Admin::where('role', '2')->get();
+        return view('management.customer.create', ['techs' => $techs]);
     }
 
     public function store(CreateRequest $createRequest) {
@@ -73,6 +75,7 @@ class CustomerController extends Controller
 
     public function edit($id) {
         try {
+            $techs = Admin::where('role', '2')->get();
             $customer = $this->customerRepo->find($id);
             session()->put('customer_data', $customer);
         } catch (\Exception $e) {
@@ -80,7 +83,7 @@ class CustomerController extends Controller
             session()->flash('error', __('messages.customerNotFound'));
             return redirect()->route('management.customer');
         }
-        return view('management.customer.edit', ['customer' => $customer]);
+        return view('management.customer.edit', ['customer' => $customer, 'techs' => $techs]);
     }
 
     public function update(EditRequest $editRequest, $id)

@@ -22,6 +22,7 @@ class EditRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'admin_id' => 'required',
             'name' => 'bail|required|max:128',
             'email' => 'bail|required|email|max:128',
             'fee' => 'required|numeric',

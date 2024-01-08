@@ -20,6 +20,7 @@ class Customer extends Authenticatable
         'balance',
         'fee',
         'password',
+        'admin_id',
         'ins_id',
         'upd_id',
         'ins_datetime',
@@ -46,5 +47,10 @@ class Customer extends Authenticatable
     public function accounts()
     {
         return $this->hasMany(Account::class);
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
     }
 }

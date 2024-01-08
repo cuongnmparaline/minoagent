@@ -64,6 +64,7 @@
                         <th scope="col">Fee</th>
                         <th scope="col">Email</th>
                         <th scope="col">Total Account</th>
+                        <th scope="col">Tech</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -107,6 +108,7 @@
                         <td>{{ $customer['fee'] }}</td>
                         <td>{{ $customer['email'] }}</td>
                         <td>{{ $customer->accounts->count() }}</td>
+                        <td>{{ $customer->admin->name }}</td>
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">

@@ -1,5 +1,11 @@
 @extends('layouts.main')
 @section('content')
+    <style>
+        thead {
+            position: sticky !important;
+            top: 0;
+        }
+    </style>
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             @if (Session::has('success'))
@@ -89,7 +95,7 @@
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
-                    <thead>
+                    <thead style="position: sticky;top: 0" class="thead-dark">
                     @php
                         $start = \Carbon\Carbon::now()->startOfMonth();
                         $end = \Carbon\Carbon::now()->endOfMonth();
@@ -108,7 +114,8 @@
                         @foreach($dates as $date)
                             <th>{{ $date->format('m/d/y') }}</th>
                         @endforeach
-                        <th scope="col">Amount Month</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Action</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -124,6 +131,7 @@
                             <th>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</th>
                         @endforeach
                         <th>{{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }}</th>
+                        <td><a class="btn btn-sm btn-primary" href="{{ route('management.account.edit', ['id' => $account->id]) }}">Edit</a></td>
                         <td>
                             <div class="modal" id="myModal">
                                 <div class="modal-dialog">
@@ -143,7 +151,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-sm btn-primary" href="{{ route('management.account.edit', ['id' => $account->id]) }}">Edit</a>
                             <button data-url="{{route('management.account.delete', ['id'=>$account->id])}}"
                                     onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
                             </button>
@@ -158,9 +165,6 @@
                     @endforeach
                     </tbody>
                 </table>
-                <div class="d-flex align-items-center justify-content-center mt-4">
-                    {{ $accounts->links() }}
-                </div>
             </div>
         </div>
     </div>
