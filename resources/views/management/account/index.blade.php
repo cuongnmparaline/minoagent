@@ -111,7 +111,6 @@
                     @endphp
                     <tr class="text-dark">
                         <th scope="col">STT</th>
-                        <th scope="col">Name</th>
                         <th scope="col">Code</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Status</th>
@@ -127,7 +126,6 @@
                     @foreach($accounts as $account)
                     <tr>
                         <td>{{ ++$loop->index }}</td>
-                        <td>{{ $account['name'] }}</td>
                         <td>{{ $account['code'] }}</td>
                         <td>{{ $account->customer->name }}</td>
                         <td>{{ $account['status'] }}</td>
