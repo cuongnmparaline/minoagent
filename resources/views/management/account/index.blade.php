@@ -1,9 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <style>
-        thead {
-            position: sticky !important;
-            top: 0;
+        .navbar {
+            height: 50px;
+        }
+        table.floatThead-table {
+            border-top: none;
+            border-bottom: none;
+            background-color: #fff;
         }
     </style>
     <div class="container-fluid pt-4 px-4">
@@ -94,8 +98,8 @@
                 </h6>
             </div>
             <div class="table-responsive">
-                <table class="table text-start align-middle table-bordered table-hover mb-0">
-                    <thead style="position: sticky;top: 0" class="thead-dark">
+                <table class="table sticky-header text-start align-middle table-bordered table-hover mb-0">
+                    <thead class="thead-dark">
                     @php
                         $start = \Carbon\Carbon::now()->startOfMonth();
                         $end = \Carbon\Carbon::now()->endOfMonth();
@@ -168,5 +172,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+
+            $(".sticky-header").floatThead({scrollingTop:50});
+
+        });
+    </script>
 @endsection
 
