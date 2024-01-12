@@ -1,6 +1,43 @@
 @extends('layouts.main')
 
 @section('content')
+    <style>
+        .tbl-container {
+            max-width: fit-content;
+            max-height: fit-content;
+        }
+        .tbl-fixed {
+            overflow-x: scroll;
+            overflow-y: scroll;
+            height: fit-content;
+            max-height: 70vh;
+        }
+        table {
+            min-width: max-content;
+        }
+        table th {
+            position: sticky;
+            top: 0px;
+            background: #ffffff !important;
+            z-index: 2;
+        }
+        td:first-child, th:first-child{
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background: white !important;
+        }
+        td:nth-child(2), th:nth-child(2) {
+            position: sticky;
+            left: 47px;
+            z-index: 1;
+            background: white !important;
+        }
+        th:first-child, th:nth-child(2){
+            z-index: 3;
+
+        }
+    </style>
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             @if (Session::has('success'))
@@ -89,8 +126,8 @@
                 </div>
             </div>
         </form>
-        <div class="bg-light text-center rounded p-4">
-            <div class="table-responsive">
+        <div class="bg-light text-center rounded p-4 tbl-container">
+            <div class="row tbl-fixed">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                     @php
@@ -123,9 +160,9 @@
                         <td>{{ $account['limit'] }}</td>
                         <td>{{ $account['status'] }}</td>
                         @foreach($dates as $date)
-                            <th>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</th>
+                            <td><b>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</b></td>
                         @endforeach
-                        <th>@if(!empty($account->reports)) {{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }} @endif</th>
+                        <td> <b>@if(!empty($account->reports)) {{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }} @endif</b></td>
 {{--                        <td>@if(!empty($account['amount_fee'])) {{ $account['amount_fee'] }} @else {{ $account->reports->last()->amount_fee }} @endif</td>--}}
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('customer.account.show', ['id' => $account->id]) }}">Show</a>

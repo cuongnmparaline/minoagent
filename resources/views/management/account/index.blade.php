@@ -1,13 +1,40 @@
 @extends('layouts.main')
 @section('content')
     <style>
-        .navbar {
-            height: 50px;
+        .tbl-container {
+            max-width: fit-content;
+            max-height: fit-content;
         }
-        table.floatThead-table {
-            border-top: none;
-            border-bottom: none;
-            background-color: #fff;
+        .tbl-fixed {
+            overflow-x: scroll;
+            overflow-y: scroll;
+            height: fit-content;
+            max-height: 70vh;
+        }
+        table {
+            min-width: max-content;
+        }
+        table th {
+            position: sticky;
+            top: 0px;
+            background: #ffffff !important;
+            z-index: 2;
+        }
+        td:first-child, th:first-child{
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background: white !important;
+        }
+        td:nth-child(2), th:nth-child(2) {
+            position: sticky;
+            left: 47px;
+            z-index: 1;
+            background: white !important;
+        }
+        th:first-child, th:nth-child(2){
+            z-index: 3;
+
         }
     </style>
     <div class="container-fluid pt-4 px-4">
@@ -90,15 +117,15 @@
             </div>
         </form>
     </div>
-    <div class="container-fluid pt-4 px-4">
+    <div class="container-fluid pt-4 px-4 tbl-container">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">
                     <a href="{{ route('management.account.create') }}"><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </h6>
             </div>
-            <div class="table-responsive">
-                <table class="table sticky-header text-start align-middle table-bordered table-hover mb-0">
+            <div class="row tbl-fixed">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead class="thead-dark">
                     @php
                         $start = \Carbon\Carbon::now()->startOfMonth();
@@ -130,9 +157,9 @@
                         <td>{{ $account->customer->name }}</td>
                         <td>{{ $account['status'] }}</td>
                         @foreach($dates as $date)
-                            <th>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</th>
+                            <td> <b>{{ sprintf("%.2f", $account->reports->where('date', $date->format('Y-m-d'))->sum('amount')) }}</b></td>
                         @endforeach
-                        <th>{{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }}</th>
+                        <td><b>{{ sprintf("%.2f", $account->reports->whereBetween('date', [$dates[0]->format('Y-m-d'), end($dates)->format('Y-m-d')])->sum('amount')) }}</b></td>
                         <td><a class="btn btn-sm btn-primary" href="{{ route('management.account.edit', ['id' => $account->id]) }}">Edit</a></td>
                         <td>
                             <div class="modal" id="myModal">
