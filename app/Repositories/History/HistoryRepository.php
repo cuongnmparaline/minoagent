@@ -19,9 +19,13 @@ class HistoryRepository extends BaseRepository implements HistoryRepositoryInter
 
     public function search($paginate = true)
     {
-        $result = $this->model->select('id', 'customer_id', 'date', 'amount', 'hashcode')->sortable(['id' => 'desc']);;
+        $result = $this->model->select('histories.id', 'customer_id', 'date', 'amount', 'hashcode')->sortable(['id' => 'desc']);;
         if (Auth::guard('customer')->check()) {
             $result->where('customer_id', Auth::guard('customer')->id());
+        }
+
+        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role != 1) {
+            $result->withoutGlobalScopes()->join('customers', 'customers.id', '=', 'histories.customer_id')->where('admin_id', Auth::guard('admin')->user()->role)->where('histories.del_flag', config('const.active'));
         }
 
         if ($paginate == false){

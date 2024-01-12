@@ -28,10 +28,16 @@ class AccountRepository extends BaseRepository implements AccountRepositoryInter
 
     public function search($paginate = true)
     {
-        $result = $this->model->select('id', 'name', 'code', 'customer_id', 'status', 'limit');
+        $result = $this->model->select('accounts.id', 'accounts.name', 'code', 'customer_id', 'status', 'limit');
+
+        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role != 1) {
+            $result->withoutGlobalScopes()->join('customers', 'customers.id', '=', 'accounts.customer_id')->where('admin_id', Auth::guard('admin')->user()->role)->where('accounts.del_flag', config('const.active'));
+        }
+
         if (Auth::guard('customer')->check()) {
             $result->where('customer_id', Auth::guard('customer')->id());
         }
+
         if (request()->get('name')) {
             $result->where('name', 'like', '%' . request()->get('name') . '%');
         }

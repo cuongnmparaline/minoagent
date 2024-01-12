@@ -69,7 +69,7 @@
                     @foreach($notpays as $notpay)
                     <tr>
                         <td>{{ $notpay['id'] }}</td>
-                        <td>{{ $notpay->admin->name }}</td>
+                        <td>{{ $notpay->customer->admin->name }}</td>
                         <td>{{ $notpay->customer->name }}</td>
                         <td>{{ $notpay->account->name }}</td>
                         <td>{{ sprintf("%.2f",  $notpay['amount']) }}</td>

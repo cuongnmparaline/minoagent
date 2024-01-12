@@ -19,9 +19,10 @@ class NotPayRepository extends BaseRepository implements NotPayRepositoryInterfa
 
     public function search($paginate = true)
     {
-        $result = $this->model->select('id', 'admin_id', 'customer_id', 'account_id', 'amount', 'link_image');
-        if (Auth::guard('admin')->user()->role == '2') {
-            $result->where('admin_id', Auth::guard('admin')->id());
+        $result = $this->model->select('not_pay.id', 'customer_id', 'account_id', 'amount', 'link_image');
+
+        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role != 1) {
+            $result->withoutGlobalScopes()->join('customers', 'customers.id', '=', 'not_pay.customer_id')->where('customers.admin_id', Auth::guard('admin')->user()->role)->where('not_pay.del_flag', config('const.active'));
         }
 //        if (request()->get('customer_id')) {
 //            $result->where('customer_id', 'like', '%' . request()->get('customer_id') . '%');

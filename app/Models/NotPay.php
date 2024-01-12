@@ -14,7 +14,6 @@ class NotPay extends Model
 
     protected $fillable = [
         'id',
-        'admin_id',
         'account_id',
         'customer_id',
         'amount',
