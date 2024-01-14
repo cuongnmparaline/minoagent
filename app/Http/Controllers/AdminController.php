@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Admin\EditRequest;
 use App\Repositories\Admin\AdminRepositoryInterface;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
@@ -45,38 +46,37 @@ class AdminController extends Controller
 
         return redirect()->route('management.admin');
     }
-//
-//    public function edit($id) {
-//        try {
-//            $account = $this->accountRepo->find($id);
-//            $customers = $this->customerRepo->getAll();
-//            session()->put('account_data', $account);
-//        } catch (\Exception $e) {
-//            Log::error('Account Edit Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
-//            session()->flash('error', __('messages.customerNotFound'));
-//            return redirect()->route('management.customer');
-//        }
-//        return view('management.account.edit', ['account' => $account, 'customers' => $customers]);
-//    }
-//
-//    public function update(EditRequest $editRequest, $id)
-//    {
-//        try {
-//            DB::beginTransaction();
-//            $data = request()->all();
-//            $result = $this->accountRepo->update($id, $data);
-//            if (!empty($result)) {
-//                session()->flash('success', __('messages.accountUpdated'));
-//            }
-//            DB::commit();
-//        } catch (Exception $e) {
-//            Log::error('Update account Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
-//            DB::rollBack();
-//            session()->flash('error', __('messages.updateFail'));
-//        }
-//        return redirect()->route('management.account');
-//    }
-//
+
+    public function edit($id) {
+        try {
+            $admin = $this->adminRepo->find($id);
+            session()->put('admin_data', $admin);
+        } catch (\Exception $e) {
+            Log::error('Account Edit Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            session()->flash('error', __('messages.customerNotFound'));
+            return redirect()->route('management.admin');
+        }
+        return view('management.admin.edit', ['admin' => $admin]);
+    }
+
+    public function update(EditRequest $editRequest, $id)
+    {
+        try {
+            DB::beginTransaction();
+            $data = request()->all();
+            $result = $this->adminRepo->update($id, $data);
+            if (!empty($result)) {
+                session()->flash('success', __('messages.accountUpdated'));
+            }
+            DB::commit();
+        } catch (Exception $e) {
+            Log::error('Update account Error ', ['admin_id' => Auth::guard('admin')->id(), 'error' => $e->getMessage()]);
+            DB::rollBack();
+            session()->flash('error', __('messages.updateFail'));
+        }
+        return redirect()->route('management.admin');
+    }
+
     public function delete($id) {
         try {
             $this->adminRepo->delete($id);

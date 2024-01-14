@@ -108,6 +108,13 @@
                     </select>
                 </div>
                 <div class="col-3 col-xl-3">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="status">
+                        <option value="">Choose Status</option>
+                        <option @if(request()->get('status') == '0') {{ "selected" }} @endif value="0">Live</option>
+                        <option @if(request()->get('status') == '1') {{ "selected" }} @endif value="1">Die</option>
+                    </select>
+                </div>
+                <div class="col-3 col-xl-3">
                     <div class="form-floating mb-3">
                         <input type="submit" class="btn btn-sm btn-primary" value="Search">
                         <a href="{{ route('management.account') }}" type="submit" class="btn btn-sm btn-primary">Clear</a>

@@ -182,7 +182,8 @@ return [
 
     'role' => [
         '1' => 'Admin',
-        '2' => 'Tech'
+        '2' => 'Tech',
+        '3' => 'Account'
     ],
 
     'TEMP_DIR' => 'public/tmp/',

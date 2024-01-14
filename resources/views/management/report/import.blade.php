@@ -12,12 +12,18 @@
                             <input type="file" class="form-control" id="inputGroupFile02" name="reportImport">
                             <label class="input-group-text" for="inputGroupFile02">Upload</label>
                         </div>
-                        <div class="input-group date" id="datepicker">
+                        <div class="input-group date mb-3" id="datepicker" >
                             <input type="date" class="form-control" id="date" name="date"/>
                         </div>
                         @if ($errors->has('date'))
                             <p style="color: #ff0000">{{ $errors->first('date') }}</p>
                         @endif
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="isCalculate">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Calculate real spend
+                            </label>
+                        </div>
                         <button class="btn btn-primary w-100 m-2" type="submit">Save</button>
                         <button class="btn btn-secondary w-100 m-2" type="button">Cancel</button>
                     </form>

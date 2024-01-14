@@ -52,6 +52,12 @@
                                 Tech
                             </label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="role" value="3" id="flexRadioDefault1" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Account
+                            </label>
+                        </div>
                         <button class="btn btn-primary w-100 m-2" type="submit">Save</button>
                         <button class="btn btn-secondary w-100 m-2" type="button">Cancel</button>
                     </form>

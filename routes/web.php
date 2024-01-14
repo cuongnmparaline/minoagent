@@ -152,6 +152,8 @@ Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(
     Route::get('/admin', [AdminController::class, 'index'])->name('management.admin');
     Route::get('/admin/create', [AdminController::class, 'create'])->name('management.admin.create');
     Route::post('/admin/store', [AdminController::class, 'store'])->name('management.admin.store');
+    Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('management.admin.edit');
+    Route::post('/admin/update/{id}', [AdminController::class, 'update'])->name('management.admin.update');
     Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('management.admin.delete');
 
 

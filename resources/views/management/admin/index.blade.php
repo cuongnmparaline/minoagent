@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="justify-content-around">
-                                <a class="btn btn-sm btn-primary" href="">Edit</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('management.admin.edit', ['id' => $admin->id]) }}">Edit</a>
                                 <button data-url="{{ route('management.admin.delete', ['id' => $admin['id']]) }}"
                                         onclick="showDeleteModal(this)" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger">Delete
                                 </button>
