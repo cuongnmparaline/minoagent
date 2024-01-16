@@ -30,8 +30,8 @@ class AccountRepository extends BaseRepository implements AccountRepositoryInter
     {
         $result = $this->model->select('accounts.id', 'accounts.name', 'code', 'customer_id', 'status', 'limit');
 
-        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role != 1) {
-            $result->withoutGlobalScopes()->join('customers', 'customers.id', '=', 'accounts.customer_id')->where('admin_id', Auth::guard('admin')->user()->role)->where('accounts.del_flag', config('const.active'));
+        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role == 2) {
+            $result->withoutGlobalScopes()->join('customers', 'customers.id', '=', 'accounts.customer_id')->where('admin_id', Auth::guard('admin')->id())->where('accounts.del_flag', config('const.active'));
         }
 
         if (!blank(request()->get('status'))) {

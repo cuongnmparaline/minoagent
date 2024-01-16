@@ -16,6 +16,10 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
         return \App\Models\Customer::class;
     }
 
+    public function getByAdmin() {
+        return $this->model->select('id', 'name', 'email', 'balance', 'fee', 'ins_datetime', 'admin_id')->where('admin_id', Auth::guard('admin')->user()->id)->get();
+    }
+
     public function search($paginate = true)
     {
         $result = $this->model->select('id', 'name', 'email', 'balance', 'fee', 'ins_datetime', 'admin_id');

@@ -8,6 +8,7 @@ use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Repositories\Report\ReportRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,7 +22,11 @@ class HomeController extends Controller
     }
 
     public function dashboard() {
-        $customers = $this->customerRepo->getAll();
+        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role == 2) {
+            $customers = $this->customerRepo->getByAdmin();
+        } else {
+            $customers = $this->customerRepo->getAll(false);
+        }
         $currentMonth = Carbon::now()->month;
         $reports = Report::whereRaw("MONTH(date) = $currentMonth")->get();
         return view("management.dashboard", ['customers' => $customers, 'reports' => $reports]);
