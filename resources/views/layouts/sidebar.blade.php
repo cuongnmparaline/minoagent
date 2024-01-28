@@ -27,6 +27,7 @@
         <div class="navbar-nav w-100">
             @if(\Illuminate\Support\Facades\Auth::guard('admin')->check() && \Illuminate\Support\Facades\Auth::guard('admin')->user()->role == 1)
                 <a href="{{ route('management.home') }}" class="nav-item nav-link {{ request()->is('management') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="{{ route('management.realSpend') }}" class="nav-item nav-link {{ request()->is('management') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Real Spend</a>
                 <a href="{{ route('management.account') }}" class="nav-item nav-link {{ request()->is('management/account*') ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Account</a>
                 <a href="{{ route('management.report') }}" class="nav-item nav-link {{ (request()->is('management/report*') && !request()->is('management/report/import')) ? 'active' : '' }}"><i class="fa fa-file me-2"></i>Report</a>
                 <a href="{{ route('management.customer') }}" class="nav-item nav-link {{ request()->is('management/customer*') ? 'active' : '' }}"><i class="fa fa-business-time me-2"></i>Customer</a>
