@@ -115,8 +115,8 @@
                                     ->where('reports.date', '=', $day->subDay($i)->format("Y-m-d"))->where('accounts.del_flag', '=', config('const.active'))
                                     ->where('accounts.customer_id', '=', $customer->id)
                                     ->groupBy('accounts.id')
-                                    ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount) as amount')])
-                                    ->sum('amount');
+                                    ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.real_spend) as real_spend')])
+                                    ->sum('real_spend');
                                 @endphp
                                 <td>{{ sprintf("%.2f",  $totalAmount) }}</td>
                             @endfor
@@ -126,20 +126,11 @@
                                 ->whereRaw("MONTH(date) = $currentMonth")->where('accounts.del_flag', '=', config('const.active'))
                                 ->where('accounts.customer_id', '=', $customer->id)
                                 ->groupBy('accounts.id')
-                                ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount) as amount')])
-                                ->sum('amount');
+                                ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.real_spend) as real_spend')])
+                                ->sum('real_spend');
                             @endphp
                             <td>{{ sprintf("%.2f",  $totalAmountMonth) }}</td>
 
-                            @php
-                                $totalFeeMonth = \App\Models\Account::withoutGlobalScopes()->join('reports', 'reports.account_id', '=', 'accounts.id')
-                                ->join('customers', 'customers.id', '=', 'accounts.customer_id')
-                                ->whereRaw("MONTH(date) = $currentMonth")->where('accounts.del_flag', '=', config('const.active'))
-                                ->where('accounts.customer_id', '=', $customer->id)
-                                ->groupBy('accounts.id')
-                                ->get(['accounts.id', \Illuminate\Support\Facades\DB::raw('sum(reports.amount_fee) as amount_fee')])
-                                ->sum('amount_fee');
-                            @endphp
                         </tr>
                     @endforeach
                     </tbody>
