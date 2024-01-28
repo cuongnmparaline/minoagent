@@ -25,7 +25,7 @@ class HistoryController extends Controller
 
     public function index()
     {
-        $histories = $this->historyRepo->search();
+        $histories = $this->historyRepo->search(false);
         $customers = $this->customerRepo->getAll();
         return view('management.history.index', ['histories' => $histories, 'customers' => $customers]);
     }

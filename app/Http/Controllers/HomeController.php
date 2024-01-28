@@ -31,4 +31,15 @@ class HomeController extends Controller
         $reports = Report::whereRaw("MONTH(date) = $currentMonth")->get();
         return view("management.dashboard", ['customers' => $customers, 'reports' => $reports]);
     }
+
+    public function realSpend() {
+        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role == 2) {
+            $customers = $this->customerRepo->getByAdmin();
+        } else {
+            $customers = $this->customerRepo->getAll(false);
+        }
+        $currentMonth = Carbon::now()->month;
+        $reports = Report::whereRaw("MONTH(date) = $currentMonth")->get();
+        return view("management.realSpend", ['customers' => $customers, 'reports' => $reports]);
+    }
 }

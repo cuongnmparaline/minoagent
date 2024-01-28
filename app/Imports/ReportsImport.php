@@ -54,6 +54,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                 try {
                     $currency = substr($row['currency'], 0, strpos($row['currency'], "_"));
                     (double)$amount = $row['spend'] / $rates[$currency];
+                    (double)$unpaid = $row['unpaid'] / $rates[$currency];
 
                     if (!empty($account)) {
                         if ($row['status'] == 'Disabled') {
@@ -63,19 +64,30 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             'account_id' => $account->id,
                             'date' => $this->date,
                         ])->first();
+
+                        $today = Carbon::createFromFormat('Y-m-d',  $this->date);
+                        $yesterday = $today->subDay();
+                        $yesterdayReport = Report::where([
+                            'account_id' => $account->id,
+                            'date' => $yesterday->format('Y-m-d'),
+                        ])->first();
+
+                        if (!empty($yesterdayReport && !empty($this->isCalculate))) {
+                            $realSpend = $yesterdayReport->unpaid + $yesterdayReport->amount + $amount - $unpaid;
+                            $yesterdayReport->update(['real_spend' => $realSpend]);
+                        }
+
                         if (!empty($report)) {
                             $oldAmount = $report->getOriginal('amount');
 
-//                            $today = Carbon::createFromFormat('Y-m-d',  $this->date);
-//                            $yesterday = $today->subDay();
-//                            $yesterdayReport = Report::where([
-//                                'account_id' => $account->id,
-//                                'date' => $yesterday,
-//                            ])->first();
-//
+                            $update = ['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
+                                'upd_id' => Auth::guard('admin')->id()];
 
-                            $report->update(['amount' => $amount, 'upd_datetime' => date('Y-m-d H:i:s'),
-                                'upd_id' => Auth::guard('admin')->id()]);
+                            if (!empty($this->isCalculate)) {
+                                $update = array_merge($update, ['unpaid' => $unpaid]);
+                            }
+
+                            $report->update($update);
                             $newAmount = $amount - $oldAmount;
 
                             $report->update([
@@ -89,7 +101,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $report = Report::create([
                                 'account_id' => $account->id,
                                 'date' => $this->date,
-                                'unpaid' => 0,
+                                'unpaid' => $unpaid,
                                 'amount' => $amount,
                                 'amount_fee' => $amountFee,
                                 'currency' => $currency,
@@ -127,7 +139,7 @@ class ReportsImport implements ToCollection, WithHeadingRow, WithChunkReading, W
                             $report = Report::create([
                                 'account_id' => $account->id,
                                 'date' => $this->date,
-                                'unpaid' => 0,
+                                'unpaid' => $unpaid,
                                 'amount' => $amount,
                                 'amount_fee' => $amountFee,
                                 'currency' => $currency,

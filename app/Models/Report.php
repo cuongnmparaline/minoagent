@@ -21,6 +21,7 @@ class Report extends Model
         'unpaid',
         'amount',
         'amount_fee',
+        'real_spend',
         'currency',
         'ins_id',
         'upd_id',

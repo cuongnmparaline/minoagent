@@ -43,7 +43,7 @@ class CustomerController extends Controller
 
     public function index()
     {
-        $customers = $this->customerRepo->search();
+        $customers = $this->customerRepo->search(false);
         return view('management.customer.index', ['customers' => $customers]);
     }
 

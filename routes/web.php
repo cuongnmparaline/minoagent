@@ -71,6 +71,7 @@ Route::group(['prefix' => 'customer', 'middleware' => 'customerCheckLogin'], fun
 Route::group(['prefix' => 'management', 'middleware' => 'checkLogin'], function(){
 
     Route::get('/', [HomeController::class, 'dashboard'])->name('management.home');
+    Route::get('/realSpend', [HomeController::class, 'realSpend'])->name('management.realSpend');
 
     // Customer
     Route::get('/customer', [CustomerController::class, 'index'])->name('management.customer');

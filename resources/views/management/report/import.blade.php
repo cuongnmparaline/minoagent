@@ -21,7 +21,7 @@
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="isCalculate">
                             <label class="form-check-label" for="flexCheckDefault">
-                                Calculate real spend
+                                Fix Unpaid And Calculate
                             </label>
                         </div>
                         <button class="btn btn-primary w-100 m-2" type="submit">Save</button>
